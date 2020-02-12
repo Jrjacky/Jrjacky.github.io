@@ -4,77 +4,75 @@
     <title>DTOJ Begin4028&amp;DTOJ3603 table</title>
     <url>/2019/09/22/DTOJ%20Begin4028%20&amp;DTOJ3603%20table/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><code>C</code> 酱有一个$m \times n$的数表，行与列的编号都从$1$开始。令$f_{i,j}$表示表格第$i$行第$j$列内的数，那么对于表格的第$i(i&gt;1)$行有</p>
-<p>$$\begin{cases}f_{i,1}=a \times f_{i-1,1} \ f_{i,j}=a\times f_{i-1,j}+b\times f_{i-1,j-1}\end{cases}$$</p>
-<p>然而 <code>C</code> 酱已经把表格中的数忘得差不多了，他现在只记得第$p$行的数。他希望你能够帮忙还原出部分位置的数值。</p>
+<script type="math/tex; mode=display">\begin{cases}f_{i,1}=a \times f_{i-1,1}\\f_{i,j}=a\times f_{i-1,j}+b\times f_{i-1,j-1}\end{cases}</script><p>然而 <code>C</code> 酱已经把表格中的数忘得差不多了，他现在只记得第$p$行的数。他希望你能够帮忙还原出部分位置的数值。</p>
 <a id="more"></a>
-
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入第一行为$6$个整数$m,n,a,b,p,q$，其中$q$表示询问的个数。  </p>
 <p>接下来一行共$n$个整数，依次表示$f_{p,1},f_{p,2},\cdots,f_{p,n}$。  </p>
 <p>接下来$q$行，每行两个整数$x,y$，表示 <code>C</code> 酱询问你$f_{x,y}$的数值。</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出共$q$行，依次表示每个询问的答案在模$998244353$意义下的取值。  </p>
 <p>即设答案可以表示为分式$\frac{a}{b}$ ，则输出整数$x$使得$b \times x \equiv a \pmod {998244353}$且$0  \leqslant x &lt; 998244353$。可以证明这样的整数$x$是唯一的。</p>
 <h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 1"></a>样例输入 1</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">5 4 1 1 3 5</span><br><span class="line">1 0 0 0</span><br><span class="line">5 2</span><br><span class="line">3 1</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br><span class="line">4 3</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 1"></a>样例输出 1</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2</span><br><span class="line">1</span><br><span class="line">998244351</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入 2"></a>样例输入 2</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">10 5 233 2333 6 4</span><br><span class="line">9 3 1 0 10</span><br><span class="line">1 5</span><br><span class="line">10 2</span><br><span class="line">5 3</span><br><span class="line">8 1</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出 2"></a>样例输出 2</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">110343631</span><br><span class="line">118211750</span><br><span class="line">770559638</span><br><span class="line">488601</span><br></pre></td></tr></table></figure>
-
-<h2 id="数据范围与提示"><a href="#数据范围与提示" class="headerlink" title="数据范围与提示"></a>数据范围与提示</h2><table>
+<h2 id="数据范围与提示"><a href="#数据范围与提示" class="headerlink" title="数据范围与提示"></a>数据范围与提示</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">测试点编号</th>
-<th align="center">$n$</th>
-<th align="center">$m$</th>
-<th align="center">$a,b$</th>
-<th align="center">$p$</th>
+<th style="text-align:center">测试点编号</th>
+<th style="text-align:center">$n$</th>
+<th style="text-align:center">$m$</th>
+<th style="text-align:center">$a,b$</th>
+<th style="text-align:center">$p$</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">$1,2$</td>
-<td align="center">$\leqslant 100$</td>
-<td align="center">$\leqslant 10^5$</td>
-<td align="center">−</td>
-<td align="center">$p=1$</td>
+<tbody>
+<tr>
+<td style="text-align:center">$1,2$</td>
+<td style="text-align:center">$\leqslant 100$</td>
+<td style="text-align:center">$\leqslant 10^5$</td>
+<td style="text-align:center">−</td>
+<td style="text-align:center">$p=1$</td>
 </tr>
 <tr>
-<td align="center">$3,4$</td>
-<td align="center">$\leqslant 100$</td>
-<td align="center">$\leqslant 10^5$</td>
-<td align="center">$a=b=1$</td>
-<td align="center">−</td>
+<td style="text-align:center">$3,4$</td>
+<td style="text-align:center">$\leqslant 100$</td>
+<td style="text-align:center">$\leqslant 10^5$</td>
+<td style="text-align:center">$a=b=1$</td>
+<td style="text-align:center">−</td>
 </tr>
 <tr>
-<td align="center">$5,6,7,8$</td>
-<td align="center">$\leqslant 100$</td>
-<td align="center">$\leqslant 10^5$</td>
-<td align="center">−</td>
-<td align="center">−</td>
+<td style="text-align:center">$5,6,7,8$</td>
+<td style="text-align:center">$\leqslant 100$</td>
+<td style="text-align:center">$\leqslant 10^5$</td>
+<td style="text-align:center">−</td>
+<td style="text-align:center">−</td>
 </tr>
 <tr>
-<td align="center">$9,10,11,12$</td>
-<td align="center">$\leqslant 10^5$</td>
-<td align="center">$\leqslant 10^5$</td>
-<td align="center">−</td>
-<td align="center">$p=1$</td>
+<td style="text-align:center">$9,10,11,12$</td>
+<td style="text-align:center">$\leqslant 10^5$</td>
+<td style="text-align:center">$\leqslant 10^5$</td>
+<td style="text-align:center">−</td>
+<td style="text-align:center">$p=1$</td>
 </tr>
 <tr>
-<td align="center">$13,14,15,16$</td>
-<td align="center">$\leqslant 10^5$</td>
-<td align="center">$\leqslant 10^5$</td>
-<td align="center">−</td>
-<td align="center">$p=m$</td>
+<td style="text-align:center">$13,14,15,16$</td>
+<td style="text-align:center">$\leqslant 10^5$</td>
+<td style="text-align:center">$\leqslant 10^5$</td>
+<td style="text-align:center">−</td>
+<td style="text-align:center">$p=m$</td>
 </tr>
 <tr>
-<td align="center">$17,18,19,20$</td>
-<td align="center">$\leqslant 10^5$</td>
-<td align="center">$\leqslant 10^7$</td>
-<td align="center">−</td>
-<td align="center">−</td>
+<td style="text-align:center">$17,18,19,20$</td>
+<td style="text-align:center">$\leqslant 10^5$</td>
+<td style="text-align:center">$\leqslant 10^7$</td>
+<td style="text-align:center">−</td>
+<td style="text-align:center">−</td>
 </tr>
-</tbody></table>
-<p>对于$100%$的数据，保证$1 \leqslant q \leqslant 100 , 1 \leqslant x , p \leqslant m , 1 \leqslant y \leqslant n , 1 \leqslant a,b &lt; 998244353,0 \leqslant f_{i,j} &lt; 998244353$。</p>
+</tbody>
+</table>
+</div>
+<p>对于$100\%$的数据，保证$1 \leqslant q \leqslant 100 , 1 \leqslant x , p \leqslant m , 1 \leqslant y \leqslant n , 1 \leqslant a,b &lt; 998244353,0 \leqslant f_{i,j} &lt; 998244353$。</p>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="40分算法"><a href="#40分算法" class="headerlink" title="40分算法"></a>40分算法</h2><p>暴力把所有格子算出来<br>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> m,n,a,b,p,q;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ny,f[<span class="number">100010</span>][<span class="number">110</span>],MOD=<span class="number">998244353</span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">POW</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a,<span class="keyword">long</span> <span class="keyword">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans=(ans*a)%MOD;</span><br><span class="line">        a=(a*a)%MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;m&gt;&gt;n&gt;&gt;a&gt;&gt;b&gt;&gt;p&gt;&gt;q;</span><br><span class="line">    ny=POW(a,MOD<span class="number">-2</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">cin</span>&gt;&gt;f[p][i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=p+<span class="number">1</span>;i&lt;=m;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++) f[i][j]=((a*f[i<span class="number">-1</span>][j])%MOD+(b*f[i<span class="number">-1</span>][j<span class="number">-1</span>])%MOD)%MOD;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=p<span class="number">-1</span>;i&gt;<span class="number">0</span>;i--) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++) f[i][j]=(((f[i+<span class="number">1</span>][j]-(b*f[i][j<span class="number">-1</span>])%MOD)%MOD*ny)%MOD+MOD)%MOD;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,x,y;i&lt;=q;i++) <span class="built_in">cin</span>&gt;&gt;x&gt;&gt;y,<span class="built_in">cout</span>&lt;&lt;f[x][y]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="AC算法"><a href="#AC算法" class="headerlink" title="AC算法"></a>AC算法</h1><p>我们先分类讨论，在第$p$行下和在第$p$行上<br>若在第$p$行下，我们可以由上面的两个点得出下面一个点<br><img src="https://img-blog.csdnimg.cn/20190922124118645.png" alt=""><br>由题目可知，$f_{i,j}=a\times f_{i-1,j}+b\times f_{i-1,j-1}$</p>
