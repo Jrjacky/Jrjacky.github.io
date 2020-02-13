@@ -154,7 +154,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">12</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-links">
@@ -206,6 +206,142 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/02/13/%E5%BE%AE%E7%A7%AF%E5%88%86%E4%B9%8B%E7%A7%AF%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/13/%E5%BE%AE%E7%A7%AF%E5%88%86%E4%B9%8B%E7%A7%AF%E5%88%86/" class="post-title-link" itemprop="url">微积分之积分</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-13 11:24:56 / 修改时间：11:25:48" itemprop="dateCreated datePublished" datetime="2020-02-13T11:24:56+08:00">2020-02-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%89%A9%E7%90%86-%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">物理&信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、不定积分"><a href="#一、不定积分" class="headerlink" title="一、不定积分"></a>一、不定积分</h1><p>不定积分本质上就是导数的逆运算<br><strong>注意！许多函数的积分是算不出来的，所以，不要随便问别人一个函数的积分</strong><br>由于常数的导数为$0$，所以，一个不定积分的结果会是这样的：$\int f(x)dx=g(x)+C$，其中，$C$是一个常数</p>
+<h2 id="1、不定积分运算法则"><a href="#1、不定积分运算法则" class="headerlink" title="1、不定积分运算法则"></a>1、不定积分运算法则</h2><h3 id="1-加减法"><a href="#1-加减法" class="headerlink" title="(1)加减法"></a>(1)加减法</h3><p>$\int f(x)dx+\int g(x)dx=\int \left(f(x)+g(x)\right)dx$</p>
+<h3 id="2-乘除法"><a href="#2-乘除法" class="headerlink" title="(2)乘除法"></a>(2)乘除法</h3><p>然而并没有这种东西……</p>
+<h2 id="2、求不定积分的常见方法"><a href="#2、求不定积分的常见方法" class="headerlink" title="2、求不定积分的常见方法"></a>2、求不定积分的常见方法</h2><h3 id="1-第一类换元法"><a href="#1-第一类换元法" class="headerlink" title="(1)第一类换元法"></a>(1)第一类换元法</h3><p>我之前讲过一个求导的公式——$(f(g(x)))’=f’(g(x))\times g‘(x)$（忘了？不知道？点<a href="https://blog.csdn.net/weixin_43849488/article/details/97966479" target="_blank" rel="noopener">这里</a>），那么我们可以得到$\int f’(g(x))\times g’(x)dx=f(g(x))$，把$g‘(x)$塞到$dx$中变成$dg(x)$，也就是$\int f’(g(x))\times dg(x)=f(g(x))$——这个公式就是第一类换元法<br>第一类换元法的应用很广，接下来我举几个例子供大家参考</p>
+<h4 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h4><p>求$\int sinx\cdot cosxdx$</p>
+<hr>
+<p>法一：$\int sinx\cdot cosxdx=\int sinx\cdot (sinx)’dx=\int sinxdsinx=\frac{1}{2}(sinx)^2+C$</p>
+<hr>
+<p>法二：$\int \frac{1}{2}sin2xdx=\int \frac{1}{4}sin2xd2x=-\frac{1}{4}cos2x+C$<br><strong>注意！+C是不可省略的！+C是不可省略的！+C是不可省略的！</strong><br>两种方法做的结果看似不一样，其实是一样的，只是在没有$+C$的情况下常数不同<br>这就是我强调要$+C$的原因</p>
+<h4 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h4><p>求$\int \frac{dx}{1+e^x}$</p>
+<hr>
+<p>$\int \frac{dx}{1+e^x}=\int \frac{e^xdx}{(1+e^x)e^x}=\int \frac{de^x}{e^x(1+e^x)}=\int \left(\frac{1}{e^x}-\frac{1}{e^x+1}\right)de^x=lne^x-ln\left(1+e^x\right)+C=x-ln\left(1+e^x\right)+C$<br>这一题巧妙地运用了$\left(e^x\right)’=e^x$的特殊性，再用第一类换元法和裂项解决</p>
+<h3 id="2-第二类换元法"><a href="#2-第二类换元法" class="headerlink" title="(2)第二类换元法"></a>(2)第二类换元法</h3><p>第二类换元法和第一类换元法很像，就是最后一步的变形：$\int f’(g(x))\times g’(x)dx=\int f’(g(x))\times dg(x)$<br>第二类换元法一般会和三角换元有关，基本上都是那种带根号的式子</p>
+<h4 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h4><p>求$\int \frac{dx}{\sqrt{1-x^2}}$</p>
+<hr>
+<p>设$x=sin\theta$<br>$\int \frac{dx}{\sqrt{1-x^2}}=\int \frac{dsin\theta}{cos\theta}=\int \frac{cos\theta d\theta}{cos\theta}=\int d\theta=\theta+C=arcsinx+C$<br>这就是第二类换元法的应用，将$x$巧妙地进行三角换元，得到最后消掉的局面<br>大家不要小看这种换元方法，第二类换元法的题目可以出得很难</p>
+<h4 id="例4"><a href="#例4" class="headerlink" title="例4"></a>例4</h4><p>求$\int \frac{t^2dt}{\sqrt[3]{t-5}}$</p>
+<hr>
+<p>设$x=\sqrt[3]{t-5}$<br>$\int \frac{t^2dt}{\sqrt[3]{t-5}}=\int \frac{(x^6+10x^3+25)\cdot 3x^2dx}{x}=3\int (x^7+10x^4+25x)dx=3\cdot (\frac{1}{8}x^8+2x^5+\frac{25}{2}x^2)+C$（答案太丑了，不写了）<br>一看到题目，可能很多人就傻眼了——这东西能积分吗？答案是能的，只是很麻烦<br>看到题目的第一反应应该是先把那个恶心的根号换元，接着能不能做再说</p>
+<h3 id="3-部分积分法"><a href="#3-部分积分法" class="headerlink" title="(3)部分积分法"></a>(3)部分积分法</h3><p>在求导的时候，我们学过一个公式——$(uv)’=u’v+uv’$，我们把两边同时积分，就可以得到$\int (uv)’dx=\int u’vdx+\int uv’dx+C$，左边的积分和求导抵消掉，变成$uv=\int u’vdx+\int uv’dx+C$<br>这个式子并不是最常用的，常用的是移项并用第二类换元法之后的结果——$\int udv=uv-\int vdu+C$<br>当$\int udv$不好求，但是$\int vdu$好求的时候，这个式子就排上用场啦！</p>
+<h4 id="例题5"><a href="#例题5" class="headerlink" title="例题5"></a>例题5</h4><p>求$\int xcosxdx$</p>
+<hr>
+<p>$\int xcosdx=\int x(sinx)’dx=xsinx-\int (x)’sinxdx+C=xsinx-\int sinxdx+C=xsinx+cosx+C$<br>这一个看似奇怪的函数，却被我们几下搞定<br>这题巧用了$(x)’=1$的性质，把$x$消掉，变成$sinx$的积分</p>
+<h4 id="例题6"><a href="#例题6" class="headerlink" title="例题6"></a>例题6</h4><p>求$\int arctanxdx$</p>
+<hr>
+<p>$\int arctanxdx=xarctanx-\int x\frac{dx}{x^2+1}+C=xarctanx-\frac{1}{2}\int \frac{d(x^2+1)}{x^2+1}+C=xarctanx-\frac{1}{2}ln(x^2+1)+C$<br>这题再次巧用$(x)’=1$的性质，无中生有一个$x$，最后又在把$x$丢到$dx$中的时候巧妙地加了一个常数，使得刚好凑成$\frac{1}{x}$的形式</p>
+<h4 id="例题7"><a href="#例题7" class="headerlink" title="例题7"></a>例题7</h4><p>求$\int e^xcosxdx$</p>
+<hr>
+<p>$\int e^xcosxdx=\int e^xdsinx=e^xsinx-\int sinxe^xdx+C=e^xsinx+\int e^xdcosx+C=e^xsinx+e^xcosx-\int e^xcosxdx+C$<br>$\therefore 2\times\int e^xcosxdx=e^x(sinx+cosx)+C$<br>$\therefore \int e^xcosxdx=\frac{e^x(sinx+cosx)}{2}+C$<br>这题巧妙运用$\left((cosx)’\right)’=-cosx$的循环性，制造出一个循环，再除以二</p>
+<h3 id="4-一种有理函数求积分的好方法"><a href="#4-一种有理函数求积分的好方法" class="headerlink" title="(4)一种有理函数求积分的好方法"></a>(4)一种有理函数求积分的好方法</h3><p>在计算一个有理函数$\frac{p(x)}{q(x)}$的积分时，我们可以采用接下来介绍的一种方法<br>这种方法很复杂，初学者建议跳过</p>
+<h4 id="a、部分分式化"><a href="#a、部分分式化" class="headerlink" title="a、部分分式化"></a>a、部分分式化</h4><p>在求有理函数的积分前，我们先要对这个函数进行一些操作，在我以前学数竞的时候，老师曾经告诉过我们，这是一个求微积分才会用到的知识<br>首先，我们要先将这个函数中的$0$次及以上的系数分离，就是做一次大除法（不要问我大除法是什么，就是多项式除法，因为我没办法写竖式，所以无法展示出计算过程）<br>假设$p(x)\div q(x)=r(x)\cdots\cdots s(x)$，那么我们直接处理$\frac{s(x)}{q(x)}$就可以了<br>第二步，把q(x)分解质因式，假设是$a_1(x)^{b_1}\cdot a_2(x)^{b_2}\cdots\cdots a_k(x)^{b_k}$<br>第三步，把整个式子拆成这样：$\frac{p(x)}{q(x)}=\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{b_i}\frac{\sum\limits_{l=0}^{a_i(x)\text{的次数}-1} \text{一个系数}\times x^l}{(a_i(x))^j}$<br>相信大家看了这个式子后一定是懵逼的，所以我来举个例子<br>比如$q(x)=(x-1)(x+4)^3(x^2+4x+7)(3x^2-x+1)$，我们就把这个式子拆成$\frac{A}{x-1}+\frac{B}{(x+4)^3}+\frac{C}{(x+4)^2}+\frac{D}{x+4}+\frac{Ex+F}{x^2+4x+7}+\frac{Gx+H}{3x^2-x+1}$<br>那这个式子要怎么拆开呢？接下来我就再举一个例子</p>
+<h5 id="例题8"><a href="#例题8" class="headerlink" title="例题8"></a>例题8</h5><p>把$\frac{x+2}{x^2-1}$部分分式化</p>
+<hr>
+<p>首先，这个函数可以拆成$\frac{A}{x-1}+\frac{B}{x+1}$<br>所以，我们可以把$\frac{A}{x-1}+\frac{B}{x+1}$合并起来，得到$\frac{A(x+1)+B(x-1)}{x^2-1}=\frac{x+2}{x^2-1}$<br>把分母消掉并合并同类项：$x+2=(A+B)x+(A-B)$<br>这样，我们就可以得到一个方程组：$\begin{cases}A+B=1\\A-B=2\end{cases}$<br>解得$\begin{cases}A=\frac{3}{2}\\B=-\frac{1}{2}\end{cases}$<br>所以，$\frac{x+2}{x^2-1}$部分分式化的结果就是$\frac{\frac{3}{2}}{x-1}-\frac{\frac{1}{2}}{x+1}$</p>
+<h4 id="b、积分！"><a href="#b、积分！" class="headerlink" title="b、积分！"></a>b、积分！</h4><p>做完部分分式化的操作后，我们终于到了积分的环节<br>我们把这个式子部分分式化了之后，我们就可以逐个来积分了<br>首先我们来解决最简单的$q(x)$是一次的形式：$\int \frac{1}{ax+b}dx$<br>设$t=ax+b$<br>$\int \frac{1}{t}dx=\int \frac{1}{t}d(\frac{t-b}{a})=\frac{1}{a}\int \frac{1}{t}dt=\frac{1}{a}lnt+C=\frac{1}{a}ln(ax+b)+C$<br>大家觉得这个结果对吗？<br>答案是：这个结果是<strong>错的！错的！错的！</strong><br>为什么？这看起来没有错啊<br>问题在于当$ax+b&lt;0$时，就不能取对数了，所以正确答案是$\frac{1}{a}ln|ax+b|+C$<br>处理完一次式，我们再来处理一下二次式$\int \frac{Ax+B}{ax^2+bx+c}dx$<br>首先，我们进行配方$ax^2+bx+c=a(x+\frac{b}{2a})^2+\frac{4ac-b^2}{4a}$<br>设$x+\frac{b}{2a}=t$<br>$\int \frac{Ax+B}{ax^2+bx+c}dx=\int \frac{At+B-\frac{b}{2a}}{at^2-\frac{4ac-b^2}{4a}}dt=A\int \frac{t}{at^2+\frac{4ac-b^2}{4a}}dt+(B-\frac{b}{2a})\int \frac{1}{at^2+\frac{4ac-b^2}{4a}}dt$<br>现在的式子<del>有点</del>非常恶心，所以我们分两边处理<br>$\int \frac{t}{at^2-\frac{4ac-b^2}{4a}}dt=\frac{1}{2a}\int \frac{2at}{at^2+\frac{4ac-b^2}{4a}}dt=\frac{1}{2a}\int \frac{1}{at^2+\frac{4ac-b^2}{4a}}d\left(at^2\right)=\frac{1}{2a}ln|at^2+\frac{4ac-b^2}{4a}|+C=\frac{1}{2a}ln|ax^2+bx+c|+C$<br>至于右边，只需要记住一个公式：$\int \frac{1}{x^2+a^2}dt=\frac{1}{a}arctan\left(\frac{x}{a}\right)+C$（这其实就是一份第二类换元法，可以参照例3的做法）<br>问题是，我的式子中的所谓的$a^2$是$\frac{4ac-b^2}{4a}$！它大于0吗？<br>现在，你终于要知道我们为啥要部分分式化了<br>之所以这是一个二次式，是因为它无法因式分解！所以，它的$\Delta=b^2-4ac&lt;0$！所以，$\frac{4ac-b^2}{4a}$大于0<br>所以，$\int \frac{1}{at^2+\frac{4ac-b^2}{4a}}dt=\frac{1}{\sqrt{\frac{4ac-b^2}{4a}}}arctan\left(\frac{\sqrt{a}t}{\sqrt{\frac{4ac-b^2}{4a}}}\right)+C$<br>最后，我们把这两个部分合起来，$\int \frac{Ax+B}{ax^2+bx+c}dx=\frac{A}{2a}ln|ax^2+bx+c|+\frac{B-\frac{b}{2a}}{\sqrt{\frac{4ac-b^2}{4a}}}arctan\left(\frac{\sqrt{a}x+\sqrt{a}\frac{b}{2a}}{\sqrt{\frac{4ac-b^2}{4a}}}\right)+C$<br>又是一个令人无语的式子，这个式子太复杂了，以至于我相信没有人能背下来（包括我）<br>一般这种题目不会出得这么恶心，会出一些凑好的数给你<br>对于更高次的积分，你就只需要像二次一样，把它降次打击，就可以了<br>说着简单，做起来却很难<br>所以我告诫大家：积分千万条，生命第一条，积分用手算，一天写不完</p>
+<h4 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h4><p>相信大家已经对这种有理函数求积分的好方法有了一定的了解，我给大家总结一下这种方法的步骤</p>
+<ol>
+<li>先看分子分母最高项的次数，如果有必要请做除法</li>
+<li>对分母进行因式分解</li>
+<li>分部</li>
+<li>计算常数的值（以上为部分分式化内容）</li>
+<li>积分<h4 id="例题9"><a href="#例题9" class="headerlink" title="例题9"></a>例题9</h4>求$\int \frac{x^5-7x^4+19x^3-10x^2-19x+18}{x^4-5x^3+9x^2}dx$</li>
+</ol>
+<hr>
+<p>$\int \frac{x^5-7x^4+19x^3-10x^2-19x+18}{x^4-5x^3+9x^2}dx=\int \left(x-2+\frac{8x^2-19x+18}{x^4-5x^3+9x^2}\right)dx=\frac{x^2}{2}-2x+\int \frac{8x^2-19x+18}{x^4-5x^3+9x^2}dx+C=\frac{x^2}{2}-2x+\int \frac{8x^2-19x+18}{x^2(x^2-5x+9)}dx+C=\frac{x^2}{2}-2x+\int \frac{2(x^2-5x+9)-x(x^2-5x+9)+(x+1)x^2}{x^2(x^2-5x+9)}dx+C=\frac{x^2}{2}-2x+\int\left(\frac{2}{x^2}-\frac{1}{x}+\frac{x+1}{x^2-5x+9}\right)dx+C=\frac{x^2}{2}-2x-\frac{2}{x}-ln|x|+\frac{ln(x^2-5x+9)}{2}+\frac{7arctan\left(\frac{2x-5}{\sqrt{11}}\right)}{\sqrt{11}}+C$<br>这就是不定积分的全部内容了，下面给大家几道练习题：</p>
+<ol>
+<li>$\int tanxdx$</li>
+<li>$\int sin(ax+b)dx$</li>
+<li>$\int \frac{x}{1+x^4}dx$</li>
+<li>$\int \frac{1}{a^2-x^2}dx$</li>
+<li>$\int \sqrt{a^2-x^2}dx$</li>
+<li>$\int \frac{1}{\sqrt{a^2-x^2}}dx$</li>
+<li>$\int \frac{1}{\sqrt{x^2-a^2}}dx$</li>
+<li>$\int x^3lnxdx$</li>
+<li>$\int x^2e^xdx$</li>
+<li>$\int e^xsinxdx$</li>
+<li>$\int \frac{x+2}{x^2-1}dx$</li>
+<li>$\int \frac{x+8}{x^2+6x+13}dx$<h1 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h1>定积分的定义：$f(x)$在$[a,b]$上的函数图像的面积（这并不是定积分严格的定义，为了让大家好理解，把它写成这样了。原来的定义是：$\int_a^b f(x)dx=\lim \limits_{mesh\to 0} f(c_j)(x_j-x_{j-1})$，其中$a=x_0&lt;x_1&lt;\cdots \cdots&lt;x_n=b$且$\forall j\in [1,n],j\in \Z,c_j\in [x_j-1,x_j]$）<br><img src="https://img-blog.csdnimg.cn/20200126182607488.png" alt="在这里插入图片描述"><br>举个例子，$\int_a^bxdx=(a+b)*(a-b)/2$，直接画出图像，用梯形的面积计算即可<h2 id="定积分的性质"><a href="#定积分的性质" class="headerlink" title="定积分的性质"></a>定积分的性质</h2></li>
+<li>$\int_a^b f(x)dx=-\int_b^a f(x)dx$</li>
+<li>$\int_a^a f(x)dx=0$</li>
+<li>$\int_a^b f(x)dx=\int_a^c f(x)dx+\int_c^b f(x)dx$</li>
+<li>$\int_a^b Cf(x)dx=C\int_a^b f(x)dx$</li>
+<li>$\int_a^b(f(x)+g(x))dx=\int_a^bf(x)dx+\int_a^bg(x)dx$</li>
+</ol>
+<p>定积分的这些性质都很显然，按照定义来看就知道了</p>
+<h2 id="微积分基本定理"><a href="#微积分基本定理" class="headerlink" title="微积分基本定理"></a>微积分基本定理</h2><h3 id="微积分的第一基本定理"><a href="#微积分的第一基本定理" class="headerlink" title="微积分的第一基本定理"></a>微积分的第一基本定理</h3><p>$\frac{d}{dx}\int_a^x f(t)dt=f(x)$<br>这个式子还是很显然，不行的自己画个图<br>我们把形如$\int_a^x f(t)dt$的式子，我们称为变上限积分</p>
+<h3 id="微积分的第二基本定理"><a href="#微积分的第二基本定理" class="headerlink" title="微积分的第二基本定理"></a>微积分的第二基本定理</h3><p>$\int_a^b f(x)dx=\int f(b)dx-\int f(a)dx$<br>在知道微积分的第一基本定理后，我们就能很容易地推出微积分的第二基本定理了，现在知道这两个看似无关的东西的关联了吧？<br>定积分的内容比较少，因为它的计算就是通过微积分的第二基本定理，计算出该函数的不定积分，再相减，得出定积分。因此，我也没有给大家练习题了。这就是本篇文章的全部内容了，因为我的能力有限，写得不好的地方请大家多多包容。<br><strong>参考材料：</strong><br><strong>1、《普林斯顿微积分读本》Adrian Banner 著 杨爽 赵晓婷 高璞 译</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -954,89 +1090,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2019/07/27/POJ2689%20Prime%20Distance%E9%A2%98%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jacky Dong">
-      <meta itemprop="description" content="Jacky Dong的博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacky Dong's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/27/POJ2689%20Prime%20Distance%E9%A2%98%E8%A7%A3/" class="post-title-link" itemprop="url">POJ2689 Prime Distance题解</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-27 15:46:52" itemprop="dateCreated datePublished" datetime="2019-07-27T15:46:52+08:00">2019-07-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-20 18:39:18" itemprop="dateModified" datetime="2019-08-20T18:39:18+08:00">2019-08-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
-                    <span itemprop="name">信息竞赛</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="http://poj.org/problem?id=2689" target="_blank" rel="noopener">原题</a></strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/07/27/POJ2689%20Prime%20Distance%E9%A2%98%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1109,7 +1162,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
