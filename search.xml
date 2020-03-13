@@ -3,7 +3,7 @@
   <entry>
     <title>exLucas定理</title>
     <url>/2020/03/13/exLucas%E5%AE%9A%E7%90%86/</url>
-    <content><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P4720" target="_blank" rel="noopener">模板</a><br>这好像不是个定理……<br>看起来是个算法，但是不知道为什么大家都叫它定理，所以我也跟着写了……<br>还有，这玩意儿好像跟Lucas定理没有半毛钱关系，不知道为什么叫exLucas……</p>
+    <content><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P4720" target="_blank" rel="noopener">模板</a><br>这好像不是个定理……<br>看起来是个算法，但是不知道为什么大家都叫它定理，所以我也跟着写了……<br>还有，这玩意儿好像跟Lucas定理没有半毛钱关系，不知道为什么叫exLucas……<br><a id="more"></a></p>
 <h6 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h6><p>为了学会这个“定理”，你需要了解几样东西：</p>
 <ol>
 <li>质因数分解</li>
