@@ -46,16 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="Jacky Dong的博客">
+  <meta name="description" content="题目题目描述">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DTOJ3049 苋">
 <meta property="og:url" content="http://jrjacky.github.io/2020/03/27/DTOJ3049-%E8%8B%8B/index.html">
 <meta property="og:site_name" content="Jacky Dong&#39;s blog">
-<meta property="og:description" content="Jacky Dong的博客">
+<meta property="og:description" content="题目题目描述">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-27T09:14:36.000Z">
-<meta property="article:modified_time" content="2020-03-27T09:14:36.627Z">
+<meta property="article:modified_time" content="2020-03-27T10:47:09.228Z">
 <meta property="article:author" content="Jacky Dong">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="DTOJ">
+<meta property="article:tag" content="图论">
+<meta property="article:tag" content="最短路">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://jrjacky.github.io/2020/03/27/DTOJ3049-%E8%8B%8B/">
@@ -146,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">12</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">21</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -156,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">27</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">29</span></a>
 
   </li>
         <li class="menu-item menu-item-links">
@@ -234,8 +238,20 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-27 17:14:36" itemprop="dateCreated datePublished" datetime="2020-03-27T17:14:36+08:00">2020-03-27</time>
+              <time title="创建时间：2020-03-27 17:14:36 / 修改时间：18:47:09" itemprop="dateCreated datePublished" datetime="2020-03-27T17:14:36+08:00">2020-03-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -256,7 +272,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
+<p>众所周知，一株马齿苋是活的，当且仅当它是连通的<br>特别地，一株活马齿苋上有$n$个独立的节点，以及连接这些点的$n-1$条苋边。每条苋边有一个值，定义为苋边的键值<br>对于一株马齿苋，我们定义两点间的简单路径为其相互到达所经过的最短苋路径<br>生物学界对于马齿苋的性质有许多研究，其中生物学家<code>Pauling</code>在其$1995$年的一篇论文中提到过这样一个经典问题：给定一株马齿苋上的一条简单路径，用生物方法判断路径上键值的异或和是否为$k$<br>这里尝试对这个问题进行推广，称之为泛马齿苋问题：给定一株马齿苋，求有多少条简单路径，使得路径上键值的异或和为$k$ </p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p> 第一行，两个整数$n,k$<br>以下$n$行$a,b,c$表示$a\rightarrow b$有边，其键值为$c$</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个数，即答案</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5 1</span><br><span class="line">1 2 4</span><br><span class="line">1 3 8</span><br><span class="line">3 4 8</span><br><span class="line">4 5 9</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+<h2 id="数据范围与提示"><a href="#数据范围与提示" class="headerlink" title="数据范围与提示"></a>数据范围与提示</h2><p> 对于$30\%$的数据，$1\leqslant n\leqslant 100,k\leqslant10$<br>对于$50\%$的数据，$1\leqslant n\leqslant 2000,k\leqslant 256$<br>对于$100\%$的数据，$1\leqslant n\leqslant 4\times 10^5,k\leqslant 10^9$</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>由于这是一棵树，所以简单路径就是没有重复经过一个点的路径<br>设$f(u,v)$为从$u$到$v$的简单路径的异或和<br>由异或的性质：$a\land a=1$可以知道，$f(u,v)=f(1,u)\land f(1,v)$<br>所以，我们可以先预处理出所有的$f(1,u)$<br>又因为$a\land b=c$可以推出$a\land c=b$，所以，我们只需要统计所有$f(1,u)\land k=f(1,v)$的$u$和$v$就可以了<br><strong>注意：用map离散化，答案要除以2</strong><br>附上代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; d;</span><br><span class="line"><span class="keyword">int</span> n,k,tot,sum,head[<span class="number">400010</span>],nxt[<span class="number">800010</span>],to[<span class="number">800010</span>],ver[<span class="number">800010</span>],XOR[<span class="number">400010</span>],s[<span class="number">400010</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    nxt[++tot]=head[u],head[u]=tot,to[tot]=v,ver[tot]=w;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> fa)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=nxt[i]) <span class="keyword">if</span>(to[i]!=fa) XOR[to[i]]=XOR[x]^ver[i],dfs(to[i],x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,u,v,w;i&lt;n;i++) <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;u,&amp;v,&amp;w),add(u,v,w),add(v,u,w);</span><br><span class="line">    dfs(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">if</span>(!d[XOR[i]]) d[XOR[i]]=++sum;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) s[d[XOR[i]]]++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) ans+=s[d[XOR[i]^k]];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld"</span>,ans/<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
     </div>
 
     
@@ -281,6 +305,12 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i>题解</a>
+              <a href="/tags/DTOJ/" rel="tag"><i class="fa fa-tag"></i>DTOJ</a>
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i>图论</a>
+              <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag"><i class="fa fa-tag"></i>最短路</a>
+          </div>
 
         
 
@@ -354,6 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入格式"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出格式"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">1.4.</span> <span class="nav-text">样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-number">1.4.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出"><span class="nav-number">1.4.2.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据范围与提示"><span class="nav-number">1.5.</span> <span class="nav-text">数据范围与提示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -369,7 +400,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -382,7 +413,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

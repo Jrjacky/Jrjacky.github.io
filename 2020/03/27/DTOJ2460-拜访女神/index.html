@@ -46,16 +46,22 @@
   };
 </script>
 
-  <meta name="description" content="Jacky Dong的博客">
+  <meta name="description" content="题目题目描述">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DTOJ2460 拜访女神">
 <meta property="og:url" content="http://jrjacky.github.io/2020/03/27/DTOJ2460-%E6%8B%9C%E8%AE%BF%E5%A5%B3%E7%A5%9E/index.html">
 <meta property="og:site_name" content="Jacky Dong&#39;s blog">
-<meta property="og:description" content="Jacky Dong的博客">
+<meta property="og:description" content="题目题目描述">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-27T09:16:47.000Z">
-<meta property="article:modified_time" content="2020-03-27T09:16:47.402Z">
+<meta property="article:modified_time" content="2020-03-27T10:51:47.548Z">
 <meta property="article:author" content="Jacky Dong">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="DTOJ">
+<meta property="article:tag" content="DP">
+<meta property="article:tag" content="图论">
+<meta property="article:tag" content="状压DP">
+<meta property="article:tag" content="最短路">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://jrjacky.github.io/2020/03/27/DTOJ2460-%E6%8B%9C%E8%AE%BF%E5%A5%B3%E7%A5%9E/">
@@ -146,7 +152,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">12</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">21</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -156,7 +162,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">27</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">29</span></a>
 
   </li>
         <li class="menu-item menu-item-links">
@@ -234,8 +240,20 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-27 17:16:47" itemprop="dateCreated datePublished" datetime="2020-03-27T17:16:47+08:00">2020-03-27</time>
+              <time title="创建时间：2020-03-27 17:16:47 / 修改时间：18:51:47" itemprop="dateCreated datePublished" datetime="2020-03-27T17:16:47+08:00">2020-03-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -256,7 +274,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
+<p>TRT出国后，想找一个好的位置住下来。而他所在的城市，恰好有N栋建筑(从$1\sim n$编号)，他会选择这些建筑的某一个居住<br>而建筑之间，有$M$条双向路相连。每条道路有一个起始点$u$，终止点$v$，以及走过这条道路所需的时间$d$<br>所有建筑都可以借助一些道路相互到达<br><code>TRT</code>每天会从他的住房出发，按任意顺序拜访他的$K$个女神（他想怎么走就怎么走），不过由于<code>TRT</code>精力(???)有限，他的女神个数不会超过$12$个<br>可他的女神们都比较娇气，希望<code>TRT</code>尽快来看她们<del>可她们却不会担心TRT的花心……</del><br>对于第$i$个女神，她住在第p[i]栋建筑物，她每等$x$分钟(从<code>TRT</code>离家的那一时刻开始计算)，她的焦急程度（初始为$0$）就会增加$x$<br><code>TRT</code>当然希望她们高兴越好，而且他也不会让某个女神特别伤心，所以他希望所有女神的焦急程度的最大值越小越好<br>且他也不希望与任何一个女神住在一起,要不然会被众人黑成傻逼的<del>虽然他已经被我们黑成傻逼了</del><br>所以他向你求助，帮他找出他应该住的那栋建筑，以及此时所有女神焦急程度最大值</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行：三个正整数$N,M,K$<br>第二行: $K$个正整数 第$i$个正整数即是$p_i$<br>第$3\sim M+2$行：描述这些道路 对于每一行 三个正整数描述这条道路$u,v,d$</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p> 一行包含两个数<br>第一个是他所住的建筑物的编号（如果有多种选择，请输出编号最小的那一个）<br>第二个是所有女神的焦急程度的最大值的最小值</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">6 10 2</span><br><span class="line">2 5</span><br><span class="line">1 5 2</span><br><span class="line">5 6 3</span><br><span class="line">6 2 4</span><br><span class="line">5 3 1</span><br><span class="line">6 3 2</span><br><span class="line">2 3 3</span><br><span class="line">1 2 4</span><br><span class="line">1 4 3</span><br><span class="line">3 4 5</span><br><span class="line">2 4 2</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 5</span><br></pre></td></tr></table></figure>
+<h2 id="数据范围与提示"><a href="#数据范围与提示" class="headerlink" title="数据范围与提示"></a>数据范围与提示</h2><h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><p><code>TRT</code>在$3$号建筑安家。他每天的行走路线为$3\rightarrow 5\rightarrow 3\rightarrow 2$<br>到达$5$号建筑的时刻是$1$，那位女神的焦急程度是$1$<br>到达$2$号建筑的时间是$5$，那位女神的焦急程度是$5$，最大是$5$<br>接下来他爱走哪走哪，反正他已经拜访 <del>（∗∗）</del> 了所有女神。 可以证明其它方法不比这更优</p>
+<h3 id="数据规模与约定"><a href="#数据规模与约定" class="headerlink" title="数据规模与约定"></a>数据规模与约定</h3><p>对于$20\%$的数据$N\leqslant 8,M\leqslant 15$<br>对于另外$20\%$的数据$K=1$<br>对于$60\%$的数据$K\leqslant 5$<br>对于$100\%$的数据$N\leqslant 10^4,M\leqslant 5\times 10^4,K\leqslant 12,N&gt;K,1\leqslant p_i,u,v\leqslant N,d\leqslant 10^4$<br>本题后$80\%$的数据保证随机</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>看看这个$k$，它这么小，难道不香吗？<br>显然是个状压DP<br>首先跑$k$遍SPFA，把图压缩成只包含女神的住处，边为两两的最短路的图<br>设$f_{i,j,s}$表示起点为$i$，当前城市为$j$，遍历状态为$s$的最短时间<br>转移就是直接枚举上一个拜访的女神的房子，最后加上到起点的最近城市的距离就可以了<br>附上代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ppap</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to,nxt,ver;</span><br><span class="line">&#125;e[<span class="number">100010</span>];</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"><span class="keyword">int</span> n,m,k,tot,h,ans,p[<span class="number">20</span>],w[<span class="number">10010</span>],head[<span class="number">10010</span>],dis[<span class="number">20</span>][<span class="number">10010</span>],v[<span class="number">10010</span>],f[<span class="number">20</span>][<span class="number">20</span>][<span class="number">10010</span>],g[<span class="number">20</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[++tot].nxt=head[u],head[u]=tot,e[tot].to=v,e[tot].ver=w;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">spfa</span><span class="params">(<span class="keyword">int</span> k,<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(v,<span class="number">0</span>,<span class="keyword">sizeof</span>(v)),dis[k][x]=<span class="number">0</span>,v[x]=<span class="number">1</span>,q.push(x);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> u=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];i;i=e[i].nxt) <span class="keyword">if</span>(dis[k][e[i].to]&gt;dis[k][u]+e[i].ver)&#123;</span><br><span class="line">            dis[k][e[i].to]=dis[k][u]+e[i].ver;</span><br><span class="line">            <span class="keyword">if</span>(!v[e[i].to]) q.push(e[i].to),v[e[i].to]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        v[u]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    freopen(<span class="string">"godness.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"godness.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;p[i]),w[p[i]]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,x,y,z;i&lt;=m;i++) <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;x,&amp;y,&amp;z),add(x,y,z),add(y,x,z);</span><br><span class="line">    <span class="built_in">memset</span>(dis,<span class="number">0x1f</span>,<span class="keyword">sizeof</span>(dis)),<span class="built_in">memset</span>(f,<span class="number">0x1f</span>,<span class="keyword">sizeof</span>(f)),<span class="built_in">memset</span>(g,<span class="number">0x1f</span>,<span class="keyword">sizeof</span>(g)),ans=g[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++) spfa(i,p[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</span><br><span class="line">        f[i][i][<span class="number">1</span>&lt;&lt;(i<span class="number">-1</span>)]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> s=(<span class="number">1</span>&lt;&lt;(i<span class="number">-1</span>));s&lt;(<span class="number">1</span>&lt;&lt;k);s++) <span class="keyword">if</span>(s&amp;(<span class="number">1</span>&lt;&lt;(i<span class="number">-1</span>))) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++) <span class="keyword">if</span>(s&amp;(<span class="number">1</span>&lt;&lt;(j<span class="number">-1</span>)))</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">1</span>;t&lt;=k;t++) <span class="keyword">if</span>(!(s&amp;(<span class="number">1</span>&lt;&lt;(t<span class="number">-1</span>))))</span><br><span class="line">                f[i][t][s|(<span class="number">1</span>&lt;&lt;(t<span class="number">-1</span>))]=min(f[i][t][s|(<span class="number">1</span>&lt;&lt;(t<span class="number">-1</span>))],f[i][j][s]+dis[j][p[t]]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++) g[i]=min(g[i],f[i][j][(<span class="number">1</span>&lt;&lt;k)<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">if</span>(!w[i]) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++) <span class="keyword">if</span>(g[j]+dis[j][i]&lt;ans) ans=g[j]+dis[j][i],h=i;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d"</span>,h,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
     </div>
 
     
@@ -281,6 +308,14 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i>题解</a>
+              <a href="/tags/DTOJ/" rel="tag"><i class="fa fa-tag"></i>DTOJ</a>
+              <a href="/tags/DP/" rel="tag"><i class="fa fa-tag"></i>DP</a>
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i>图论</a>
+              <a href="/tags/%E7%8A%B6%E5%8E%8BDP/" rel="tag"><i class="fa fa-tag"></i>状压DP</a>
+              <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag"><i class="fa fa-tag"></i>最短路</a>
+          </div>
 
         
 
@@ -354,6 +389,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入格式"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出格式"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">1.4.</span> <span class="nav-text">样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-number">1.4.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出"><span class="nav-number">1.4.2.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据范围与提示"><span class="nav-number">1.5.</span> <span class="nav-text">数据范围与提示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#样例解释"><span class="nav-number">1.5.1.</span> <span class="nav-text">样例解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据规模与约定"><span class="nav-number">1.5.2.</span> <span class="nav-text">数据规模与约定</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -369,7 +405,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -382,7 +418,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

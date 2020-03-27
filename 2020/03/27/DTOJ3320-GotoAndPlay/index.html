@@ -46,16 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="Jacky Dong的博客">
+  <meta name="description" content="题目题目描述">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DTOJ3320 GotoAndPlay">
 <meta property="og:url" content="http://jrjacky.github.io/2020/03/27/DTOJ3320-GotoAndPlay/index.html">
 <meta property="og:site_name" content="Jacky Dong&#39;s blog">
-<meta property="og:description" content="Jacky Dong的博客">
+<meta property="og:description" content="题目题目描述">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-27T09:17:27.000Z">
-<meta property="article:modified_time" content="2020-03-27T09:17:27.812Z">
+<meta property="article:modified_time" content="2020-03-27T10:54:59.298Z">
 <meta property="article:author" content="Jacky Dong">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="DTOJ">
+<meta property="article:tag" content="图论">
+<meta property="article:tag" content="二分图染色">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://jrjacky.github.io/2020/03/27/DTOJ3320-GotoAndPlay/">
@@ -146,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">12</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">21</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -156,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">27</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">29</span></a>
 
   </li>
         <li class="menu-item menu-item-links">
@@ -234,8 +238,20 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-27 17:17:27" itemprop="dateCreated datePublished" datetime="2020-03-27T17:17:27+08:00">2020-03-27</time>
+              <time title="创建时间：2020-03-27 17:17:27 / 修改时间：18:54:59" itemprop="dateCreated datePublished" datetime="2020-03-27T17:17:27+08:00">2020-03-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -256,7 +272,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
+<p>小松鼠终于吃撑了，她决定逃离这个地方<br>我们用一张连通图来表示整个西湖的范围，每棵容小松鼠逗留的树都用这张图上的一个点来表示。小松鼠能够通过只跳一次互相到达的两棵树用图上的一条无向边来连接<br>吃撑了的小松鼠有些神志不清，每次她连跳两条边之后才会在到达的那个点上休息。她想知道，是否存在一种连续的跳法，使得她有机会在所有的树上都休息至少一次<br>对于这种跳法，你可以任选起点，允许重复经过边，允许重复经过点<br>但是超萌小松鼠是一只有梦想的小松鼠，她有时能够突破自己的极限，使一些原本无法互相到达的两个点能够通过一次跳跃互相到达</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行两个数$n,m$，$n$表示点的个数，$m$表示边的条数<br>接下来$m$行，每行两个数$x_i,y_i$，表示$x_i$和$y_i$之间能够通过一次跳跃互相到达<br>接下来一行一个数$q$，表示询问的个数<br>接下来$q$行，其中的第$i$行每行两个数$a_i,b_i$，表示在原图的基础上加上从$a_i$到$b_i$ 的边。即成为一张$n$个点$m+1$条边的图<br>保证给出的原图是个连通图，$1 \leqslant a_i,b_i,x_i,y_i \leqslant n$</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一共$q$行，对于第$i$个询问，当在原图的基础上加上$a_i$与$b_i$间的无向边后，如果小松鼠能够找到一种连续的跳法，使得她有机会在所有的树上至少休息一次，输出一行“Yes”，否则输出一行“No”（不包含引号）</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2 1</span><br><span class="line">1 2</span><br><span class="line">2</span><br><span class="line">1 1 </span><br><span class="line">1 2</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br><span class="line">No</span><br></pre></td></tr></table></figure>
+<h2 id="数据范围与提示"><a href="#数据范围与提示" class="headerlink" title="数据范围与提示"></a>数据范围与提示</h2><p>对于前$50\%$，$n,q \leqslant 10^3,m \leqslant 2 \times 10^3$<br>对于$100\%$，$n,q \leqslant 10^5,m \leqslant 2 \times 10^5$</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>直接对整个图进行二分图染色，那么松鼠的这种跳法只允许跳过同一种颜色的节点<br>所以接下来就很简单了：只有在发现全图能被染成一种颜色或者添加的边的两端是同一种颜色，这个询问才是对的，否则就是错的<br>附上代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> n,m,q,tot,flag,head[<span class="number">100010</span>],to[<span class="number">400010</span>],nxt[<span class="number">400010</span>],t[<span class="number">400010</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    nxt[++tot]=head[u],head[u]=tot,to[tot]=v;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> ty)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    t[u]=ty;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];i;i=nxt[i])&#123;</span><br><span class="line">        <span class="keyword">if</span>(t[to[i]]&lt;<span class="number">0</span>) dfs(to[i],(ty+<span class="number">1</span>)%<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(t[to[i]]==ty) flag=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,x,y;i&lt;=m;i++) <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y),add(x,y),add(y,x);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) t[i]=<span class="number">-1</span>;</span><br><span class="line">    dfs(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;q);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,x,y;i&lt;=q;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</span><br><span class="line">        <span class="keyword">if</span>(flag||t[x]==t[y]) <span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"No\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
     </div>
 
     
@@ -281,6 +305,12 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i>题解</a>
+              <a href="/tags/DTOJ/" rel="tag"><i class="fa fa-tag"></i>DTOJ</a>
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i>图论</a>
+              <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9F%93%E8%89%B2/" rel="tag"><i class="fa fa-tag"></i>二分图染色</a>
+          </div>
 
         
 
@@ -291,7 +321,10 @@
     <a href="/2020/03/27/DTOJ1678-Tree/" rel="prev" title="DTOJ1678 Tree">
       <i class="fa fa-chevron-left"></i> DTOJ1678 Tree
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/27/LOJ2790-DTOJ2809-CEOI2015-Day2-%E6%A0%B8%E8%83%BD%E5%9B%BD%E5%BA%A6-Nuclearia/" rel="next" title="LOJ2790&DTOJ2809 [CEOI2015 Day2]核能国度(Nuclearia)">
+      LOJ2790&DTOJ2809 [CEOI2015 Day2]核能国度(Nuclearia) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -351,6 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入格式"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出格式"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">1.4.</span> <span class="nav-text">样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-number">1.4.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出"><span class="nav-number">1.4.2.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据范围与提示"><span class="nav-number">1.5.</span> <span class="nav-text">数据范围与提示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -366,7 +400,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -379,7 +413,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
