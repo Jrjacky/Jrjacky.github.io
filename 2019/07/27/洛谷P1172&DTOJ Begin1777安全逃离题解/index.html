@@ -48,20 +48,23 @@
 
   <meta name="description" content="题目题目描述原题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="洛谷P2120仓库建设题解">
-<meta property="og:url" content="http://jrjacky.github.io/2019/07/27/%E6%B4%9B%E8%B0%B7P2120%E4%BB%93%E5%BA%93%E5%BB%BA%E8%AE%BE%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:title" content="洛谷P1172&amp;DTOJ Begin1777安全逃离题解">
+<meta property="og:url" content="http://jrjacky.github.io/2019/07/27/%E6%B4%9B%E8%B0%B7P1172&DTOJ%20Begin1777%E5%AE%89%E5%85%A8%E9%80%83%E7%A6%BB%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Jacky Dong&#39;s blog">
 <meta property="og:description" content="题目题目描述原题">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-07-27T07:46:55.000Z">
-<meta property="article:modified_time" content="2019-08-20T10:40:14.000Z">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubHVvZ3Uub3JnL3VwbG9hZC9waWMvNzI0MC5wbmc">
+<meta property="article:published_time" content="2019-07-27T07:18:45.000Z">
+<meta property="article:modified_time" content="2020-03-27T11:03:30.888Z">
 <meta property="article:author" content="Jacky Dong">
 <meta property="article:tag" content="题解">
-<meta property="article:tag" content="DP">
-<meta property="article:tag" content="斜率优化DP">
+<meta property="article:tag" content="DTOJ">
+<meta property="article:tag" content="模拟">
+<meta property="article:tag" content="洛谷">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubHVvZ3Uub3JnL3VwbG9hZC9waWMvNzI0MC5wbmc">
 
-<link rel="canonical" href="http://jrjacky.github.io/2019/07/27/%E6%B4%9B%E8%B0%B7P2120%E4%BB%93%E5%BA%93%E5%BB%BA%E8%AE%BE%E9%A2%98%E8%A7%A3/">
+<link rel="canonical" href="http://jrjacky.github.io/2019/07/27/%E6%B4%9B%E8%B0%B7P1172&DTOJ%20Begin1777%E5%AE%89%E5%85%A8%E9%80%83%E7%A6%BB%E9%A2%98%E8%A7%A3/">
 
 
 <script id="page-configurations">
@@ -73,7 +76,7 @@
   };
 </script>
 
-  <title>洛谷P2120仓库建设题解 | Jacky Dong's blog</title>
+  <title>洛谷P1172&DTOJ Begin1777安全逃离题解 | Jacky Dong's blog</title>
   
 
 
@@ -149,7 +152,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">21</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">22</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -215,7 +218,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2019/07/27/%E6%B4%9B%E8%B0%B7P2120%E4%BB%93%E5%BA%93%E5%BB%BA%E8%AE%BE%E9%A2%98%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2019/07/27/%E6%B4%9B%E8%B0%B7P1172&DTOJ%20Begin1777%E5%AE%89%E5%85%A8%E9%80%83%E7%A6%BB%E9%A2%98%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -228,7 +231,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          洛谷P2120仓库建设题解
+          洛谷P1172&DTOJ Begin1777安全逃离题解
         </h1>
 
         <div class="post-meta">
@@ -238,14 +241,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-27 15:46:55" itemprop="dateCreated datePublished" datetime="2019-07-27T15:46:55+08:00">2019-07-27</time>
+              <time title="创建时间：2019-07-27 15:18:45" itemprop="dateCreated datePublished" datetime="2019-07-27T15:18:45+08:00">2019-07-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-20 18:40:14" itemprop="dateModified" datetime="2019-08-20T18:40:14+08:00">2019-08-20</time>
+                <time title="修改时间：2020-03-27 19:03:30" itemprop="dateModified" datetime="2020-03-27T19:03:30+08:00">2020-03-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,27 +280,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://www.luogu.org/problemnew/show/P2120" target="_blank" rel="noopener">原题</a></strong></p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://www.luogu.org/problemnew/show/P1172" target="_blank" rel="noopener">原题</a></strong></p>
 <a id="more"></a>
-<p>$L$公司有$N$个工厂，由高到底分布在一座山上。<br>工厂$1$在山顶，工厂$N$在山脚。 由于这座山处于高原内陆地区（干燥少雨），L公司一般把产品直接堆放在露天，以节省费用。<br>突然有一天，$L$公司的总裁$L$先生接到气象部门的电话，被告知三天之后将有一场暴雨，于是$L$先生决定紧急在某些工厂建立一些仓库以免产品被淋坏。<br>由于地形的不同，在不同工厂建立仓库的费用可能是不同的。第$i$个工厂目前已有成品$P_{i}$件，在第$i$个工厂位置建立仓库的费用是$C_{i}$。<br>对于没有建立仓库的工厂，其产品应被运往其他的仓库进行储藏，而由于$L$公司产品的对外销售处设置在山脚的工厂$N$，故产品只能往山下运（即只能运往编号更大的工厂的仓库），当然运送产品也是需要费用的，假设一件产品运送$1$个单位距离的费用是$1$。<br>假设建立的仓库容量都都是足够大的，可以容下所有的产品。你将得到以下数据：</p>
-<ul>
-<li>工厂$i$距离工厂$1$的距离$X_{i}$（其中$X_{1}=0$）;</li>
-<li>工厂$i$目前已有成品数量$P_{i}$;</li>
-<li>在工厂$i$建立仓库的费用$C_{i}$;</li>
-</ul>
-<p>请你帮助L公司寻找一个仓库建设的方案，使得总的费用（建造费用+运输费用）最小。</p>
-<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行包含一个整数$N$，表示工厂的个数。接下来$N$行每行包含两个整数$X_{i},P_{i},C_{i}$, 意义如题中所述。</p>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>仅包含一个整数，为可以找到最优方案的费用。</p>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h3><p>3<br>0 5 10<br>5 3 100<br>9 6 10</p>
-<h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h3><p>32</p>
-<h2 id="样例说明"><a href="#样例说明" class="headerlink" title="样例说明"></a>样例说明</h2><p>在工厂$1$和工厂$3$建立仓库，建立费用为$10+10=20$，运输费用为$(9-5)*3=12$，总费用$32$。<br>如果仅在工厂$3$建立仓库，建立费用为$10$，运输费用为$(9-0)5+(9-5)3=57$，总费用$67$，不如前者优。</p>
-<h2 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h2><p>对于20%的数据， $N \leqslant 500$；<br>对于40%的数据， $N \leqslant 10000$；<br>对于100%的数据， $N \leqslant 1000000$。 所有的$X_{i},P_{i},C_{i}$均在$32$位带符号整数以内，保证中间计算结果不超过$64$位带符号整数。</p>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>首先，这一道题是一道$DP$题，所以，我们先用普通的$DP$做一下这题。<br>假设$f_{i}$表示工厂$1$到$i$的最小总费用<br>令$sp_{i}=\sum \limits_{j=1}^{i} p_{j}$，$s_{i}=\sum \limits_{j=1}^{i} s_{j}p_{j}$<br>由于产品只能往山下运（即只能运往编号更大的工厂的仓库），所以当编号在区间$\left[l,r\right]$中的工厂只有一个仓库（即只有一个仓库在工厂$r$）时，这段区间的费用为$c_{r}+\sum \limits_{i=l}^{r} p_{i} \times \left(x_{r}-x_{i}\right)=c_{r}+x_{r} \times \left(sp_{r}-sp_{l-1}\right)-s_{r}+s_{l-1}$<br>所以，状态转移方程就是$f_{i}=\min \limits_{0 \leqslant j &lt; i} \left\{f_{j}+x_{i} \times \left(sp_{i}-sp_{j}\right)-s_{i}+s_{j}\right\}+c_{i}$<br>最终的结果是$f_{n}$<br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n,x[<span class="number">1000010</span>],c[<span class="number">1000010</span>],p[<span class="number">1000010</span>],sp[<span class="number">1000010</span>],s[<span class="number">1000010</span>],f[<span class="number">1000010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">  sp[<span class="number">0</span>]=s[<span class="number">0</span>]=f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;x[i]&gt;&gt;p[i]&gt;&gt;c[i];</span><br><span class="line">    sp[i]=sp[i<span class="number">-1</span>]+p[i],s[i]=s[i<span class="number">-1</span>]+x[i]*p[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> minf=<span class="number">9223372036854775807</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++) minf=min(minf,f[j]+x[i]*(sp[i]-sp[j])-s[i]+s[j]);</span><br><span class="line">    f[i]=minf+c[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;f[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>这种普通的$DP$的复杂度是$\Theta \left(n^{2}\right)$，只能得到55分，所以，我们需要优化一下程序。<br>假设我们在计算$f_{i}$，此时有两个决策$a,b$满足$a&gt;b$且$a$比$b$优，即$f_{a}+x_{i} \times \left(sp_{i}-sp_{a}\right)-s_{i}+s_{a}<f_{b}+x_{i} \times \left(sp_{i}-sp_{b}\right)-s_{i}+s_{b}$化简得：
-$f_{a}+s_{a}-f_{b}-s_{b}<x_{i} \times \left(sp_{a}+sp_{b}\right)$
-$\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
-所以我们可以维护一个单调队列，使得从队尾到队首，$\frac{f_{a+1}+s_{a+1}-f_{a}-s_{a}}{sp_{a+1}+sp_{a}}$递减，保证队首决策最优，并每次决策从队首转移即可
-代码如下：
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n,l,r,x[<span class="number">1000010</span>],c[<span class="number">1000010</span>],p[<span class="number">1000010</span>],sp[<span class="number">1000010</span>],s[<span class="number">1000010</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> f[<span class="number">1000010</span>],q[<span class="number">1000010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;x[i]&gt;&gt;p[i]&gt;&gt;c[i];</span><br><span class="line">    s[i]=s[i<span class="number">-1</span>]+x[i]*p[i],sp[i]=sp[i<span class="number">-1</span>]+p[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;r&amp;&amp;f[q[l+<span class="number">1</span>]]+s[q[l+<span class="number">1</span>]]-f[q[l]]-s[q[l]]&lt;x[i]*(sp[q[l+<span class="number">1</span>]]-sp[q[l]])) l++;</span><br><span class="line">    f[i]=f[q[l]]+c[i]+x[i]*(sp[i]-sp[q[l]])-s[i]+s[q[l]];</span><br><span class="line">    <span class="keyword">while</span>(l&lt;r&amp;&amp;(f[q[r]]+s[q[r]]-f[q[r<span class="number">-1</span>]]-s[q[r<span class="number">-1</span>]])*(sp[i]-sp[q[r]])&gt;(f[i]+s[i]-f[q[r]]-s[q[r]])*(sp[q[r]]-sp[q[r<span class="number">-1</span>]])) r--;</span><br><span class="line">    q[++r]=i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;f[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>因为每个元素入队出队次数都是$\Theta \left(1\right)$的，且转移复杂度也是$\Theta \left(1\right)$，所以总复杂度为$\Theta \left(n\right)$。</p>
+<p>农夫john最近在研究如果发生重大事故，如何让农场里的奶牛逃离问题。他想要确信在紧急情况下，所有的奶牛都有一个安全逃离方案。因为在紧急情况下，奶牛们都会失去观察和判断能力，所以最近john一直在教奶牛们逃离的方法，他的方法很简单，就是任何时候都只向北方或东方逃离，北方是行坐标减1的方向，东方是列坐标加1的方向。奶牛们虽笨，不过这一点事关自己的生命，所以他们牢记在心，而且也一定会这么做。</p>
+<p>当然也会出问题，奶牛们在逃离的方向上会横冲直撞，为了阻止奶牛之间互相冲撞造成伤害，john要求任何一个奶牛的逃离路线不能经过其它奶牛的初始位置。一个逃离方案是安全的如果它能够满足上面的要求，反之它就是不安全的。</p>
+<p>奶牛们所在的土地（农场）被划分成了rr行和cc列的一个矩形地图。奶牛们都待在这个矩形中的某一个位置。</p>
+<p>请帮助john确定给定的一个地图上是否存在一个安全的逃离方案。</p>
+<p>比如，下面的两个图：</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubHVvZ3Uub3JnL3VwbG9hZC9waWMvNzI0MC5wbmc" alt=""></p>
+<p>左边的例子表示了一个能够安全逃离的地图，因为没有任何一个奶牛的逃离路线上包括其他奶牛。右边的例子表示了一个不安全的地图，因为位于(4,1)(4,1)的奶牛不论是向东逃离还是向北逃离，它的路线上都会有别的奶牛，从这个图中拿掉任意一头奶牛，这个地图都会变成安全的。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第$1$行：两个整数$r,c$，用1个空格隔开，表示矩形的行数和列数（均 $\le 50$）。<br>第$2$行：一个整数$n$，表示奶牛的个数（$\le 100$）。<br>第$3$到$n+2$行：共$n$行，每行有$2$个整数，之间用$1$个空格隔开，分别表示这头奶牛所在的行和列。<br><strong>每输入完一行后，会输入多余的字符！！！</strong></p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>如果这块土地是安全的，输出$0$。<br>如果移走任意一头奶牛这块土地还是不安全，输出$-1$。<strong>否则输出移走的那头奶牛的编号，如果有多个奶牛满足要求，输出所有的数</strong>。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h3><p>5 5<br>5<br>1 1<br>2 4<br>3 1<br>2 2<br>2 1</p>
+<h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h3><p>1<br>5</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>这一题的题目有问题（我在百度上查了，所有题目都是错的。多亏了洛谷的在线测评，把题解复制在上面执行，就可以知道题目错误了）。我整整研究了一天才研究出来。最后，我是在另一个人提交的AC程序上找出了我的错误。这个错误你根本是不可能想到的（虽然我不知道以前的人是怎么发现的），这个错误是就是<strong>我在题目中加粗的字</strong>其实这个问题我在一个OJ上也有注意到（那个OJ可以下载不完整的数据），但是我并不知道这是一个漏洞。<br>这道题的思路就是模拟，首先遍历所有的奶牛，若全部安全，则输出0，结束。如果不是全部安全的，则每次将一只奶牛删除，再遍历全部，看看是否全是安全的，如果是，则输出该奶牛编号，直到所有情况都遍历完了，再讨论-1的情况。<br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> m[<span class="number">51</span>][<span class="number">51</span>],h,l,n;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cow</span>&#123;</span>     <span class="comment">//结构体，也可以用x[101]和y[101] </span></span><br><span class="line">  <span class="keyword">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line">cow a[<span class="number">101</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">anquan</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;     <span class="comment">//每头奶牛安全的条件 </span></span><br><span class="line">  <span class="keyword">int</span> t1=<span class="number">1</span>,t2=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;x;i++) <span class="keyword">if</span>(m[i][y]) &#123;t1=<span class="number">0</span>;<span class="keyword">break</span>;&#125;     <span class="comment">//如果北面有奶牛，那么t1=0 </span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=y+<span class="number">1</span>;i&lt;=l;i++) <span class="keyword">if</span>(m[x][i]) &#123;t2=<span class="number">0</span>;<span class="keyword">break</span>;&#125;     <span class="comment">//如果东面有奶牛，那么t2=0 </span></span><br><span class="line">  <span class="keyword">if</span>(t1==<span class="number">0</span>&amp;&amp;t2==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>; <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">1</span>;     <span class="comment">//如果两边都有奶牛，则不安全，反之安全 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qaq</span><span class="params">()</span></span>&#123;     <span class="comment">//所有奶牛都安全 </span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=h;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=l;j++) <span class="keyword">if</span>(m[i][j]) <span class="keyword">if</span>(!(anquan(i,j))) <span class="keyword">return</span> <span class="number">0</span>;     <span class="comment">//遍历整个农场，如果有奶牛不安全，那么返回0 </span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;     <span class="comment">//否则返回1 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">aq</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;     <span class="comment">//去掉一只奶牛后安全</span></span><br><span class="line">  m[x][y]=<span class="number">0</span>;     <span class="comment">//删除奶牛</span></span><br><span class="line">  <span class="keyword">return</span> qaq();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> temp=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">char</span> s[<span class="number">100</span>];</span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;h&gt;&gt;l&gt;&gt;n;</span><br><span class="line">  <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));<span class="built_in">memset</span>(m,<span class="number">0</span>,<span class="keyword">sizeof</span>(m));     <span class="comment">//初始化 </span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;a[i].x&gt;&gt;a[i].y;     <span class="comment">//输入 </span></span><br><span class="line">    m[a[i].x][a[i].y]=i;     <span class="comment">//也可以赋值为1 </span></span><br><span class="line">    gets(s);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(qaq()) &#123;<span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;     <span class="comment">//如果全部安全，输出0，结束 </span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(aq(a[i].x,a[i].y)) <span class="comment">/*如果去掉后安全*/</span><span class="keyword">if</span>(!temp) <span class="comment">/*如果是第一次输出*/</span><span class="built_in">cout</span>&lt;&lt;i,temp++; <span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;i; </span><br><span class="line">    m[a[i].x][a[i].y]=i;     <span class="comment">//这步非常重要，不然第二次执行的时候就删除了两只奶牛 </span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(!temp) <span class="built_in">cout</span>&lt;&lt;<span class="number">-1</span>;     <span class="comment">//如果删掉任何一只奶牛都不安全，输出-1 </span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -313,7 +309,7 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://jrjacky.github.io/2019/07/27/%E6%B4%9B%E8%B0%B7P2120%E4%BB%93%E5%BA%93%E5%BB%BA%E8%AE%BE%E9%A2%98%E8%A7%A3/" title="洛谷P2120仓库建设题解">http://jrjacky.github.io/2019/07/27/洛谷P2120仓库建设题解/</a>
+    <a href="http://jrjacky.github.io/2019/07/27/%E6%B4%9B%E8%B0%B7P1172&DTOJ%20Begin1777%E5%AE%89%E5%85%A8%E9%80%83%E7%A6%BB%E9%A2%98%E8%A7%A3/" title="洛谷P1172&amp;DTOJ Begin1777安全逃离题解">http://jrjacky.github.io/2019/07/27/洛谷P1172&DTOJ Begin1777安全逃离题解/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -325,8 +321,9 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i>题解</a>
-              <a href="/tags/DP/" rel="tag"><i class="fa fa-tag"></i>DP</a>
-              <a href="/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96DP/" rel="tag"><i class="fa fa-tag"></i>斜率优化DP</a>
+              <a href="/tags/DTOJ/" rel="tag"><i class="fa fa-tag"></i>DTOJ</a>
+              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"><i class="fa fa-tag"></i>模拟</a>
+              <a href="/tags/%E6%B4%9B%E8%B0%B7/" rel="tag"><i class="fa fa-tag"></i>洛谷</a>
           </div>
 
         
@@ -335,12 +332,12 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/07/27/POJ2689%20Prime%20Distance%E9%A2%98%E8%A7%A3/" rel="prev" title="POJ2689 Prime Distance题解">
-      <i class="fa fa-chevron-left"></i> POJ2689 Prime Distance题解
+    <a href="/2019/07/25/Hello%20Hexo/" rel="prev" title="Hello Hexo">
+      <i class="fa fa-chevron-left"></i> Hello Hexo
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/07/27/%E6%B4%9B%E8%B0%B7P2894%5BUSACO08FEB%5D%E9%85%92%E5%BA%97Hotel%E9%A2%98%E8%A7%A3/" rel="next" title="洛谷P2894[USACO08FEB]酒店Hotel题解">
-      洛谷P2894[USACO08FEB]酒店Hotel题解 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/07/27/POJ2689%20Prime%20Distance%E9%A2%98%E8%A7%A3/" rel="next" title="POJ2689 Prime Distance题解">
+      POJ2689 Prime Distance题解 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -401,7 +398,7 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式"><span class="nav-number">1.2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入样例"><span class="nav-number">1.3.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出样例"><span class="nav-number">1.3.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例说明"><span class="nav-number">1.4.</span> <span class="nav-text">样例说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据范围"><span class="nav-number">1.5.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式"><span class="nav-number">1.2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入样例"><span class="nav-number">1.3.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出样例"><span class="nav-number">1.3.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -430,7 +427,7 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

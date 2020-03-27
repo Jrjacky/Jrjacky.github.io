@@ -256,6 +256,7 @@ $\frac{f_j-f_k+a(sum_j^2-sum_k^2)-b(sum_j-sum_k)}{sum_j-sum_k}<2asum_i$
         <tag>斜率优化DP</tag>
         <tag>BZOJ</tag>
         <tag>洛谷</tag>
+        <tag>几何</tag>
       </tags>
   </entry>
   <entry>
@@ -338,6 +339,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
         <tag>斜率优化DP</tag>
         <tag>BZOJ</tag>
         <tag>洛谷</tag>
+        <tag>几何</tag>
       </tags>
   </entry>
   <entry>
@@ -612,6 +614,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       <tags>
         <tag>题解</tag>
         <tag>DTOJ</tag>
+        <tag>组合</tag>
       </tags>
   </entry>
   <entry>
@@ -665,6 +668,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       <tags>
         <tag>题解</tag>
         <tag>数论</tag>
+        <tag>POJ</tag>
       </tags>
   </entry>
   <entry>
@@ -801,8 +805,8 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </tags>
   </entry>
   <entry>
-    <title>洛谷P1072 Hankson的趣味题</title>
-    <url>/2019/07/31/%E6%B4%9B%E8%B0%B7P1072%20Hankson%E7%9A%84%E8%B6%A3%E5%91%B3%E9%A2%98/</url>
+    <title>洛谷P1072&amp;DTOJ Begin1014Hankson的趣味题</title>
+    <url>/2019/07/31/%E6%B4%9B%E8%B0%B7P1072&amp;DTOJ%20Begin1014Hankson%E7%9A%84%E8%B6%A3%E5%91%B3%E9%A2%98/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://www.luogu.org/problem/P1072" target="_blank" rel="noopener">原题</a></strong></p>
 <a id="more"></a>
 <p>Hanks博士是 BT(Bio-Tech，生物技术)领域的知名专家，他的儿子名叫Hankson。现在，刚刚放学回家的Hankson正在思考一个有趣的问题。<br>今天在课堂上，老师讲解了如何求两个正整数$c_1$和$c_2$的最大公约数和最小公倍数。现在Hankson认为自己已经熟练地掌握了这些知识，他开始思考一个“求公约数”和“求公倍数”之类问题的“逆问题”，这个问题是这样的：已知正整数$a_0,a_1,b_0,b_1$，设某未知正整数$x$满足：<br>1.$x$和 $a_0$的最大公约数是$a_1$；<br>2.$x$和$b_0$的最小公倍数是$b_1$。<br>Hankson的“逆问题”就是求出满足条件的正整数$x$。但稍加思索之后，他发现这样的$x$并不唯一，甚至可能不存在。因此他转而开始考虑如何求解满足条件的$x$的个数。请你帮助他编程求解这个问题。</p>
@@ -837,7 +841,9 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </categories>
       <tags>
         <tag>题解</tag>
+        <tag>DTOJ</tag>
         <tag>数论</tag>
+        <tag>洛谷</tag>
       </tags>
   </entry>
   <entry>
@@ -863,7 +869,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
         <category>数学&amp;物理&amp;信息竞赛</category>
       </categories>
       <tags>
-        <tag>矢量</tag>
+        <tag>几何</tag>
       </tags>
   </entry>
   <entry>
@@ -890,11 +896,12 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </categories>
       <tags>
         <tag>微积分</tag>
+        <tag>几何</tag>
       </tags>
   </entry>
   <entry>
-    <title>洛谷P2894[USACO08FEB]酒店Hotel题解</title>
-    <url>/2019/07/27/%E6%B4%9B%E8%B0%B7P2894%5BUSACO08FEB%5D%E9%85%92%E5%BA%97Hotel%E9%A2%98%E8%A7%A3/</url>
+    <title>洛谷P2894&amp;DTOJ Begin1549[USACO08FEB]酒店Hotel题解</title>
+    <url>/2019/07/27/%E6%B4%9B%E8%B0%B7P2894&amp;DTOJ%20Begin1549%5BUSACO08FEB%5D%E9%85%92%E5%BA%97Hotel%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://www.luogu.org/problemnew/show/P2894" target="_blank" rel="noopener">原题</a></strong></p>
 <a id="more"></a>
 <p>奶牛们最近的旅游计划，是到苏必利尔湖畔，享受那里的湖光山色，以及明媚的阳光。作为整个旅游的策划者和负责人，贝茜选择在湖边的一家著名的旅馆住宿。这个巨大的旅馆一共有$N (1 \leqslant N \leqslant 50000)$间客房，它们在同一层楼中顺次一字排开，在任何一个房间里，只需要拉开窗帘，就能见到波光粼粼的湖面。<br>贝茜一行，以及其他慕名而来的旅游者，都是一批批地来到旅馆的服务台，希望能订到$D_{i} (1 \leqslant D_{i} \leqslant N)$间连续的房间。<br>服务台的接待工作也很简单：如果存在r满足编号为$r \cdots \cdots r+D_{i}-1$的房间均空着，他就将这一批顾客安排到这些房间入住；如果没有满足条件的r，他会道歉说没有足够的空房间，请顾客们另找一家宾馆。如果有多个满足条件的r，服务员会选择其中最小的一个。 旅馆中的退房服务也是批量进行的。每一个退房请求由$2$个数字$X_{i}、D_{i}$描述，表示编号为$X_{i} \cdots \cdots X_{i}+D_{i}-1 (1 \leqslant X_{i} \leqslant N-D_{i}+1)$房间中的客人全部离开。退房前，请求退掉的房间中的一些，甚至是所有，可能本来就无人入住。<br>而你的工作，就是写一个程序，帮服务员为旅客安排房间。你的程序一共需要处理$M (1 \leqslant M &lt; 50000)$个按输入次序到来的住店或退房的请求。第一个请求到来前，旅店中所有房间都是空闲的。</p>
@@ -909,12 +916,14 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </categories>
       <tags>
         <tag>题解</tag>
+        <tag>DTOJ</tag>
         <tag>线段树</tag>
+        <tag>洛谷</tag>
       </tags>
   </entry>
   <entry>
-    <title>洛谷P2120仓库建设题解</title>
-    <url>/2019/07/27/%E6%B4%9B%E8%B0%B7P2120%E4%BB%93%E5%BA%93%E5%BB%BA%E8%AE%BE%E9%A2%98%E8%A7%A3/</url>
+    <title>洛谷P2120&amp;DTOJ1099仓库建设题解</title>
+    <url>/2019/07/27/%E6%B4%9B%E8%B0%B7P2120&amp;DTOJ1099%E4%BB%93%E5%BA%93%E5%BB%BA%E8%AE%BE%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://www.luogu.org/problemnew/show/P2120" target="_blank" rel="noopener">原题</a></strong></p>
 <a id="more"></a>
 <p>$L$公司有$N$个工厂，由高到底分布在一座山上。<br>工厂$1$在山顶，工厂$N$在山脚。 由于这座山处于高原内陆地区（干燥少雨），L公司一般把产品直接堆放在露天，以节省费用。<br>突然有一天，$L$公司的总裁$L$先生接到气象部门的电话，被告知三天之后将有一场暴雨，于是$L$先生决定紧急在某些工厂建立一些仓库以免产品被淋坏。<br>由于地形的不同，在不同工厂建立仓库的费用可能是不同的。第$i$个工厂目前已有成品$P_{i}$件，在第$i$个工厂位置建立仓库的费用是$C_{i}$。<br>对于没有建立仓库的工厂，其产品应被运往其他的仓库进行储藏，而由于$L$公司产品的对外销售处设置在山脚的工厂$N$，故产品只能往山下运（即只能运往编号更大的工厂的仓库），当然运送产品也是需要费用的，假设一件产品运送$1$个单位距离的费用是$1$。<br>假设建立的仓库容量都都是足够大的，可以容下所有的产品。你将得到以下数据：</p>
@@ -942,8 +951,11 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
       </categories>
       <tags>
         <tag>题解</tag>
+        <tag>DTOJ</tag>
         <tag>DP</tag>
         <tag>斜率优化DP</tag>
+        <tag>洛谷</tag>
+        <tag>几何</tag>
       </tags>
   </entry>
   <entry>
@@ -965,11 +977,12 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
       <tags>
         <tag>题解</tag>
         <tag>数论</tag>
+        <tag>POJ</tag>
       </tags>
   </entry>
   <entry>
-    <title>洛谷P1172安全逃离题解</title>
-    <url>/2019/07/27/%E6%B4%9B%E8%B0%B7P1172%E5%AE%89%E5%85%A8%E9%80%83%E7%A6%BB%E9%A2%98%E8%A7%A3/</url>
+    <title>洛谷P1172&amp;DTOJ Begin1777安全逃离题解</title>
+    <url>/2019/07/27/%E6%B4%9B%E8%B0%B7P1172&amp;DTOJ%20Begin1777%E5%AE%89%E5%85%A8%E9%80%83%E7%A6%BB%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://www.luogu.org/problemnew/show/P1172" target="_blank" rel="noopener">原题</a></strong></p>
 <a id="more"></a>
 <p>农夫john最近在研究如果发生重大事故，如何让农场里的奶牛逃离问题。他想要确信在紧急情况下，所有的奶牛都有一个安全逃离方案。因为在紧急情况下，奶牛们都会失去观察和判断能力，所以最近john一直在教奶牛们逃离的方法，他的方法很简单，就是任何时候都只向北方或东方逃离，北方是行坐标减1的方向，东方是列坐标加1的方向。奶牛们虽笨，不过这一点事关自己的生命，所以他们牢记在心，而且也一定会这么做。</p>
@@ -990,7 +1003,9 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
       </categories>
       <tags>
         <tag>题解</tag>
+        <tag>DTOJ</tag>
         <tag>模拟</tag>
+        <tag>洛谷</tag>
       </tags>
   </entry>
   <entry>
