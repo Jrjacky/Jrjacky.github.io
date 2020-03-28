@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>洛谷P2146&amp;&amp;DTOJ2409 [NOI2015]软件包管理器</title>
+    <url>/2020/03/28/%E6%B4%9B%E8%B0%B7P2146-DTOJ2409-NOI2015-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
+<p><code>Linux</code>用户和<code>OS X</code>用户一定对软件包管理器不会陌生<br>通过软件包管理器，你可以通过一行命令安装某一个软件包，然后软件包管理器会帮助你从软件源下载软件包，同时自动解决所有的依赖（即下载安装这个软件包的安装所依赖的其它软件包），完成所有的配置<br><code>Debian/Ubuntu</code>使用的<code>apt-get</code>，<code>Fedora/CentOS</code>使用的<code>yum</code>，以及<code>OS X</code>下可用的<code>homebrew</code>都是优秀的软件包管理器<br>你决定设计你自己的软件包管理器<br>不可避免地，你要解决软件包之间的依赖问题<br>如果软件包<code>A</code>依赖软件包<code>B</code>，那么安装软件包<code>A</code>以前，必须先安装软件包<code>B</code><br>同时，如果想要卸载软件包<code>B</code>，则必须卸载软件包<code>A</code><br>现在你已经获得了所有的软件包之间的依赖关系，而且，由于你之前的工作，除<code>0</code>号软件包以外，在你的管理器当中的软件包都会依赖一个且仅一个软件包，而<code>0</code>号软件包不依赖任何一个软件包<br>依赖关系不存在环（若有$m(m\geqslant 2)$个软件包$A_1,A_2,A_3,\cdots \cdots,A_m$，其中$A_1$依赖$A_2$，$A_2$依赖$A_3$，$A_3$依赖$A_4$，……，$A_{m−1}$依赖$A_m$，而$A_m$依赖$A_1$，则称这$m$个软件包的依赖关系构成环），当然也不会有一个软件包依赖自己<br>现在你要为你的软件包管理器写一个依赖解决程序<br>根据反馈，用户希望在安装和卸载某个软件包时，快速地知道这个操作实际上会改变多少个软件包的安装状态（即安装操作会安装多少个未安装的软件包，或卸载操作会卸载多少个已安装的软件包），你的任务就是实现这个部分<br>注意，安装一个已安装的软件包，或卸载一个未安装的软件包，都不会改变任何软件包的安装状态，即在此情况下，改变安装状态的软件包数为$0$</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入文件的第$1$行包含$1$个正整数$n$，表示软件包的总数，软件包从$0$开始编号<br>随后一行包含$n−1$个整数，相邻整数之间用单个空格隔开，分别表示$1,2,3,\cdots \cdots,n−2,n−1$号软件包依赖的软件包的编号<br>接下来一行包含$1$个正整数$q$，表示询问的总数<br>之后$q$行，每行$1$个询问<br>询问分为两种：<br><code>install x</code>：表示安装软件包$x$<br><code>uninstall x</code>：表示卸载软件包$x$<br>你需要维护每个软件包的安装状态，一开始所有的软件包都处于未安装状态<br>对于每个操作，你需要输出这步操作会改变多少个软件包的安装状态，随后应用这个操作（即改变你维护的安装状态）</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出文件包括$q$行<br>输出文件的第$i$行输出$1$个整数，为第$i$步操作中改变安装状态的软件包数</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例输入1"><a href="#样例输入1" class="headerlink" title="样例输入1"></a>样例输入1</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">7</span><br><span class="line">0 0 0 1 1 5</span><br><span class="line">5</span><br><span class="line">install 5</span><br><span class="line">install 6</span><br><span class="line">uninstall 1</span><br><span class="line">install 4</span><br><span class="line">uninstall 0</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出1"><a href="#样例输出1" class="headerlink" title="样例输出1"></a>样例输出1</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<h3 id="样例输入2"><a href="#样例输入2" class="headerlink" title="样例输入2"></a>样例输入2</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">10</span><br><span class="line">0 1 2 1 3 0 0 3 2</span><br><span class="line">10</span><br><span class="line">install 0</span><br><span class="line">install 3</span><br><span class="line">uninstall 2</span><br><span class="line">install 7</span><br><span class="line">install 5</span><br><span class="line">install 9</span><br><span class="line">uninstall 9</span><br><span class="line">install 4</span><br><span class="line">install 1</span><br><span class="line">install 9</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出2"><a href="#样例输出2" class="headerlink" title="样例输出2"></a>样例输出2</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h2 id="数据范围与提示"><a href="#数据范围与提示" class="headerlink" title="数据范围与提示"></a>数据范围与提示</h2><h3 id="样例1说明"><a href="#样例1说明" class="headerlink" title="样例1说明"></a>样例1说明</h3><p><img src="https://img-blog.csdnimg.cn/20200328145201656.png" alt="在这里插入图片描述"><br>一开始所有的软件包都处于未安装状态<br>安装$5$号软件包，需要安装$0,1,5$三个软件包<br>之后安装$6$号软件包，只需要安装$6$号软件包<br>此时安装了$0,1,5,6$四个软件包<br>卸载 1 号软件包需要卸载$1,5,6$三个软件包<br>此时只有$0$号软件包还处于安装状态<br>之后安装$4$号软件包，需要安装$1,4$两个软件包<br>此时$0,1,4$处在安装状态<br>最后，卸载$0$号软件包会卸载所有的软件包</p>
+<h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p><img src="https://img-blog.csdnimg.cn/20200328145429836.png" alt="在这里插入图片描述"></p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>树剖裸题……<br>建线段树记录相应一段DFS序中安装软件的数量<br>安装软件的时候就直接把这个软件到根节点的路径上的所有点的权值全部修改为$1$<br>卸载软件的时候就直接把这个软件的所有子树上的所有点的权值全部修改为$0$就可以了<br>剩下的细节我就不说了，反正是个很裸的题<br>附上代码：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> l(x) t[x].l</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> r(x) t[x].r</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> s(x) t[x].sum</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> a(x) t[x].add</span></span><br><span class="line"><span class="keyword">int</span> n,q,tot,cnt,head[<span class="number">100010</span>],to[<span class="number">100010</span>],nxt[<span class="number">100010</span>],fa[<span class="number">100010</span>],size[<span class="number">100010</span>],dep[<span class="number">100010</span>],big[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">int</span> top[<span class="number">100010</span>],dfn[<span class="number">100010</span>],dfn2[<span class="number">100010</span>],sor[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">char</span> op[<span class="number">20</span>];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ppap</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> l,r,sum,add;</span><br><span class="line">&#125;t[<span class="number">400010</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    nxt[++tot]=head[u],head[u]=tot,to[tot]=v;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> deep)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dep[x]=deep,size[x]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=nxt[i])&#123;</span><br><span class="line">        dfs1(to[i],deep+<span class="number">1</span>),size[x]+=size[to[i]];</span><br><span class="line">        <span class="keyword">if</span>(size[to[i]]&gt;size[big[x]]) big[x]=to[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> Top)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    top[x]=Top,dfn[x]=++cnt,sor[cnt]=x;</span><br><span class="line">    <span class="keyword">if</span>(big[x]==<span class="number">100001</span>)&#123;dfn2[x]=cnt;<span class="keyword">return</span>;&#125;</span><br><span class="line">    dfs2(big[x],Top);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=nxt[i]) <span class="keyword">if</span>(to[i]!=big[x]) dfs2(to[i],to[i]);</span><br><span class="line">    dfn2[x]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">spread</span><span class="params">(<span class="keyword">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a(p))&#123;</span><br><span class="line">        a(p*<span class="number">2</span>)=a(p*<span class="number">2</span>+<span class="number">1</span>)=a(p);</span><br><span class="line">        <span class="keyword">if</span>(a(p)==<span class="number">1</span>) s(p*<span class="number">2</span>)=r(p*<span class="number">2</span>)-l(p*<span class="number">2</span>)+<span class="number">1</span>,s(p*<span class="number">2</span>+<span class="number">1</span>)=r(p*<span class="number">2</span>+<span class="number">1</span>)-l(p*<span class="number">2</span>+<span class="number">1</span>)+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(a(p)==<span class="number">2</span>) s(p*<span class="number">2</span>)=s(p*<span class="number">2</span>+<span class="number">1</span>)=<span class="number">0</span>;</span><br><span class="line">        a(p)=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    l(p)=l,r(p)=r;</span><br><span class="line">    <span class="keyword">if</span>(l==r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    build(p*<span class="number">2</span>,l,mid);</span><br><span class="line">    build(p*<span class="number">2</span>+<span class="number">1</span>,mid+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&lt;=l(p)&amp;&amp;r&gt;=r(p)) <span class="keyword">return</span> s(p);</span><br><span class="line">    spread(p);</span><br><span class="line">    <span class="keyword">int</span> mid=(l(p)+r(p))&gt;&gt;<span class="number">1</span>,ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(l&lt;=mid) ans+=ask(p*<span class="number">2</span>,l,r);</span><br><span class="line">    <span class="keyword">if</span>(r&gt;mid) ans+=ask(p*<span class="number">2</span>+<span class="number">1</span>,l,r);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&lt;=l(p)&amp;&amp;r&gt;=r(p))&#123;</span><br><span class="line">        <span class="keyword">if</span>(x) a(p)=<span class="number">1</span>,s(p)=r(p)-l(p)+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> a(p)=<span class="number">2</span>,s(p)=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    spread(p);</span><br><span class="line">    <span class="keyword">int</span> mid=(l(p)+r(p))&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(l&lt;=mid) change(p*<span class="number">2</span>,l,r,x);</span><br><span class="line">    <span class="keyword">if</span>(r&gt;mid) change(p*<span class="number">2</span>+<span class="number">1</span>,l,r,x);</span><br><span class="line">    s(p)=s(p*<span class="number">2</span>)+s(p*<span class="number">2</span>+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Install</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=dep[x],u=x;</span><br><span class="line">    <span class="keyword">while</span>(top[u]) ans-=ask(<span class="number">1</span>,dfn[top[u]],dfn[u]),change(<span class="number">1</span>,dfn[top[u]],dfn[u],<span class="number">1</span>),u=fa[top[u]];</span><br><span class="line">    ans-=ask(<span class="number">1</span>,dfn[<span class="number">0</span>],dfn[u]),change(<span class="number">1</span>,dfn[<span class="number">0</span>],dfn[u],<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Uninstall</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans;</span><br><span class="line">    ans=ask(<span class="number">1</span>,dfn[x],dfn2[x]),change(<span class="number">1</span>,dfn[x],dfn2[x],<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    freopen(<span class="string">"manager.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"manager.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n),big[<span class="number">0</span>]=<span class="number">100001</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,x;i&lt;n;i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x),add(x,i),fa[i]=x,big[i]=<span class="number">100001</span>;</span><br><span class="line">    dfs1(<span class="number">0</span>,<span class="number">1</span>),dfs2(<span class="number">0</span>,<span class="number">0</span>),build(<span class="number">1</span>,<span class="number">1</span>,n);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;q);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,x;i&lt;=q;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s %d"</span>,op,&amp;x);</span><br><span class="line">        <span class="keyword">if</span>(op[<span class="number">0</span>]==<span class="string">'i'</span>) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,Install(x));</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,Uninstall(x));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>信息竞赛</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+        <tag>DTOJ</tag>
+        <tag>图论</tag>
+        <tag>树剖</tag>
+        <tag>洛谷</tag>
+        <tag>NOI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BZOJ3919&amp;&amp;DTOJ2308 Portals</title>
+    <url>/2020/03/28/BZOJ3919-DTOJ2308-Portals/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h3 id="英文题目"><a href="#英文题目" class="headerlink" title="英文题目"></a>英文题目</h3><a id="more"></a>
+<p>There is a cake placed in a labyrinth and you desperately want to eat it. You have a map of the labyrinth, which is a grid of R rows and C columns. Each grid cell contains one of the following characters:</p>
+<ul>
+<li><h1 id="number-sign-which-denotes-a-wall-block"><a href="#number-sign-which-denotes-a-wall-block" class="headerlink" title="(number sign) which denotes a wall block,"></a>(number sign) which denotes a wall block,</h1></li>
+<li>. (dot) which denotes an open square,</li>
+<li>S (uppercase letter s) which denotes an open square of your current location,</li>
+<li>C (uppercase letter c) which denotes an open square with the cake.</li>
+</ul>
+<p>You may only walk on the open squares and move from one open square to another if they share a side. Additionally, the rectangular area depicted on the map is completely surrounded by wall blocks.<br>In order to reach the cake faster you have acquired a portal gun from Aperture ScienceTM, which operates as follows. At any time it can fire a portal in one of the four directions up,left, down and right. When a portal is fired in some direction, it will fly in that direction until it reaches the first wall. When this happens, a portal will be spawned on the wall block, on the side that faces you.<br>At most two portals can exist at any given time. If two portals are already placed in the labyrinth, then one of them (selected by you) will be removed immediately upon using the portal gun again. Firing a portal at an existing portal will replace it (there may be at most one portal per side of wall block). Note that there may be two portals placed on different sides of the same wall block.<br>Once two portals are placed in the labyrinth you can use them to teleport yourself. When standing next to one of the portals, you can walk into it and end up at the open square next to the other portal. Doing this takes as much time as moving between two adjacent squares.You may assume that firing portals does not take time and moving between two adjacent squares or teleporting through portals takes one unit of time.<br>Task<br>Given the map of the labyrinth together with your starting location and the location of the cake, calculate the minimum possible time needed for you to reach the cake.</p>
+<h3 id="中文翻译"><a href="#中文翻译" class="headerlink" title="中文翻译"></a>中文翻译</h3><p>给出一张四连通的网格图，<code>#</code>代表墙，<code>.</code>代表空地，<code>S</code>代表出发点，<code>C</code>代表目的地，地图四周都是墙,求<code>S</code>到<code>C</code>的最短路<br>走的时候可以向上下左右中的某个方向发射奇怪的东西(<code>portals</code>)，<code>portals</code>会贴在发射方向的墙上<br>地图上只允许同时存在两个<code>portals</code>，如果已经发射了两个再发射第三个，那么你需要在之前的那两个中的选一个使它消失<br>两个<code>portals</code>可以存在于一块墙的两面，但不能存在于一块墙的同面<br>当你身边是墙且那块墙上有面向你的<code>portals</code>时，你可以走进那个<code>portals</code>，从另一个<code>portals</code>出来<br>相邻两点距离为$1$，走<code>portals</code>距离也为$1$</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行2个数$R,C$，表示矩形的长和宽<br>接下来$R$行，每行一个长为$C$的字符串，表示这张图</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一行表示答案</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4 4</span><br><span class="line">.#.C</span><br><span class="line">.#.#</span><br><span class="line">....</span><br><span class="line">S...</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+<h2 id="数据范围与提示"><a href="#数据范围与提示" class="headerlink" title="数据范围与提示"></a>数据范围与提示</h2><h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><p><img src="https://img-blog.csdnimg.cn/20200328142334334.png" alt="在这里插入图片描述"><br>One quickest sequence of moves is as follows:</p>
+<ol>
+<li>move right,</li>
+<li>move right, shootone portal up, and one portal down,</li>
+<li>move through the bottom portal,</li>
+<li>moveone square right and reach the cake.<h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3>Subtask $1$ ($11$ points): $1 \leqslant R \leqslant 10, 1 \leqslant C \leqslant 10$.<br>Subtask $2$ ($20$ points): $1 \leqslant R \leqslant 50, 1 \leqslant C \leqslant 50$.<br>Subtask $3$ ($20$ points): $1 \leqslant R \leqslant 200, 1 \leqslant C \leqslant 200$. Every open square has at least one wall block adjacent to it.<br>Subtask $4$ ($19$ points): $1 \leqslant R \leqslant 200, 1 \leqslant C \leqslant 200$.<br>Subtask $5$ ($30$ points): $1 \leqslant R \leqslant 1000, 1 \leqslant C \leqslant 1000$.<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1>因为所有的传送门都只能放在墙前面的那一格，所以对于每一个点，我们可以预处理出每个点四个方向最远的不是墙的点（就是最近的墙的前面一格）和到这个点的距离的最小值$w_{i,j}$<br>那么，移动的时候就考虑放传送门，就是走到四个方向的最远点，距离就是$w_{i,j}+1$（有点类似于<code>Dijkstra</code>算法）<br>附上代码：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ppap</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">queue</span>&lt;ppap&gt; q;</span><br><span class="line"><span class="keyword">int</span> n,m,sx,sy,ex,ey,w[<span class="number">1010</span>][<span class="number">1010</span>][<span class="number">5</span>],d[<span class="number">1010</span>][<span class="number">1010</span>],flag[<span class="number">1010</span>][<span class="number">1010</span>],dis[<span class="number">1010</span>][<span class="number">1010</span>],v[<span class="number">1010</span>][<span class="number">1010</span>];</span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>]=&#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;,dy[<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">char</span> <span class="built_in">map</span>[<span class="number">1010</span>][<span class="number">1010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %c"</span>,&amp;<span class="built_in">map</span>[i][j]);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[i][j]==<span class="string">'S'</span>) sx=i,sy=j;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[i][j]==<span class="string">'C'</span>) ex=i,ey=j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">        w[i][j][<span class="number">0</span>]=w[i<span class="number">-1</span>][j][<span class="number">0</span>]+<span class="number">1</span>,w[i][j][<span class="number">3</span>]=w[i][j<span class="number">-1</span>][<span class="number">3</span>]+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[i][j]==<span class="string">'#'</span>) q.push((ppap)&#123;i,j&#125;),w[i][j][<span class="number">0</span>]=w[i][j][<span class="number">3</span>]=d[i][j]=<span class="number">-1</span>,flag[i][j]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">1</span>) w[i][j][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(j==<span class="number">1</span>) w[i][j][<span class="number">3</span>]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i;i--) <span class="keyword">for</span>(<span class="keyword">int</span> j=m;j;j--)&#123;</span><br><span class="line">        w[i][j][<span class="number">1</span>]=w[i][j+<span class="number">1</span>][<span class="number">1</span>]+<span class="number">1</span>,w[i][j][<span class="number">2</span>]=w[i+<span class="number">1</span>][j][<span class="number">2</span>]+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[i][j]==<span class="string">'#'</span>) q.push((ppap)&#123;i,j&#125;),w[i][j][<span class="number">1</span>]=w[i][j][<span class="number">2</span>]=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(i==n) w[i][j][<span class="number">2</span>]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(j==m) w[i][j][<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;m;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[<span class="number">1</span>][i]==<span class="string">'#'</span>) <span class="keyword">continue</span>;</span><br><span class="line">        q.push((ppap)&#123;<span class="number">1</span>,i&#125;),flag[<span class="number">1</span>][i]=<span class="number">1</span>,d[<span class="number">1</span>][i]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[i][<span class="number">1</span>]==<span class="string">'#'</span>) <span class="keyword">continue</span>;</span><br><span class="line">        q.push((ppap)&#123;i,<span class="number">1</span>&#125;),flag[i][<span class="number">1</span>]=<span class="number">1</span>,d[i][<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[n][i]==<span class="string">'#'</span>) <span class="keyword">continue</span>;</span><br><span class="line">        q.push((ppap)&#123;n,i&#125;),flag[n][i]=<span class="number">1</span>,d[n][i]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[i][m]==<span class="string">'#'</span>) <span class="keyword">continue</span>;</span><br><span class="line">        q.push((ppap)&#123;i,m&#125;),flag[i][m]=<span class="number">1</span>,d[i][m]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        ppap t=q.front();q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,X,Y;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">            X=t.x+dx[i],Y=t.y+dy[i];</span><br><span class="line">            <span class="keyword">if</span>(X&lt;<span class="number">1</span>||X&gt;n||Y&lt;<span class="number">1</span>||Y&gt;m) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>[X][Y]!=<span class="string">'#'</span>&amp;&amp;(!flag[X][Y]))&#123;</span><br><span class="line">                d[X][Y]=d[t.x][t.y]+<span class="number">1</span>,q.push((ppap)&#123;X,Y&#125;),flag[X][Y]=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++) dis[i][j]=<span class="number">0x7fffffff</span>;</span><br><span class="line">    q.push((ppap)&#123;sx,sy&#125;),dis[sx][sy]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        ppap t=q.front();q.pop();</span><br><span class="line">        v[t.x][t.y]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,X,Y;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">            X=t.x+dx[i],Y=t.y+dy[i];</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>[X][Y]==<span class="string">'#'</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(dis[X][Y]&gt;dis[t.x][t.y]+<span class="number">1</span>)&#123;</span><br><span class="line">                dis[X][Y]=dis[t.x][t.y]+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(!v[X][Y]) q.push((ppap)&#123;X,Y&#125;);</span><br><span class="line">                v[X][Y]=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,X,Y;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">            X=t.x+w[t.x][t.y][i]*dx[i],Y=t.y+w[t.x][t.y][i]*dy[i];</span><br><span class="line">            <span class="keyword">if</span>(w[t.x][t.y][i]&gt;d[t.x][t.y]+<span class="number">1</span>&amp;&amp;dis[X][Y]&gt;dis[t.x][t.y]+d[t.x][t.y]+<span class="number">1</span>)&#123;</span><br><span class="line">                dis[X][Y]=dis[t.x][t.y]+d[t.x][t.y]+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(!v[X][Y]) q.push((ppap)&#123;X,Y&#125;);</span><br><span class="line">                v[X][Y]=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,dis[ex][ey]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>信息竞赛</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+        <tag>DTOJ</tag>
+        <tag>BZOJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DTOJ2384 跃动的串</title>
     <url>/2020/03/27/DTOJ2384-%E8%B7%83%E5%8A%A8%E7%9A%84%E4%B8%B2/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
@@ -58,6 +119,7 @@
         <tag>DTOJ</tag>
         <tag>模拟</tag>
         <tag>LOJ</tag>
+        <tag>CEOI</tag>
       </tags>
   </entry>
   <entry>
@@ -176,6 +238,7 @@
         <tag>题解</tag>
         <tag>DTOJ</tag>
         <tag>组合</tag>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
@@ -254,9 +317,11 @@ $\frac{f_j-f_k+a(sum_j^2-sum_k^2)-b(sum_j-sum_k)}{sum_j-sum_k}<2asum_i$
         <tag>DTOJ</tag>
         <tag>DP</tag>
         <tag>斜率优化DP</tag>
+        <tag>数学</tag>
         <tag>BZOJ</tag>
         <tag>洛谷</tag>
         <tag>几何</tag>
+        <tag>APIO</tag>
       </tags>
   </entry>
   <entry>
@@ -334,12 +399,15 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
         <category>信息竞赛</category>
       </categories>
       <tags>
+        <tag>题解</tag>
         <tag>DTOJ</tag>
         <tag>DP</tag>
         <tag>斜率优化DP</tag>
+        <tag>数学</tag>
         <tag>BZOJ</tag>
         <tag>洛谷</tag>
         <tag>几何</tag>
+        <tag>省选</tag>
       </tags>
   </entry>
   <entry>
@@ -408,6 +476,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       <tags>
         <tag>数论</tag>
         <tag>组合</tag>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
@@ -514,6 +583,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </categories>
       <tags>
         <tag>微积分</tag>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
@@ -646,6 +716,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </categories>
       <tags>
         <tag>微积分</tag>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
@@ -668,6 +739,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       <tags>
         <tag>题解</tag>
         <tag>数论</tag>
+        <tag>数学</tag>
         <tag>POJ</tag>
       </tags>
   </entry>
@@ -802,6 +874,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </categories>
       <tags>
         <tag>数论</tag>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
@@ -843,7 +916,9 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
         <tag>题解</tag>
         <tag>DTOJ</tag>
         <tag>数论</tag>
+        <tag>数学</tag>
         <tag>洛谷</tag>
+        <tag>NOIP</tag>
       </tags>
   </entry>
   <entry>
@@ -869,6 +944,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
         <category>数学&amp;物理&amp;信息竞赛</category>
       </categories>
       <tags>
+        <tag>数学</tag>
         <tag>几何</tag>
       </tags>
   </entry>
@@ -896,6 +972,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </categories>
       <tags>
         <tag>微积分</tag>
+        <tag>数学</tag>
         <tag>几何</tag>
       </tags>
   </entry>
@@ -919,6 +996,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
         <tag>DTOJ</tag>
         <tag>线段树</tag>
         <tag>洛谷</tag>
+        <tag>USACO</tag>
       </tags>
   </entry>
   <entry>
@@ -954,6 +1032,7 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
         <tag>DTOJ</tag>
         <tag>DP</tag>
         <tag>斜率优化DP</tag>
+        <tag>数学</tag>
         <tag>洛谷</tag>
         <tag>几何</tag>
       </tags>
@@ -977,6 +1056,7 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
       <tags>
         <tag>题解</tag>
         <tag>数论</tag>
+        <tag>数学</tag>
         <tag>POJ</tag>
       </tags>
   </entry>
@@ -1006,6 +1086,7 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
         <tag>DTOJ</tag>
         <tag>模拟</tag>
         <tag>洛谷</tag>
+        <tag>USACO</tag>
       </tags>
   </entry>
   <entry>
