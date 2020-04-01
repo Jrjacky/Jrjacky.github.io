@@ -46,23 +46,19 @@
   };
 </script>
 
-  <meta name="description" content="题目题目描述原题">
+  <meta name="description" content="题目题目描述C国里一共有$N$个城镇，编号为$1$到$N$其中第$i$个城镇与第$i+1$个城镇连接着一条收费为$c_i$的从$i$到$i+1$的单向道路$(1\leqslant i&lt;n)$现在，杰杰作为一个旅行者，他的任务就是从第$1$个城镇出发，到达编号为$N$的城镇他觉得这样会很无聊，海克斯科技公司也是这么认为的，所以该公司在若干个城镇里设置了共$M$个单向传送门每个传送门有$4$个参">
 <meta property="og:type" content="article">
-<meta property="og:title" content="POJ2689 Prime Distance题解">
-<meta property="og:url" content="http://jrjacky.github.io/2019/07/27/POJ2689%20Prime%20Distance%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:title" content="DTOJ2603 不稳定的传送门">
+<meta property="og:url" content="http://jrjacky.github.io/2020/03/30/DTOJ2603-%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%BC%A0%E9%80%81%E9%97%A8/index.html">
 <meta property="og:site_name" content="Jacky Dong&#39;s blog">
-<meta property="og:description" content="题目题目描述原题">
+<meta property="og:description" content="题目题目描述C国里一共有$N$个城镇，编号为$1$到$N$其中第$i$个城镇与第$i+1$个城镇连接着一条收费为$c_i$的从$i$到$i+1$的单向道路$(1\leqslant i&lt;n)$现在，杰杰作为一个旅行者，他的任务就是从第$1$个城镇出发，到达编号为$N$的城镇他觉得这样会很无聊，海克斯科技公司也是这么认为的，所以该公司在若干个城镇里设置了共$M$个单向传送门每个传送门有$4$个参">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-07-27T07:46:52.000Z">
-<meta property="article:modified_time" content="2020-03-28T07:08:12.264Z">
+<meta property="article:published_time" content="2020-03-30T04:09:10.000Z">
+<meta property="article:modified_time" content="2020-03-30T04:09:44.138Z">
 <meta property="article:author" content="Jacky Dong">
-<meta property="article:tag" content="题解">
-<meta property="article:tag" content="数论">
-<meta property="article:tag" content="数学">
-<meta property="article:tag" content="POJ">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://jrjacky.github.io/2019/07/27/POJ2689%20Prime%20Distance%E9%A2%98%E8%A7%A3/">
+<link rel="canonical" href="http://jrjacky.github.io/2020/03/30/DTOJ2603-%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%BC%A0%E9%80%81%E9%97%A8/">
 
 
 <script id="page-configurations">
@@ -74,7 +70,7 @@
   };
 </script>
 
-  <title>POJ2689 Prime Distance题解 | Jacky Dong's blog</title>
+  <title>DTOJ2603 不稳定的传送门 | Jacky Dong's blog</title>
   
 
 
@@ -216,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2019/07/27/POJ2689%20Prime%20Distance%E9%A2%98%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/03/30/DTOJ2603-%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%BC%A0%E9%80%81%E9%97%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -229,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          POJ2689 Prime Distance题解
+          DTOJ2603 不稳定的传送门
         </h1>
 
         <div class="post-meta">
@@ -238,16 +234,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-07-27 15:46:52" itemprop="dateCreated datePublished" datetime="2019-07-27T15:46:52+08:00">2019-07-27</time>
+              <time title="创建时间：2020-03-30 12:09:10 / 修改时间：12:09:44" itemprop="dateCreated datePublished" datetime="2020-03-30T12:09:10+08:00">2020-03-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-28 15:08:12" itemprop="dateModified" datetime="2020-03-28T15:08:12+08:00">2020-03-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -278,15 +268,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="http://poj.org/problem?id=2689" target="_blank" rel="noopener">原题</a></strong></p>
-<a id="more"></a>
-<h3 id="英文题目"><a href="#英文题目" class="headerlink" title="英文题目"></a>英文题目</h3><p>The branch of mathematics called number theory is about properties of numbers. One of the areas that has captured the interest of number theoreticians for thousands of years is the question of primality. A prime number is a number that is has no proper factors (it is only evenly divisible by $1$ and itself). The first prime numbers are $2,3,5,7$ but they quickly become less frequent. One of the interesting questions is how dense they are in various ranges. Adjacent primes are two numbers that are both primes, but there are no other prime numbers between the adjacent primes. For example, $2,3$ are the only adjacent primes that are also adjacent numbers.<br>Your program is given $2$ numbers: $L$ and $U$ ($1 \leqslant L&lt; U \leqslant 2,147,483,647$), and you are to find the two adjacent primes $C1$ and $C2$ ($L \leqslant C1&lt; C2 \leqslant U$) that are closest (i.e. $C2-C1$ is the minimum). If there are other pairs that are the same distance apart, use the first pair. You are also to find the two adjacent primes $D1$ and $D2$ ($L \leqslant D1&lt; D2 \leqslant U$) where $D1$ and $D2$ are as distant from each other as possible (again choosing the first pair if there is a tie).</p>
-<h3 id="中文题意"><a href="#中文题意" class="headerlink" title="中文题意"></a>中文题意</h3><p>给定两个整数$L,R$($1 \leqslant L&lt; R \leqslant 2,147,483,647$)，求闭区间 $\left[L,R\right]$中相邻两个质数的差的最小值和最大值是多少，分别输出这两对质数。</p>
-<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>每行两个整数$L,R$($1 \leqslant L&lt; R \leqslant 2,147,483,647,R-L \leqslant 10^6$)。</p>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>对于每个$L,R$，输出最小值和最大值，格式参照样例。若区间内无质数，输出”There are no adjacent primes.”。</p>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h3><p>2 17<br>14 17</p>
-<h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h3><p>2,3 are closest, 7,11 are most distant.<br>There are no adjacent primes.</p>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>由于$L,R$的范围很大，所以埃氏筛法和欧拉筛法都无法生成$\left[1,R\right]$的所有质数。但是$R-L$的范围很小且任何一个合数$n$一定包含一个不超过$\sqrt{n}$的质因子，所以我们只需要用筛法求出$2,3,\cdots,\sqrt{n}$的所有质数。而对于每一个质数$p$，标记$i \times p \left(\left\lceil\frac{L}{p}\right\rceil \leqslant i \leqslant \left\lceil\frac{R}{p}\right\rceil\right)$为合数。标记完后，剩下的所有数就是$\left[L,R\right]$中的质数了。再两两比较，找出差最大和最小的就可以了。<br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,i,j,t1,t2,x1,x2,y1,y2,l,r,a[<span class="number">100001</span>], b[<span class="number">1000001</span>];</span><br><span class="line"><span class="keyword">bool</span> v[<span class="number">1000001</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">prime</span><span class="params">()</span><span class="comment">//筛出2~46340之间的质数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(v,<span class="number">1</span>,<span class="keyword">sizeof</span>(v));</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=<span class="number">46340</span>;i++) <span class="keyword">if</span>(v[i])&#123;</span><br><span class="line">    a[++n]=i;</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">2</span>;j&lt;=<span class="number">46340</span>/i;j++) v[i*j]=<span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  prime();</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;l&gt;&gt;r)&#123;</span><br><span class="line">    <span class="built_in">memset</span>(v,<span class="number">1</span>,<span class="keyword">sizeof</span>(v));</span><br><span class="line">    <span class="keyword">if</span>(l==<span class="number">1</span>) v[<span class="number">0</span>]=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">for</span>(j=l/a[i];j&lt;=r/a[i];j++) <span class="keyword">if</span>(j&gt;<span class="number">1</span>) v[a[i]*j-l]=<span class="literal">false</span>;<span class="comment">//去除L~R中的合数</span></span><br><span class="line">    m=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=l;i&lt;=r;i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(v[i-l]) b[++m]=i;<span class="comment">//存储L~R中的质数</span></span><br><span class="line">      <span class="keyword">if</span>(i==r) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    t1=<span class="number">2147483647</span>;</span><br><span class="line">    t2=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;m;i++)&#123;</span><br><span class="line">      j=b[i+<span class="number">1</span>]-b[i];</span><br><span class="line">      <span class="keyword">if</span>(j&lt;t1)&#123;</span><br><span class="line">        t1=j;</span><br><span class="line">        x1=b[i];</span><br><span class="line">        y1=b[i+<span class="number">1</span>];</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(j&gt;t2)&#123;</span><br><span class="line">        t2=j;</span><br><span class="line">        x2=b[i];</span><br><span class="line">        y2=b[i+<span class="number">1</span>];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;<span class="comment">//比较差的大小</span></span><br><span class="line">    <span class="keyword">if</span>(!t2) <span class="built_in">cout</span>&lt;&lt;<span class="string">"There are no adjacent primes."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;x1&lt;&lt;<span class="string">","</span>&lt;&lt;y1&lt;&lt;<span class="string">" are closest, "</span>&lt;&lt;x2&lt;&lt;<span class="string">","</span>&lt;&lt;y2&lt;&lt;<span class="string">" are most distant."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><code>C</code>国里一共有$N$个城镇，编号为$1$到$N$<br>其中第$i$个城镇与第$i+1$个城镇连接着一条收费为$c_i$的从$i$到$i+1$的单向道路$(1\leqslant i&lt;n)$<br>现在，杰杰作为一个旅行者，他的任务就是从第$1$个城镇出发，到达编号为$N$的城镇<br>他觉得这样会很无聊，海克斯科技公司也是这么认为的，所以该公司在若干个城镇里设置了共$M$个单向传送门<br>每个传送门有$4$个参数$s,t,p,w$<br>$s$表示传送门的出发城镇，$t$表示传送门的传送目标城镇，保证$t$大于$s$，$w$表示使用该传送门的花费，$p$为传送成功的概率，若传送失败会自动返回出发的城市而且该传送门会永久损坏；而且无论传送成功与否，只要使用了该传送门就得花费$w$<br>现在，杰杰正在规划他的旅行方案。请你帮他规划一条最优策略，使得旅途期望花费最小</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行有两个整数$N$和$M$<br>第二行有$N-1$个用空格隔开的整数，第$i$个数为$c_i$，意义如上述所示<br>接下来有$M$行，每行有$4$个数$s,t,p,w$，表示一个传送门的属性，意义如上述所示，其中$s,t,w$为整数</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个数，表示期望最小花费，小数点后四舍五入保留两位小数</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4 2</span><br><span class="line">30 30 30</span><br><span class="line">1 4 0.5 30</span><br><span class="line">2 3 0.9 10</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">66.50</span><br></pre></td></tr></table></figure>
+<h2 id="数据范围与提示"><a href="#数据范围与提示" class="headerlink" title="数据范围与提示"></a>数据范围与提示</h2><p>对于$30\%$的数据，每个城镇出发的传送门不超过$5$, 且$n\leqslant 1000$<br>对于$100\%$的数据，$1\leqslant n\leqslant 10^5,1\leqslant m\leqslant 10^5, 1\leqslant w\leqslant 100, 0\leqslant p\leqslant 1, 1\leqslant ci\leqslant 100$</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>从题目中，我们可以看出这是个概率DP，并且是单向行走的<br>因此我们从$N$向$1$进行DP<br>我们可以建一个图，对于每一条边，存储$p$（概率）和$w$（花费）（对于从$i$到$i+1$的边，概率就是$1$）<br>分别写出对于同一个点的任意两条边$x$和$y$不同选择顺序的式子，化简后可以得到得：如果$dp[x.to]+\frac{x.w}{x.p}<dp[y.to]+\frac{y.w}{y.p}$，那么x比y更优，所以优先选择$x$
+但是在计算$x$时，要用到$y$的结果，所以虽然优先选择$x$，但是在计算顺序上$y$在$x$之前
+附上代码：
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自己写的太难看了，贴的是同学的代码</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> N,M;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span><span class="keyword">int</span> x;<span class="keyword">double</span> p,val;&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;node&gt; ed[<span class="number">100005</span>];</span><br><span class="line"><span class="keyword">double</span> dp[<span class="number">100005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node x,node y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> dp[x.x]+x.val/x.p&gt;dp[y.x]+y.val/y.p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    freopen(<span class="string">"portal.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"portal.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;N,&amp;M);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> a;</span><br><span class="line">    node x;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N<span class="number">-1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;a);</span><br><span class="line">        x.x=i+<span class="number">1</span>;</span><br><span class="line">        x.p=<span class="number">1</span>;</span><br><span class="line">        x.val=a;</span><br><span class="line">        ed[i].push_back(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> st;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %lf %lf"</span>,&amp;st,&amp;x.x,&amp;x.p,&amp;x.val);</span><br><span class="line">        ed[st].push_back(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++) dp[i]=<span class="number">999999999</span>;</span><br><span class="line">    dp[N]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=N<span class="number">-1</span>;i&gt;=<span class="number">1</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        sort(ed[i].begin(),ed[i].end(),cmp);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;ed[i].size();j++)</span><br><span class="line">        &#123;</span><br><span class="line">            x=ed[i][j];</span><br><span class="line">            dp[i]=min(dp[i],</span><br><span class="line">                       dp[i]*(<span class="number">1</span>-x.p)+dp[x.x]*x.p+x.val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,dp[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -302,7 +293,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://jrjacky.github.io/2019/07/27/POJ2689%20Prime%20Distance%E9%A2%98%E8%A7%A3/" title="POJ2689 Prime Distance题解">http://jrjacky.github.io/2019/07/27/POJ2689 Prime Distance题解/</a>
+    <a href="http://jrjacky.github.io/2020/03/30/DTOJ2603-%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%BC%A0%E9%80%81%E9%97%A8/" title="DTOJ2603 不稳定的传送门">http://jrjacky.github.io/2020/03/30/DTOJ2603-不稳定的传送门/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -312,12 +303,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i>题解</a>
-              <a href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i>数论</a>
-              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i>数学</a>
-              <a href="/tags/POJ/" rel="tag"><i class="fa fa-tag"></i>POJ</a>
-          </div>
 
         
 
@@ -325,13 +310,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/07/27/%E6%B4%9B%E8%B0%B7P1172&DTOJ%20Begin1777%E5%AE%89%E5%85%A8%E9%80%83%E7%A6%BB%E9%A2%98%E8%A7%A3/" rel="prev" title="洛谷P1172&DTOJ Begin1777安全逃离题解">
-      <i class="fa fa-chevron-left"></i> 洛谷P1172&DTOJ Begin1777安全逃离题解
+    <a href="/2020/03/28/%E6%B4%9B%E8%B0%B7P2146-DTOJ2409-NOI2015-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" rel="prev" title="洛谷P2146&&DTOJ2409 [NOI2015]软件包管理器">
+      <i class="fa fa-chevron-left"></i> 洛谷P2146&&DTOJ2409 [NOI2015]软件包管理器
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/07/27/%E6%B4%9B%E8%B0%B7P2120&DTOJ1099%E4%BB%93%E5%BA%93%E5%BB%BA%E8%AE%BE%E9%A2%98%E8%A7%A3/" rel="next" title="洛谷P2120&DTOJ1099仓库建设题解">
-      洛谷P2120&DTOJ1099仓库建设题解 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -391,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#英文题目"><span class="nav-number">1.1.1.</span> <span class="nav-text">英文题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中文题意"><span class="nav-number">1.1.2.</span> <span class="nav-text">中文题意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式"><span class="nav-number">1.2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入样例"><span class="nav-number">1.3.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出样例"><span class="nav-number">1.3.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入格式"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出格式"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">1.4.</span> <span class="nav-text">样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-number">1.4.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出"><span class="nav-number">1.4.2.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据范围与提示"><span class="nav-number">1.5.</span> <span class="nav-text">数据范围与提示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
