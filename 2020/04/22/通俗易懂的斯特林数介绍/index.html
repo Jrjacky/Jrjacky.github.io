@@ -46,19 +46,25 @@
   };
 </script>
 
-  <meta name="description" content="Jacky Dong的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://jrjacky.github.io/tags/index.html">
+  <meta name="description" content="定义第一类斯特林数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通俗易懂的斯特林数介绍">
+<meta property="og:url" content="http://jrjacky.github.io/2020/04/22/%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%9A%84%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E4%BB%8B%E7%BB%8D/index.html">
 <meta property="og:site_name" content="Jacky Dong&#39;s blog">
-<meta property="og:description" content="Jacky Dong的博客">
+<meta property="og:description" content="定义第一类斯特林数">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-08-17T13:06:08.000Z">
-<meta property="article:modified_time" content="2019-08-17T13:06:40.000Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020021616135437.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200216163715754.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200216163047456.png">
+<meta property="article:published_time" content="2020-04-22T14:21:44.000Z">
+<meta property="article:modified_time" content="2020-04-22T14:22:48.662Z">
 <meta property="article:author" content="Jacky Dong">
+<meta property="article:tag" content="组合">
+<meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020021616135437.png">
 
-<link rel="canonical" href="http://jrjacky.github.io/tags/">
+<link rel="canonical" href="http://jrjacky.github.io/2020/04/22/%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%9A%84%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E4%BB%8B%E7%BB%8D/">
 
 
 <script id="page-configurations">
@@ -66,12 +72,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>tags | Jacky Dong's blog
-  </title>
+  <title>通俗易懂的斯特林数介绍 | Jacky Dong's blog</title>
   
 
 
@@ -204,52 +209,127 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
-
-<div class="post-meta">
+      
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/04/22/%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%9A%84%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E4%BB%8B%E7%BB%8D/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          通俗易懂的斯特林数介绍
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-22 22:21:44 / 修改时间：22:22:48" itemprop="dateCreated datePublished" datetime="2020-04-22T22:21:44+08:00">2020-04-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><h2 id="第一类斯特林数"><a href="#第一类斯特林数" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h2><a id="more"></a>
+<p>将$n$个元素分成$m$个无标号的轮换$\begin{bmatrix}n\\m\end{bmatrix}$<br>什么叫轮换？<br>就是把一堆数放在一个圈上，如果可以通过旋转使得圈上的每个位置上数都和另一个圈上的数是相等的，那么这两个圈等价（意思就是它们是同一个轮换）<br>比如，现在有三个轮换：<br><img src="https://img-blog.csdnimg.cn/2020021616135437.png" alt="在这里插入图片描述"><br>第一个轮换和第二个轮换是等价的，第一个和第三个轮换不是等价的<br>那么，什么叫无标号的轮换？<br>就是如果一堆轮换调换顺序后和另一堆轮换完全相同（所有对应的轮换等价），那么这两堆轮换就是等价的<br>比如，现在有两堆轮换：<br><img src="https://img-blog.csdnimg.cn/20200216163715754.png" alt="在这里插入图片描述"><br>第一堆轮换和第二堆轮换完全相同，是等价的<br>为了让大家更了解第一类斯特林数，我们举一个例子：$\begin{bmatrix}3\\2\end{bmatrix}=3$<br>三种方法如下：<br><img src="https://img-blog.csdnimg.cn/20200216163047456.png" alt="在这里插入图片描述"><br>第一类斯特林数还有另一种定义，就是$\prod \limits_{i=0}^{n-1}(x-i)$的$m$次项系数叫$\begin{bmatrix}n\\m\end{bmatrix}$</p>
+<h2 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h2><p>将$n$个元素分成$m$个无标号的集合$\begin{Bmatrix}n\\m\end{Bmatrix}$<br>上面我们已经解释过了无标号的意思，相信大家都知道无标号集合的意思了<br>为了让大家更了解第一类斯特林数，我们举一个例子：$\begin{Bmatrix}3\\2\end{Bmatrix}=3$<br>三种方法如下：</p>
+<ol>
+<li>$\{\{1\},\{2,3\}\}$</li>
+<li>$\{\{2\},\{1,3\}\}$</li>
+<li>$\{\{3\},\{1,2\}\}$<h1 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h1><h2 id="通项"><a href="#通项" class="headerlink" title="通项"></a>通项</h2>第一类斯特林数貌似没有通项公式（或者是没用或者我太菜了不知道）<br>第二类斯特林数的通项为$\begin{Bmatrix}n\\m\end{Bmatrix}=\frac{1}{m^2}\sum \limits_{i=0}^m(-1)^i\binom{m}{k}(m-i)^n$貌似也没什么用……我不会证……记住就好了<del>我好像也记不住？？？</del><h2 id="递推"><a href="#递推" class="headerlink" title="递推"></a>递推</h2><h3 id="第一类斯特林数-1"><a href="#第一类斯特林数-1" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h3>$\begin{bmatrix}n\\m\end{bmatrix}=(n-1)\begin{bmatrix}n-1\\m\end{bmatrix}+\begin{bmatrix}n-1\\m-1\end{bmatrix}$<br>证明：假如$n-1$个元素构成了$m-1$个无标号的轮换，第$n$个元素独自构成一个无标号的轮换，有$\begin{bmatrix}n-1\\m-1\end{bmatrix}$种方法。如果$n-1$个元素构成了$m$个无标号的轮换，将第$n$个元素插入到任意元素的左边，有$(n-1)\begin{bmatrix}n-1\\m\end{bmatrix}$种方法<br>$\therefore \begin{bmatrix}n\\m\end{bmatrix}=(n-1)\begin{bmatrix}n-1\\m\end{bmatrix}+\begin{bmatrix}n-1\\m-1\end{bmatrix}$<h3 id="第二类斯特林数-1"><a href="#第二类斯特林数-1" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h3>$\begin{Bmatrix}n\\m\end{Bmatrix}=m\begin{Bmatrix}n-1\\m\end{Bmatrix}+\begin{Bmatrix}n-1\\m-1\end{Bmatrix}$<br>证明：假如$n-1$个元素构成了$m-1$个无标号的集合，第$n$个元素独自构成一个无标号的集合，有$\begin{Bmatrix}n-1\\m-1\end{Bmatrix}$种方法。如果$n-1$个元素构成了$m$个集合，将第$n$个元素插入到任意集合中，有$m\begin{Bmatrix}n-1\\m\end{Bmatrix}$种方法<br>$\therefore \begin{Bmatrix}n\\m\end{Bmatrix}=m\begin{Bmatrix}n-1\\m\end{Bmatrix}+\begin{Bmatrix}n-1\\m-1\end{Bmatrix}$<h2 id="特殊值"><a href="#特殊值" class="headerlink" title="特殊值"></a>特殊值</h2><h3 id="第一类斯特林数-2"><a href="#第一类斯特林数-2" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h3>$\begin{bmatrix}n\\0\end{bmatrix}=0,\begin{bmatrix}n\\1\end{bmatrix}=1,\begin{bmatrix}n\\n-1\end{bmatrix}=\binom{n}{2},\begin{bmatrix}n\\n\end{bmatrix}=1$<br>自己想吧，太简单了，不证了<h3 id="第二类斯特林数-2"><a href="#第二类斯特林数-2" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h3>$\begin{Bmatrix}n\\0\end{Bmatrix}=0,\begin{Bmatrix}n\\1\end{Bmatrix}=1,\begin{Bmatrix}n\\n-1\end{Bmatrix}=\binom{n}{2},\begin{Bmatrix}n\\n\end{Bmatrix}=1$<br>自己想吧，太简单了，不证了<h2 id="快速幂？？？"><a href="#快速幂？？？" class="headerlink" title="快速幂？？？"></a>快速幂？？？</h2>①$n^m=\sum \limits_{i=0}^{m} \begin{Bmatrix}m\\i\end{Bmatrix} n^{\underline{i}}$<br>其中$n^{\underline{i}}$表示$n$的$i$次下降幂，即$n^{\underline{i}}=\prod \limits_{k=0}^{i-1}(n-k)$<br>证明：<br>当$m=1$时，$\sum \limits_{i=0}^{m} \begin{Bmatrix}m\\i\end{Bmatrix} n^{\underline{i}}=\begin{Bmatrix}1\\1\end{Bmatrix} n=n$<br>假设$m=k$时成立<br>当$m=k+1$时，$n^{k+1}=n\sum \limits_{i=0}^{k} \begin{Bmatrix}k\\i\end{Bmatrix} n^{\underline{i}}=\sum \limits_{i=0}^{k} \begin{Bmatrix}k\\i\end{Bmatrix}\left( n^{\underline{i+1}}+in^{\underline{i}}\right)=\sum \limits_{i=0}^{k} \begin{Bmatrix}k\\i\end{Bmatrix} n^{\underline{i+1}}+\sum \limits_{i=0}^{k} \begin{Bmatrix}k\\i\end{Bmatrix} in^{\underline{i}}=\sum \limits_{i=0}^{k+1} \begin{Bmatrix}k\\i-1\end{Bmatrix} n^{\underline{i}}+\sum \limits_{i=0}^{k+1} \begin{Bmatrix}k\\i\end{Bmatrix} in^{\underline{i}}=\sum \limits_{i=0}^{k+1} \left(\begin{Bmatrix}k\\i-1\end{Bmatrix}+i\begin{Bmatrix}k\\i\end{Bmatrix}\right) n^{\underline{i}}=\sum \limits_{i=0}^{k+1} \begin{Bmatrix}k+1\\i\end{Bmatrix} n^{\underline{i}}$<br>$\therefore n^m=\sum \limits_{i=0}^{m} \begin{Bmatrix}m\\i\end{Bmatrix} n^{\underline{i}}$<br>②$n^{\overline{m}}=\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} n^i$<br>其中$n^{\overline{m}}$表示$n$的$i$次上升幂，即$n^{\overline{m}}=\prod \limits_{i=0}^{m-1}(n+i)$<br>证明：<br>当$m=1$时，$\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} n^i=\begin{bmatrix}1\\1\end{bmatrix} n=n$<br>假设$m=k$时成立<br>当$m=k+1$时，$n^{\overline{k+1}}=(n+k)n^{\overline{k}}=n\sum \limits_{i=0}^{k} \begin{bmatrix}k\\i\end{bmatrix} n^i+k\sum \limits_{i=0}^{k} \begin{bmatrix}k\\i\end{bmatrix} n^i=\sum \limits_{i=0}^{k+1} \begin{bmatrix}k\\i-1\end{bmatrix} n^i+\sum \limits_{i=0}^{k+1} k\begin{bmatrix}k\\i\end{bmatrix} n^i=\sum \limits_{i=0}^{k+1} \left(\begin{bmatrix}k\\i-1\end{bmatrix}+k\begin{bmatrix}k\\i\end{bmatrix}\right) n^i=\sum \limits_{i=0}^{k+1} \begin{bmatrix}k+1\\i\end{bmatrix} n^i$<br>$\therefore n^{\overline{m}}=\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} n^i$<br>③$n^{\underline{m}}=\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} (-1)^{m-i} n^i$<br>证明：<br>当$m=1$时，$\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} (-1)^{m-i} n^i=\begin{bmatrix}1\\1\end{bmatrix} n=n$<br>假设$m=k$时成立<br>当$m=k+1$时，$n^{\underline{k+1}}=(n-k)n^{\underline{k}}=n\sum \limits_{i=0}^{k} \begin{bmatrix}k\\i\end{bmatrix} (-1)^{k-i} n^i-k\sum \limits_{i=0}^{k} \begin{bmatrix}k\\i\end{bmatrix} (-1)^{k-i} n^i=\sum \limits_{i=0}^{k+1} \begin{bmatrix}k\\i-1\end{bmatrix} (-1)^{k+1-i} n^i+\sum \limits_{i=0}^{k+1} k\begin{bmatrix}k\\i\end{bmatrix} (-1)^{k+1-i} n^i=\sum \limits_{i=0}^{k+1} \left(\begin{bmatrix}k\\i-1\end{bmatrix}+k\begin{bmatrix}k\\i\end{bmatrix}\right) (-1)^{k+1-i} n^i=\sum \limits_{i=0}^{k+1} \begin{bmatrix}k+1\\i\end{bmatrix} (-1)^{k+1-i} n^i$<br>$\therefore n^{\underline{m}}=\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} (-1)^{m-i} n^i$<h2 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h2>若$f(n)=\sum \limits_{i=1}^n\begin{Bmatrix}n\\i\end{Bmatrix}g(i)$，则$g(n)=\sum \limits_{i=1}^n(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}f(i)$<br>这个$-1$的次数怎么这么熟？<br>是的，这就是上面的③式中$-1$次数<br>可以用斯特林反演说明①式和③式是等价的<br>但是这玩意儿好像没啥用，至少我没用过<del>我就没做过几道斯特林数的题目</del>，所以我也不会证……<br><strong>ps：定义部分从百度百科上的内容删改而成</strong></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jacky Dong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jrjacky.github.io/2020/04/22/%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%9A%84%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E4%BB%8B%E7%BB%8D/" title="通俗易懂的斯特林数介绍">http://jrjacky.github.io/2020/04/22/通俗易懂的斯特林数介绍/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
-</header>
 
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 36 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/" style="font-size: 13.64px; color: #bbb">01分数规划</a> <a href="/tags/APIO/" style="font-size: 12px; color: #ccc">APIO</a> <a href="/tags/BZOJ/" style="font-size: 23.45px; color: #555">BZOJ</a> <a href="/tags/CEOI/" style="font-size: 12px; color: #ccc">CEOI</a> <a href="/tags/DP/" style="font-size: 25.09px; color: #444">DP</a> <a href="/tags/DTOJ/" style="font-size: 28.36px; color: #222">DTOJ</a> <a href="/tags/LCA/" style="font-size: 15.27px; color: #aaa">LCA</a> <a href="/tags/LOJ/" style="font-size: 12px; color: #ccc">LOJ</a> <a href="/tags/NOI/" style="font-size: 12px; color: #ccc">NOI</a> <a href="/tags/NOIP/" style="font-size: 12px; color: #ccc">NOIP</a> <a href="/tags/POJ/" style="font-size: 13.64px; color: #bbb">POJ</a> <a href="/tags/USACO/" style="font-size: 13.64px; color: #bbb">USACO</a> <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9F%93%E8%89%B2/" style="font-size: 12px; color: #ccc">二分图染色</a> <a href="/tags/%E5%80%8D%E5%A2%9E/" style="font-size: 12px; color: #ccc">倍增</a> <a href="/tags/%E5%87%A0%E4%BD%95/" style="font-size: 20.18px; color: #777">几何</a> <a href="/tags/%E5%88%86%E5%9D%97/" style="font-size: 12px; color: #ccc">分块</a> <a href="/tags/%E5%8C%BA%E9%97%B4DP/" style="font-size: 12px; color: #ccc">区间DP</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 25.09px; color: #444">图论</a> <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" style="font-size: 15.27px; color: #aaa">微积分</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 26.73px; color: #333">数学</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 21.82px; color: #666">数论</a> <a href="/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96DP/" style="font-size: 15.27px; color: #aaa">斜率优化DP</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 12px; color: #ccc">日记</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 15.27px; color: #aaa">最短路</a> <a href="/tags/%E6%A0%91%E5%89%96/" style="font-size: 13.64px; color: #bbb">树剖</a> <a href="/tags/%E6%A0%91%E5%BD%A2DP/" style="font-size: 13.64px; color: #bbb">树形DP</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 12px; color: #ccc">树状数组</a> <a href="/tags/%E6%A6%82%E7%8E%87DP/" style="font-size: 13.64px; color: #bbb">概率DP</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 15.27px; color: #aaa">模拟</a> <a href="/tags/%E6%B4%9B%E8%B0%B7/" style="font-size: 25.09px; color: #444">洛谷</a> <a href="/tags/%E7%8A%B6%E5%8E%8BDP/" style="font-size: 15.27px; color: #aaa">状压DP</a> <a href="/tags/%E7%9C%81%E9%80%89/" style="font-size: 20.18px; color: #777">省选</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 18.55px; color: #888">线段树</a> <a href="/tags/%E7%BB%84%E5%90%88/" style="font-size: 16.91px; color: #999">组合</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 12px; color: #ccc">网络流</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 30px; color: #111">题解</a>
-            </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%84%E5%90%88/" rel="tag"><i class="fa fa-tag"></i>组合</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i>数学</a>
           </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
 
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/22/DTOJ2162-magic/" rel="prev" title="DTOJ2162 magic">
+      <i class="fa fa-chevron-left"></i> DTOJ2162 magic
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
   </div>
 
 
@@ -301,6 +381,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一类斯特林数"><span class="nav-number">1.1.</span> <span class="nav-text">第一类斯特林数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二类斯特林数"><span class="nav-number">1.2.</span> <span class="nav-text">第二类斯特林数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性质"><span class="nav-number">2.</span> <span class="nav-text">性质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通项"><span class="nav-number">2.1.</span> <span class="nav-text">通项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递推"><span class="nav-number">2.2.</span> <span class="nav-text">递推</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一类斯特林数-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">第一类斯特林数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二类斯特林数-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">第二类斯特林数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊值"><span class="nav-number">2.3.</span> <span class="nav-text">特殊值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一类斯特林数-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">第一类斯特林数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二类斯特林数-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">第二类斯特林数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速幂？？？"><span class="nav-number">2.4.</span> <span class="nav-text">快速幂？？？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斯特林反演"><span class="nav-number">2.5.</span> <span class="nav-text">斯特林反演</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
