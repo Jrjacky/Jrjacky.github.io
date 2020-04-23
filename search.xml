@@ -246,7 +246,7 @@
       </tags>
   </entry>
   <entry>
-    <title>洛谷P4284&amp;DTOJ1862&amp;BZOJ3566 [SHOI2014]概率充电器</title>
+    <title>洛谷P4284 DTOJ1862 BZOJ3566 [SHOI2014]概率充电器</title>
     <url>/2020/04/11/%E6%B4%9B%E8%B0%B7P4284-DTOJ1862-BZOJ3566-SHOI2014-%E6%A6%82%E7%8E%87%E5%85%85%E7%94%B5%E5%99%A8/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.com.cn/problem/P4284" target="_blank" rel="noopener">原题</a><br><a id="more"></a><br>著名的电子产品品牌<code>SHOI</code>刚刚发布了引领世界潮流的下一代电子产品——概率充电器：<br>“采用全新纳米级加工技术，实现元件与导线能否通电完全由真随机数决定！SHOI概率充电器，您生活不可或缺的必需品！能充上电吗？现在就试试看吧！”<br><code>SHOI</code>概率充电器由$n-1$条导线连通了$n$个充电元件。进行充电时，每条导线是否可以导电以概率决定，每一个充电元件自身是否直接进行充电也由概率决定<br>随后电能可以从直接充电的元件经过通电的导线使得其他充电元件进行间接充电<br>作为<code>SHOI</code>公司的忠实客户，你无法抑制自己购买<code>SHOI</code>产品的冲动。在排了一个星期的长队之后终于入手了最新型号的<code>SHOI</code>概率充电器<br>你迫不及待地将<code>SHOI</code>概率充电器插入电源——这时你突然想知道，进入充电状态的元件个数的期望是多少呢？</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行一个整数：$n$，概率充电器的充电元件个数，充电元件由$1,2,\cdots \cdots ,n$编号<br>之后的$n-1$行每行三个整数$a,b,p$，描述了一根导线连接了编号为$a$和$b$的充电元件，通电概率为$p\%$<br>第$n+2$行$n$个整数：$q_i$，表示$i$号元件直接充电的概率为$q_i\%$</p>
@@ -380,7 +380,7 @@
       </tags>
   </entry>
   <entry>
-    <title>洛谷P4155&amp;&amp;BZOJ4444&amp;&amp;DTOJ2347 [SCOI2015]国旗计划</title>
+    <title>洛谷P4155 BZOJ4444 DTOJ2347 [SCOI2015]国旗计划</title>
     <url>/2020/04/05/%E6%B4%9B%E8%B0%B7P4155-BZOJ4444-DTOJ2347-SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
 <p><code>A国</code>正在开展一项伟大的计划——国旗计划<br>这项计划的内容是边防战士手举国旗环绕边境线奔袭一圈<br>这项计划需要多名边防战士以接力的形式共同完成，为此，国土安全局已经挑选了$n$名优秀的边防战士作为这项计划的候选人<br><code>A国</code>幅员辽阔，边境线上设有$m$个边防站，顺时针编号$1$至$m$<br>每名边防战士常驻两个边防站，并且善于在这两个边防站之间长途奔袭，我们称这两个边防站之间的路程是这两个边防战士的奔袭区间<br>$N$名边防战士都是精心挑选的，身体素质极佳，所以每名边防战士的奔袭区间都不会被其他边防战士的奔袭区间所包含<br>现在，国土安全局局长希望知道，至少需要多少名边防战士，才能使得他们的奔袭区间覆盖全部的边境线，从而顺利地完成国旗计划<br>不仅如此，安全局局长还希望知道更详细的信息：对于每一名边防战士，在他必须参加国旗计划的前提下，至少需要多少名边防战士才能覆盖全部边境线，从而顺利完成国旗计划</p>
@@ -405,7 +405,7 @@
       </tags>
   </entry>
   <entry>
-    <title>洛谷P3258&amp;&amp;BZOJ3631&amp;&amp;DTOJ2250 [JLOI2014]松鼠的新家</title>
+    <title>洛谷P3258 BZOJ3631 DTOJ2250 [JLOI2014]松鼠的新家</title>
     <url>/2020/04/05/%E6%B4%9B%E8%B0%B7P3258-BZOJ3631-DTOJ2250-JLOI2014-%E6%9D%BE%E9%BC%A0%E7%9A%84%E6%96%B0%E5%AE%B6/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
 <p>松鼠的新家是一棵树，前几天刚刚装修了新家，新家有$n$个房间，并且有$n-1$根树枝连接，每个房间都可以相互到达，且俩个房间之间的路线都是唯一的<br>天哪，他居然真的住在“树”上<br>松鼠想邀请小熊维尼前来参观，并且还指定一份参观指南，他希望维尼能够按照他的指南顺序，先去$a_1$，再去$a_2$，……，最后到$a_n$，去参观新家<br>可是这样会导致维尼重复走很多房间，懒惰的维尼不听地推辞<br>可是松鼠告诉他，每走到一个房间，他就可以从房间拿一块糖果吃<br>维尼是个馋家伙，立马就答应了<br>现在松鼠希望知道为了保证维尼有糖果吃，他需要在每一个房间各放至少多少个糖果<br>因为松鼠参观指南上的最后一个房间$a_n$是餐厅，餐厅里他准备了丰盛的大餐，所以当维尼在参观的最后到达餐厅时就不需要再拿糖果吃了</p>
@@ -430,7 +430,7 @@
       </tags>
   </entry>
   <entry>
-    <title>洛谷P4582&amp;&amp;BZOJ4015&amp;&amp;DTOJ1748 [FJOI2014]树的重心</title>
+    <title>洛谷P4582 BZOJ4015 DTOJ1748 [FJOI2014]树的重心</title>
     <url>/2020/04/05/%E6%B4%9B%E8%B0%B7P4582-BZOJ4015-DTOJ1748-FJOI2014-%E6%A0%91%E7%9A%84%E9%87%8D%E5%BF%83/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
 <p>给定一个$n$个点的树，每个点的编号从$1$至$n$，问这个树有多少不同的连通子树，和这个树有相同的重心<br>其中$n$个点的树指的是$n$个点的最小连通图，显然$n$个点的树有$n-1$条边，去掉这$n-1$条边中的任何一条，原图都不再联通，任意两个点之间由唯一一条路径相连<br>对于一个树，树的重心定义为：删掉某点$i$后，若剩余$k$个连通分量，那么定义$d(i)$为这些连通分量中点的个数的最大值，所谓重心，就是使得$d(i)$最小的点$i$<br>基于以上定义，一个树的重心可能会有一个或者两个，题中所要求的联通子树，其重心编号和个数必须和原树的完全一样<br>编程任务：找出给定的树中有多少连通的子树和这个树有相同的重心</p>
@@ -460,7 +460,7 @@
       </tags>
   </entry>
   <entry>
-    <title>洛谷P4322&amp;&amp;BZOJ4753&amp;&amp;DTOJ3156 [JSOI2016]最佳团体</title>
+    <title>洛谷P4322 BZOJ4753 DTOJ3156 [JSOI2016]最佳团体</title>
     <url>/2020/04/05/%E6%B4%9B%E8%B0%B7P4322-BZOJ4753-DTOJ3156-JSOI2016-%E6%9C%80%E4%BD%B3%E5%9B%A2%E4%BD%93/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.com.cn/problem/P4322" target="_blank" rel="noopener">原题</a><br><a id="more"></a><br><code>JSOI</code>信息学代表队一共有$N$名候选人，这些候选人从$1$到$N$编号<br>方便起见，<code>JYY</code>的编号是$0$号<br>每个候选人都由一位编号比他小的候选人$R_i$推荐。如果$R_i=0$则说明这个候选人是<code>JYY</code>自己看上的<br>为了保证团队的和谐，<code>JYY</code>需要保证，如果招募了候选人$i$，那么候选人$R_i$也一定需要在团队中<br>当然了，<code>JYY</code>自己总是在团队里的。每一个候选人都有一个战斗值$P_i$，也有一个招募费用$S_i$<br><code>JYY</code>希望招募$K$个候选人（<code>JYY</code>自己不算），组成一个性价比最高的团队<br>也就是，这$K$个被<code>JYY</code>选择的候选人的总战斗值与总招募总费用的比值最大</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p> 输入一行包含两个正整数$K$和$N$<br>接下来$N$行，其中第$i$行包含$3$个整数$S_i,P_i,R_i$表示候选人i的招募费用，战斗值和推荐人编号</p>
@@ -555,7 +555,7 @@
       </tags>
   </entry>
   <entry>
-    <title>洛谷P2146&amp;&amp;DTOJ2409 [NOI2015]软件包管理器</title>
+    <title>洛谷P2146 DTOJ2409 [NOI2015]软件包管理器</title>
     <url>/2020/03/28/%E6%B4%9B%E8%B0%B7P2146-DTOJ2409-NOI2015-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
 <p><code>Linux</code>用户和<code>OS X</code>用户一定对软件包管理器不会陌生<br>通过软件包管理器，你可以通过一行命令安装某一个软件包，然后软件包管理器会帮助你从软件源下载软件包，同时自动解决所有的依赖（即下载安装这个软件包的安装所依赖的其它软件包），完成所有的配置<br><code>Debian/Ubuntu</code>使用的<code>apt-get</code>，<code>Fedora/CentOS</code>使用的<code>yum</code>，以及<code>OS X</code>下可用的<code>homebrew</code>都是优秀的软件包管理器<br>你决定设计你自己的软件包管理器<br>不可避免地，你要解决软件包之间的依赖问题<br>如果软件包<code>A</code>依赖软件包<code>B</code>，那么安装软件包<code>A</code>以前，必须先安装软件包<code>B</code><br>同时，如果想要卸载软件包<code>B</code>，则必须卸载软件包<code>A</code><br>现在你已经获得了所有的软件包之间的依赖关系，而且，由于你之前的工作，除<code>0</code>号软件包以外，在你的管理器当中的软件包都会依赖一个且仅一个软件包，而<code>0</code>号软件包不依赖任何一个软件包<br>依赖关系不存在环（若有$m(m\geqslant 2)$个软件包$A_1,A_2,A_3,\cdots \cdots,A_m$，其中$A_1$依赖$A_2$，$A_2$依赖$A_3$，$A_3$依赖$A_4$，……，$A_{m−1}$依赖$A_m$，而$A_m$依赖$A_1$，则称这$m$个软件包的依赖关系构成环），当然也不会有一个软件包依赖自己<br>现在你要为你的软件包管理器写一个依赖解决程序<br>根据反馈，用户希望在安装和卸载某个软件包时，快速地知道这个操作实际上会改变多少个软件包的安装状态（即安装操作会安装多少个未安装的软件包，或卸载操作会卸载多少个已安装的软件包），你的任务就是实现这个部分<br>注意，安装一个已安装的软件包，或卸载一个未安装的软件包，都不会改变任何软件包的安装状态，即在此情况下，改变安装状态的软件包数为$0$</p>
@@ -582,7 +582,7 @@
       </tags>
   </entry>
   <entry>
-    <title>BZOJ3919&amp;&amp;DTOJ2308 Portals</title>
+    <title>BZOJ3919 DTOJ2308 Portals</title>
     <url>/2020/03/28/BZOJ3919-DTOJ2308-Portals/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h3 id="英文题目"><a href="#英文题目" class="headerlink" title="英文题目"></a>英文题目</h3><a id="more"></a>
 <p>There is a cake placed in a labyrinth and you desperately want to eat it. You have a map of the labyrinth, which is a grid of R rows and C columns. Each grid cell contains one of the following characters:</p>
@@ -638,7 +638,7 @@
       </tags>
   </entry>
   <entry>
-    <title>LOJ2790&amp;DTOJ2809 [CEOI2015 Day2]核能国度(Nuclearia)</title>
+    <title>LOJ2790 DTOJ2809 [CEOI2015 Day2]核能国度(Nuclearia)</title>
     <url>/2020/03/27/LOJ2790-DTOJ2809-CEOI2015-Day2-%E6%A0%B8%E8%83%BD%E5%9B%BD%E5%BA%A6-Nuclearia/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://loj.ac/problem/2790" target="_blank" rel="noopener">原题</a></strong><br><a id="more"></a><br>核能国可以看作一个由$W \times H$的方格组成的矩形。核能国有$N$个核电站，每个核电站占用一个方格。不幸的是，核能国遭遇了百年一遇的特大地震，导致所有的核电站都发生了核泄漏。<br>每个核电站的核泄漏程度可以用两个整数$a, b$来表示。如果位于$P=[x_P,y_P]$的核电站爆炸，方格$C=[x_C,y_C]$会增加$\mathrm{max}(0,a-b\times d(P,C))$贝克的辐射（贝克是单位），其中$d(P,C)$是两个方格的切比雪夫距离，即$d(P,C) =\mathrm{max}(|x_P - x_C|,|y_P - y_C|)$。<br>一个方格可能会受到多处核泄漏的影响。<br>例如，如果一个$a = 7, b = 3$的核电站爆炸了，所在的方格$X$会受到$7$贝克辐射（贝克是单位），满足$d(X,Y) = 1$的$8$个方格$Y$会受到$4$贝克辐射，满足$d(X,Z) = 2$的$16$个方格$Z$会受到$1$贝克辐射。<br>环保部门给了你$Q$组询问，每组询问会划定核能国领土中的一个矩形，请回答：矩形区域内（每个方格）所受的平均辐射量为多少。</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行，两个正整数$W$和$H(W × H \leqslant 2.5×10^6)$，分别表示核能国的宽度与高度。<br>第二行，一个正整数$N$，表示核电站的个数$(1 \leq N \leqslant 2×10^5)$。<br>在接下来的$N$行中，每行四个正整数$x_i,y_i,a_i,b_i(1 \leqslant x_i \leqslant W,1 \leqslant y_i \leqslant H,1 \leqslant a_i,b_i \leqslant 10^9)$，表示有一个核电站位于方格$[x_i,y_i]$，它的参数为$a_i$与$b_i​$。每个格子最多有一个核电站。<br>第$N+3$行，一个正整数$Q$，表示询问的次数$(1 \leq Q \leq 2×10^5)$。<br>在接下来的$Q$行中，每行四个 正整数 $x_{1j},y_{1j},x_{2j},y_{2j}(1 \leqslant x_{1j} \leqslant x_{2j} \leqslant W,1 \leqslant y_{1j} \leqslant y_{2j} \leqslant H)$，表示该询问给出的矩形区域的左上角在$[x_{1j},y_{1j}]$且它的右下角在$[x_{2j},y_{2j}]$。<br>你可以假设核能国内的总辐射量少于$2^{63}$。</p>
@@ -844,7 +844,7 @@
       </tags>
   </entry>
   <entry>
-    <title>洛谷P3628&amp;&amp;DTOJ1220 [APOI2010]特别行动队</title>
+    <title>洛谷P3628 DTOJ1220 [APOI2010]特别行动队</title>
     <url>/2020/03/27/%E6%B4%9B%E8%B0%B7P3628-DTOJ1220-APOI2010-%E7%89%B9%E5%88%AB%E8%A1%8C%E5%8A%A8%E9%98%9F/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.com.cn/problem/P3628" target="_blank" rel="noopener">原题</a><br><a id="more"></a><br>你有一支由$n$名预备役士兵组成的部队，士兵从$1$到$n$编号，要将他们拆分成若干特别行动队调入战场。出于默契的考虑，同一支特别行动队中队员的编号应该连续，即为形如$(i, i + 1,\cdots \cdots, i + k)$的序列<br>编号为 i 的士兵的初始战斗力为$x_i$ ，一支特别行动队的初始战斗力$x$为队内士兵初始战斗力之和，即$x = \sum\limits_{j=i}^{i+k}x_j$<br>通过长期的观察，你总结出一支特别行动队的初始战斗力$x$将按如下经验公式修正为$x’：x’ = ax^2 + bx + c$，其中$a, b, c$是已知的系数（$a &lt; 0$）<br>作为部队统帅，现在你要为这支部队进行编队，使得所有特别行动队修正后战斗力之和最大，试求出这个最大和</p>
 <p>例如， 你有$4$名士兵，$x_1 = 2, x_2 = 2, x_3 = 3, x_4 = 4$，经验公式中的参数为$a = –1, b = 10, c = –20$<br>此时，最佳方案是将士兵组成$3$个特别行动队：第一队包含士兵$1$和士兵$2$，第二队包含士兵$3$，第三队包含士兵$4$<br>特别行动队的初始战斗力分别为$4, 3, 4$，修正后的战斗力分别为$4, 1, 4$，修正后的战斗力和为$9$，没有其它方案能使修正后的战斗力和更大</p>
@@ -930,7 +930,7 @@ $\frac{f_j-f_k+a(sum_j^2-sum_k^2)-b(sum_j-sum_k)}{sum_j-sum_k}<2asum_i$
       </tags>
   </entry>
   <entry>
-    <title>洛谷P4072&amp;&amp;BZOJ4518&amp;&amp;DTOJ2682 [SDOI2016]征途</title>
+    <title>洛谷P4072 BZOJ4518 DTOJ2682 [SDOI2016]征途</title>
     <url>/2020/03/27/%E6%B4%9B%E8%B0%B7P4072-BZOJ4518-DTOJ2682-SDOI2016-%E5%BE%81%E9%80%94/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.com.cn/problem/P4072" target="_blank" rel="noopener">原题</a><br><a id="more"></a><br><code>Pine</code>开始了从$S$地到$T$地的征途<br>从$S$地到$T$地的路可以划分成$n$段，相邻两段路的分界点设有休息站<br><code>Pine</code>计划用$m$天到达$T$地。除第$m$天外，每一天晚上<code>Pine</code>都必须在休息站过夜。所以，一段路必须在同一天中走完<br><code>Pine</code>希望每一天走的路长度尽可能相近，所以他希望每一天走的路的长度的方差尽可能小<br>帮助<code>Pine</code>求出最小方差是多少<br>设方差是$v$，可以证明，$v \times m ^ 2$是一个整数。为了避免精度误差，输出结果时输出$v \times m ^ 2$</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行两个数$n$、$m$<br>第二行$n$个数，表示$n$段路的长度</p>
@@ -965,7 +965,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </tags>
   </entry>
   <entry>
-    <title>BZOJ4499&amp;&amp;DTOJ2555 线性函数</title>
+    <title>BZOJ4499 DTOJ2555 线性函数</title>
     <url>/2020/03/27/BZOJ4499-DTOJ2555-%E7%BA%BF%E6%80%A7%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
 <p>小<code>C</code>最近在学习线性函数，线性函数可以表示为：$f(x) = kx + b$。现在小<code>C</code>面前有$n$个线性函数$f_i=k_ix+b_i$，他对这$n$个线性函数执行$m$次操作，每次可以：</p>
@@ -1141,8 +1141,8 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </tags>
   </entry>
   <entry>
-    <title>DTOJ Begin4028&amp;DTOJ3603 table</title>
-    <url>/2019/09/22/DTOJ%20Begin4028%20&amp;DTOJ3603%20table/</url>
+    <title>DTOJ Begin4028 DTOJ3603 table</title>
+    <url>/2019/09/22/DTOJ-Begin4028%20-DTOJ3603-table/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><code>C</code> 酱有一个$m \times n$的数表，行与列的编号都从$1$开始。令$f_{i,j}$表示表格第$i$行第$j$列内的数，那么对于表格的第$i(i&gt;1)$行有</p>
 <script type="math/tex; mode=display">\begin{cases}f_{i,1}=a \times f_{i-1,1}\\f_{i,j}=a\times f_{i-1,j}+b\times f_{i-1,j-1}\end{cases}</script><p>然而 <code>C</code> 酱已经把表格中的数忘得差不多了，他现在只记得第$p$行的数。他希望你能够帮忙还原出部分位置的数值。</p>
 <a id="more"></a>
@@ -1432,8 +1432,8 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </tags>
   </entry>
   <entry>
-    <title>洛谷P1072&amp;DTOJ Begin1014Hankson的趣味题</title>
-    <url>/2019/07/31/%E6%B4%9B%E8%B0%B7P1072&amp;DTOJ%20Begin1014Hankson%E7%9A%84%E8%B6%A3%E5%91%B3%E9%A2%98/</url>
+    <title>洛谷P1072 DTOJ Begin1014Hankson的趣味题</title>
+    <url>/2019/07/31/%E6%B4%9B%E8%B0%B7P1072-DTOJ%20Begin1014Hankson%E7%9A%84%E8%B6%A3%E5%91%B3%E9%A2%98/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://www.luogu.org/problem/P1072" target="_blank" rel="noopener">原题</a></strong></p>
 <a id="more"></a>
 <p>Hanks博士是 BT(Bio-Tech，生物技术)领域的知名专家，他的儿子名叫Hankson。现在，刚刚放学回家的Hankson正在思考一个有趣的问题。<br>今天在课堂上，老师讲解了如何求两个正整数$c_1$和$c_2$的最大公约数和最小公倍数。现在Hankson认为自己已经熟练地掌握了这些知识，他开始思考一个“求公约数”和“求公倍数”之类问题的“逆问题”，这个问题是这样的：已知正整数$a_0,a_1,b_0,b_1$，设某未知正整数$x$满足：<br>1.$x$和 $a_0$的最大公约数是$a_1$；<br>2.$x$和$b_0$的最小公倍数是$b_1$。<br>Hankson的“逆问题”就是求出满足条件的正整数$x$。但稍加思索之后，他发现这样的$x$并不唯一，甚至可能不存在。因此他转而开始考虑如何求解满足条件的$x$的个数。请你帮助他编程求解这个问题。</p>
@@ -1531,7 +1531,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </tags>
   </entry>
   <entry>
-    <title>洛谷P2894&amp;DTOJ Begin1549[USACO08FEB]酒店Hotel题解</title>
+    <title>洛谷P2894 DTOJ Begin1549[USACO08FEB]酒店Hotel题解</title>
     <url>/2019/07/27/%E6%B4%9B%E8%B0%B7P2894&amp;DTOJ%20Begin1549%5BUSACO08FEB%5D%E9%85%92%E5%BA%97Hotel%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://www.luogu.org/problemnew/show/P2894" target="_blank" rel="noopener">原题</a></strong></p>
 <a id="more"></a>
@@ -1554,7 +1554,7 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
       </tags>
   </entry>
   <entry>
-    <title>洛谷P2120&amp;DTOJ1099仓库建设题解</title>
+    <title>洛谷P2120 DTOJ1099仓库建设题解</title>
     <url>/2019/07/27/%E6%B4%9B%E8%B0%B7P2120&amp;DTOJ1099%E4%BB%93%E5%BA%93%E5%BB%BA%E8%AE%BE%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://www.luogu.org/problemnew/show/P2120" target="_blank" rel="noopener">原题</a></strong></p>
 <a id="more"></a>
@@ -1615,7 +1615,7 @@ $\frac{f_{a}+s_{a}-f_{b}-s_{b}}{sp_{a}+sp_{b}}<x_{i}$
       </tags>
   </entry>
   <entry>
-    <title>洛谷P1172&amp;DTOJ Begin1777安全逃离题解</title>
+    <title>洛谷P1172 DTOJ Begin1777安全逃离题解</title>
     <url>/2019/07/27/%E6%B4%9B%E8%B0%B7P1172&amp;DTOJ%20Begin1777%E5%AE%89%E5%85%A8%E9%80%83%E7%A6%BB%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong><a href="https://www.luogu.org/problemnew/show/P1172" target="_blank" rel="noopener">原题</a></strong></p>
 <a id="more"></a>
