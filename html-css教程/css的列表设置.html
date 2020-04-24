@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>html&css教程</title>
+<link rel="icon" href="logo.ico" type="image/x-icon"/>
+<link rel="stylesheet" type="text/css" href="homepage.css">
+<link rel="stylesheet" type="text/css" href="csspage.css">
+</head>
+<body>
+<div class="header">css教程</div>
+<div class="topnav">
+ 	<a href="html&css教程.html">首页</a>
+ 	<a href="html教程.html">html教程</a>
+ 	<a class="active" href="css教程.html">css教程</a>
+ 	<a href="about.html">关于</a>
+</div>
+<div class="row">
+	<div class="leftcolumn">
+		<div class="card">
+			<h3>目录</h3>
+			<ul class="navbar">
+				<li class="navbar"><a href="css教程.html">css简介</a></li>
+				<li class="navbar"><a href="css的创建.html">css的创建</a></li>
+				<li class="navbar"><a href="css的基本语法.html">css的基本语法</a></li>
+				<li class="navbar"><a href="css的id和class选择器.html">css的id和class选择器</a></li>
+				<li class="navbar"><a href="css的背景设置.html">css的背景设置</a></li>
+				<li class="navbar"><a href="css的文本设置.html">css的文本设置</a></li>
+				<li class="navbar"><a href="css的链接设置.html">css的链接设置</a></li>
+				<li class="navbar"><a class="Active" href="css的列表设置.html">css的列表设置</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="rightcolumn">
+		<div class="card">
+			和链接一样，列表也是文本，也可以进行和文本一样的设置<br>
+			但是，列表标记有不同的类型<br>
+			<h2>系统默认的标记</h2>
+			我们可以通过属性<span class="htmlcode">list-style-type</span>来修改<br>
+			常用的值有：
+			<ul>
+				<li>无序列表：<span class="htmlcode">disc(实心圆)/circle(空心圆)/square(实心方块)</span></li>
+				<li>有序列表：<span class="htmlcode">decimal(阿拉伯数字)/upper-roman(大写罗马数字)/lower-roman(小写罗马数字)/upper-alpha(大写英文字母)/lower-alpha(小写英文字母)/lower-greek(小写希腊字母，没有大写，我也不知道为啥)</span></li>
+			</ul>
+			我列举的只是常用的，还有一些奇奇怪怪的，比如日文片假名，传统的希伯来编号，传统的亚美尼亚……<br>
+			另外，关于字母多说一嘴，如果列表长度超过了所有字母的个数，就会像Excle那样，两个字母组合，再三个字母组合……
+			<h2>自定义标记图像</h2>
+			如果你不想用系统的标记，就可以使用自己的图片<br>
+			格式是：<span class="htmlcode">list-style-image:url('...');</span><br>
+			在单引号中输入图片的文件名
+		</div>
+		<div class="pre-next-links">
+			<div class="pre-design-link"><a href="css的链接设置.html"><img src="pre.jpg"></a><a href="css的链接设置.html" rel="pre" title="css的链接设置">css的链接设置</a></div>
+			<!-- <div class="next-design-link"><a href="css的创建.html" rel="next" title="css的创建">css的创建</a><a href="css的创建.html"><img src="next.jpg"></a></div> -->
+		</div>
+	</div>
+</div>
+<div class="footer">© 2020 | powered by Jacky Dong</div>
+</body>
+</html>

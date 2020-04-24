@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>html&css教程</title>
+<link rel="icon" href="logo.ico" type="image/x-icon"/>
+<link rel="stylesheet" type="text/css" href="homepage.css">
+<link rel="stylesheet" type="text/css" href="csspage.css">
+</head>
+<body>
+<div class="header">css教程</div>
+<div class="topnav">
+ 	<a href="html&css教程.html">首页</a>
+ 	<a href="html教程.html">html教程</a>
+ 	<a class="active" href="css教程.html">css教程</a>
+ 	<a href="about.html">关于</a>
+</div>
+<div class="row">
+	<div class="leftcolumn">
+		<div class="card">
+			<h3>目录</h3>
+			<ul class="navbar">
+				<li class="navbar"><a href="css教程.html">css简介</a></li>
+				<li class="navbar"><a class="Active" href="css的创建.html">css的创建</a></li>
+				<li class="navbar"><a href="css的基本语法.html">css的基本语法</a></li>
+				<li class="navbar"><a href="css的id和class选择器.html">css的id和class选择器</a></li>
+				<li class="navbar"><a href="css的背景设置.html">css的背景设置</a></li>
+				<li class="navbar"><a href="css的文本设置.html">css的文本设置</a></li>
+				<li class="navbar"><a href="css的链接设置.html">css的链接设置</a></li>
+				<li class="navbar"><a href="css的列表设置.html">css的列表设置</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="rightcolumn">
+		<div class="card">
+			css的创建一共有3中类型，我们分别来讲述
+			<h2>内嵌式</h2>
+			这是css最基本的创建方法，就是直接写在html代码中！<br>
+			这种类型我自己比较不推荐，因为这样很难查错<span class="delete">其实是因为我的强迫症</span><br>
+			使用方法就是直接在html中写上：
+			<span class="htmlcode">
+				<
+				xxx style="...">
+				...
+				<
+				/xxx>
+			</span><br>
+			在<span class="htmlcode">style</span>后面写上你的css代码就可以啦！
+			<h2>内部样式表</h2>
+			内嵌式太麻烦了，万一同一个样式我要使用好几遍，咋办？<br>
+			我们可以使用内部样式表！<br>
+			我们直接在html代码中写上：<br>
+			<span class="htmlcode">
+				<
+				head><br><
+				style><br>...<br><
+				/style><br><
+				/head>
+			</span><br>
+			在<span class="htmlcode">
+				<
+				style>
+			</span>和<span class="htmlcode">
+				<
+				/styles>
+			</span>之间写上你的css代码就可以了
+			<h2>外部样式表</h2>
+			如果一种样式需要用于好几个不同的页面，咋办？<br>
+			很简单，直接使用外部式样式表！<br>
+			使用方法很简单：
+			<ol>
+				<li>创建一个css文件，写入css代码</li>
+				<li>
+					在html的内部写上：<br>
+					<span class="htmlcode">
+					<
+					head><br><
+					link rel="stylesheet" type="text/css" href="xxx.css"><br><
+					/head>
+					</span><br>
+					其中，<span class="htmlcode">xxx.css</span>就是你的css文件
+				</li>
+			</ol>
+		</div>
+		<div class="pre-next-links">
+			<div class="pre-design-link"><a href="css教程.html"><img src="pre.jpg"></a><a href="css教程.html" rel="pre" title="css教程">css简介</a></div>
+			<div class="next-design-link"><a href="css的基本语法.html" rel="next" title="css的基本语法">css的基本语法</a><a href="css的基本语法.html"><img src="next.jpg"></a></div>
+		</div>
+	</div>
+</div>
+<div class="footer">© 2020 | powered by Jacky Dong</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+/* 创建两列 */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 20%;
+}
+ 
+/* 右侧栏 */
+.rightcolumn {
+  float: left;
+  width: 75%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* 垂直导航栏 */
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: white;
+}
+
+li.navbar a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li.navbar a.Active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li.navbar a:hover:not(.Active) {
+    background-color: #555;
+    color: white;
+}
+
+.pre-next-links {
+	margin: 0;
+    line-height: 24px;
+    overflow: hidden;
+    padding: 10px 30px 10px 30px;
+    background: #fbfbfb;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    color: #8590a6;
+    font-size: 15px;
+    border: 1px solid #e7eaf1;
+    box-shadow: 0 1px 3px rgba(0,37,55,.05);
+    box-sizing: border-box;
+}
+
+.next-design-link {
+    float: right;
+}
+
+.next-design-link a{
+	color:grey;
+	text-decoration: none;
+}
+
+.next-design-link img{
+	height: 13px;
+	width: auto;
+}
+
+.pre-design-link {
+    float: left;
+}
+
+.pre-design-link a{
+	color:grey;
+	text-decoration: none;
+}
+
+.pre-design-link img{
+	height: 13px;
+	width: auto;
+}
+
+.htmlcode {
+	font-family: consolas
+}
+
+.delete {
+	text-decoration: line-through;
+}
+
+.picture {
+	width: 500px;
+	height: auto;
+}
+
+.example1 {
+	color:red;
+	background-color:green;
+}
+
+.example2 {
+	text-align:justify;
+	width:150px;
+}
+
+a.example3:link{
+	color:#000000;
+}
+
+a.example3:visited{
+	color:#00FF00;
+}
+
+a.example3:hover{
+	color:#FF00FF;
+}
+
+a.example3:active{
+	color:#0000FF;
+}
