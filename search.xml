@@ -196,8 +196,8 @@
         <tag>DTOJ</tag>
         <tag>题解</tag>
         <tag>图论</tag>
-        <tag>最短路</tag>
         <tag>数学</tag>
+        <tag>最短路</tag>
         <tag>01分数规划</tag>
       </tags>
   </entry>
@@ -549,8 +549,8 @@
       <tags>
         <tag>DTOJ</tag>
         <tag>题解</tag>
-        <tag>图论</tag>
         <tag>DP</tag>
+        <tag>图论</tag>
         <tag>概率DP</tag>
       </tags>
   </entry>
@@ -766,9 +766,9 @@
       <tags>
         <tag>DTOJ</tag>
         <tag>题解</tag>
-        <tag>图论</tag>
         <tag>DP</tag>
         <tag>状压DP</tag>
+        <tag>图论</tag>
         <tag>最短路</tag>
       </tags>
   </entry>
