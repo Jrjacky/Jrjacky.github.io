@@ -960,8 +960,8 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
         <tag>数学</tag>
         <tag>几何</tag>
         <tag>洛谷</tag>
-        <tag>斜率优化DP</tag>
         <tag>省选</tag>
+        <tag>斜率优化DP</tag>
       </tags>
   </entry>
   <entry>
