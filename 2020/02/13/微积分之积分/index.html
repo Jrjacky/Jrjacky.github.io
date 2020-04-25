@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://jrjacky.github.io').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="一、不定积分不定积分本质上就是导数的逆运算注意！许多函数的积分是算不出来的，所以，不要随便问别人一个函数的积分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微积分之积分">
+<meta property="og:url" content="http://jrjacky.github.io/2020/02/13/%E5%BE%AE%E7%A7%AF%E5%88%86%E4%B9%8B%E7%A7%AF%E5%88%86/index.html">
+<meta property="og:site_name" content="Jacky Dong&#39;s blog">
+<meta property="og:description" content="一、不定积分不定积分本质上就是导数的逆运算注意！许多函数的积分是算不出来的，所以，不要随便问别人一个函数的积分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200126182607488.png">
+<meta property="article:published_time" content="2020-02-13T03:24:56.000Z">
+<meta property="article:modified_time" content="2020-03-28T07:05:28.648Z">
+<meta property="article:author" content="Jacky Dong">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="微积分">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200126182607488.png">
+
+<link rel="canonical" href="http://jrjacky.github.io/2020/02/13/%E5%BE%AE%E7%A7%AF%E5%88%86%E4%B9%8B%E7%A7%AF%E5%88%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>微积分之积分 | Jacky Dong's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jacky Dong's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">学好数理化，走遍天下都不怕</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">36</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">54</span></a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-htmlandcss">
+
+    <a href="/htmlcssteach/html&css%E6%95%99%E7%A8%8B" rel="section"><i class="fa fa-fw fa-code"></i>html和css教程</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/02/13/%E5%BE%AE%E7%A7%AF%E5%88%86%E4%B9%8B%E7%A7%AF%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微积分之积分
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-13 11:24:56" itemprop="dateCreated datePublished" datetime="2020-02-13T11:24:56+08:00">2020-02-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-28 15:05:28" itemprop="dateModified" datetime="2020-03-28T15:05:28+08:00">2020-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%89%A9%E7%90%86-%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">物理&信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="一、不定积分"><a href="#一、不定积分" class="headerlink" title="一、不定积分"></a>一、不定积分</h1><p>不定积分本质上就是导数的逆运算<br><strong>注意！许多函数的积分是算不出来的，所以，不要随便问别人一个函数的积分</strong><br><a id="more"></a><br>由于常数的导数为$0$，所以，一个不定积分的结果会是这样的：$\int f(x)dx=g(x)+C$，其中，$C$是一个常数</p>
+<h2 id="1、不定积分运算法则"><a href="#1、不定积分运算法则" class="headerlink" title="1、不定积分运算法则"></a>1、不定积分运算法则</h2><h3 id="1-加减法"><a href="#1-加减法" class="headerlink" title="(1)加减法"></a>(1)加减法</h3><p>$\int f(x)dx+\int g(x)dx=\int \left(f(x)+g(x)\right)dx$</p>
+<h3 id="2-乘除法"><a href="#2-乘除法" class="headerlink" title="(2)乘除法"></a>(2)乘除法</h3><p>然而并没有这种东西……</p>
+<h2 id="2、求不定积分的常见方法"><a href="#2、求不定积分的常见方法" class="headerlink" title="2、求不定积分的常见方法"></a>2、求不定积分的常见方法</h2><h3 id="1-第一类换元法"><a href="#1-第一类换元法" class="headerlink" title="(1)第一类换元法"></a>(1)第一类换元法</h3><p>我之前讲过一个求导的公式——$(f(g(x)))’=f’(g(x))\times g‘(x)$（忘了？不知道？点<a href="https://blog.csdn.net/weixin_43849488/article/details/97966479" target="_blank" rel="noopener">这里</a>），那么我们可以得到$\int f’(g(x))\times g’(x)dx=f(g(x))$，把$g‘(x)$塞到$dx$中变成$dg(x)$，也就是$\int f’(g(x))\times dg(x)=f(g(x))$——这个公式就是第一类换元法<br>第一类换元法的应用很广，接下来我举几个例子供大家参考</p>
+<h4 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h4><p>求$\int sinx\cdot cosxdx$</p>
+<hr>
+<p>法一：$\int sinx\cdot cosxdx=\int sinx\cdot (sinx)’dx=\int sinxdsinx=\frac{1}{2}(sinx)^2+C$</p>
+<hr>
+<p>法二：$\int \frac{1}{2}sin2xdx=\int \frac{1}{4}sin2xd2x=-\frac{1}{4}cos2x+C$<br><strong>注意！+C是不可省略的！+C是不可省略的！+C是不可省略的！</strong><br>两种方法做的结果看似不一样，其实是一样的，只是在没有$+C$的情况下常数不同<br>这就是我强调要$+C$的原因</p>
+<h4 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h4><p>求$\int \frac{dx}{1+e^x}$</p>
+<hr>
+<p>$\int \frac{dx}{1+e^x}=\int \frac{e^xdx}{(1+e^x)e^x}=\int \frac{de^x}{e^x(1+e^x)}=\int \left(\frac{1}{e^x}-\frac{1}{e^x+1}\right)de^x=lne^x-ln\left(1+e^x\right)+C=x-ln\left(1+e^x\right)+C$<br>这一题巧妙地运用了$\left(e^x\right)’=e^x$的特殊性，再用第一类换元法和裂项解决</p>
+<h3 id="2-第二类换元法"><a href="#2-第二类换元法" class="headerlink" title="(2)第二类换元法"></a>(2)第二类换元法</h3><p>第二类换元法和第一类换元法很像，就是最后一步的变形：$\int f’(g(x))\times g’(x)dx=\int f’(g(x))\times dg(x)$<br>第二类换元法一般会和三角换元有关，基本上都是那种带根号的式子</p>
+<h4 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h4><p>求$\int \frac{dx}{\sqrt{1-x^2}}$</p>
+<hr>
+<p>设$x=sin\theta$<br>$\int \frac{dx}{\sqrt{1-x^2}}=\int \frac{dsin\theta}{cos\theta}=\int \frac{cos\theta d\theta}{cos\theta}=\int d\theta=\theta+C=arcsinx+C$<br>这就是第二类换元法的应用，将$x$巧妙地进行三角换元，得到最后消掉的局面<br>大家不要小看这种换元方法，第二类换元法的题目可以出得很难</p>
+<h4 id="例4"><a href="#例4" class="headerlink" title="例4"></a>例4</h4><p>求$\int \frac{t^2dt}{\sqrt[3]{t-5}}$</p>
+<hr>
+<p>设$x=\sqrt[3]{t-5}$<br>$\int \frac{t^2dt}{\sqrt[3]{t-5}}=\int \frac{(x^6+10x^3+25)\cdot 3x^2dx}{x}=3\int (x^7+10x^4+25x)dx=3\cdot (\frac{1}{8}x^8+2x^5+\frac{25}{2}x^2)+C$（答案太丑了，不写了）<br>一看到题目，可能很多人就傻眼了——这东西能积分吗？答案是能的，只是很麻烦<br>看到题目的第一反应应该是先把那个恶心的根号换元，接着能不能做再说</p>
+<h3 id="3-部分积分法"><a href="#3-部分积分法" class="headerlink" title="(3)部分积分法"></a>(3)部分积分法</h3><p>在求导的时候，我们学过一个公式——$(uv)’=u’v+uv’$，我们把两边同时积分，就可以得到$\int (uv)’dx=\int u’vdx+\int uv’dx+C$，左边的积分和求导抵消掉，变成$uv=\int u’vdx+\int uv’dx+C$<br>这个式子并不是最常用的，常用的是移项并用第二类换元法之后的结果——$\int udv=uv-\int vdu+C$<br>当$\int udv$不好求，但是$\int vdu$好求的时候，这个式子就排上用场啦！</p>
+<h4 id="例题5"><a href="#例题5" class="headerlink" title="例题5"></a>例题5</h4><p>求$\int xcosxdx$</p>
+<hr>
+<p>$\int xcosdx=\int x(sinx)’dx=xsinx-\int (x)’sinxdx+C=xsinx-\int sinxdx+C=xsinx+cosx+C$<br>这一个看似奇怪的函数，却被我们几下搞定<br>这题巧用了$(x)’=1$的性质，把$x$消掉，变成$sinx$的积分</p>
+<h4 id="例题6"><a href="#例题6" class="headerlink" title="例题6"></a>例题6</h4><p>求$\int arctanxdx$</p>
+<hr>
+<p>$\int arctanxdx=xarctanx-\int x\frac{dx}{x^2+1}+C=xarctanx-\frac{1}{2}\int \frac{d(x^2+1)}{x^2+1}+C=xarctanx-\frac{1}{2}ln(x^2+1)+C$<br>这题再次巧用$(x)’=1$的性质，无中生有一个$x$，最后又在把$x$丢到$dx$中的时候巧妙地加了一个常数，使得刚好凑成$\frac{1}{x}$的形式</p>
+<h4 id="例题7"><a href="#例题7" class="headerlink" title="例题7"></a>例题7</h4><p>求$\int e^xcosxdx$</p>
+<hr>
+<p>$\int e^xcosxdx=\int e^xdsinx=e^xsinx-\int sinxe^xdx+C=e^xsinx+\int e^xdcosx+C=e^xsinx+e^xcosx-\int e^xcosxdx+C$<br>$\therefore 2\times\int e^xcosxdx=e^x(sinx+cosx)+C$<br>$\therefore \int e^xcosxdx=\frac{e^x(sinx+cosx)}{2}+C$<br>这题巧妙运用$\left((cosx)’\right)’=-cosx$的循环性，制造出一个循环，再除以二</p>
+<h3 id="4-一种有理函数求积分的好方法"><a href="#4-一种有理函数求积分的好方法" class="headerlink" title="(4)一种有理函数求积分的好方法"></a>(4)一种有理函数求积分的好方法</h3><p>在计算一个有理函数$\frac{p(x)}{q(x)}$的积分时，我们可以采用接下来介绍的一种方法<br>这种方法很复杂，初学者建议跳过</p>
+<h4 id="a、部分分式化"><a href="#a、部分分式化" class="headerlink" title="a、部分分式化"></a>a、部分分式化</h4><p>在求有理函数的积分前，我们先要对这个函数进行一些操作，在我以前学数竞的时候，老师曾经告诉过我们，这是一个求微积分才会用到的知识<br>首先，我们要先将这个函数中的$0$次及以上的系数分离，就是做一次大除法（不要问我大除法是什么，就是多项式除法，因为我没办法写竖式，所以无法展示出计算过程）<br>假设$p(x)\div q(x)=r(x)\cdots\cdots s(x)$，那么我们直接处理$\frac{s(x)}{q(x)}$就可以了<br>第二步，把q(x)分解质因式，假设是$a_1(x)^{b_1}\cdot a_2(x)^{b_2}\cdots\cdots a_k(x)^{b_k}$<br>第三步，把整个式子拆成这样：$\frac{p(x)}{q(x)}=\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{b_i}\frac{\sum\limits_{l=0}^{a_i(x)\text{的次数}-1} \text{一个系数}\times x^l}{(a_i(x))^j}$<br>相信大家看了这个式子后一定是懵逼的，所以我来举个例子<br>比如$q(x)=(x-1)(x+4)^3(x^2+4x+7)(3x^2-x+1)$，我们就把这个式子拆成$\frac{A}{x-1}+\frac{B}{(x+4)^3}+\frac{C}{(x+4)^2}+\frac{D}{x+4}+\frac{Ex+F}{x^2+4x+7}+\frac{Gx+H}{3x^2-x+1}$<br>那这个式子要怎么拆开呢？接下来我就再举一个例子</p>
+<h5 id="例题8"><a href="#例题8" class="headerlink" title="例题8"></a>例题8</h5><p>把$\frac{x+2}{x^2-1}$部分分式化</p>
+<hr>
+<p>首先，这个函数可以拆成$\frac{A}{x-1}+\frac{B}{x+1}$<br>所以，我们可以把$\frac{A}{x-1}+\frac{B}{x+1}$合并起来，得到$\frac{A(x+1)+B(x-1)}{x^2-1}=\frac{x+2}{x^2-1}$<br>把分母消掉并合并同类项：$x+2=(A+B)x+(A-B)$<br>这样，我们就可以得到一个方程组：$\begin{cases}A+B=1\\A-B=2\end{cases}$<br>解得$\begin{cases}A=\frac{3}{2}\\B=-\frac{1}{2}\end{cases}$<br>所以，$\frac{x+2}{x^2-1}$部分分式化的结果就是$\frac{\frac{3}{2}}{x-1}-\frac{\frac{1}{2}}{x+1}$</p>
+<h4 id="b、积分！"><a href="#b、积分！" class="headerlink" title="b、积分！"></a>b、积分！</h4><p>做完部分分式化的操作后，我们终于到了积分的环节<br>我们把这个式子部分分式化了之后，我们就可以逐个来积分了<br>首先我们来解决最简单的$q(x)$是一次的形式：$\int \frac{1}{ax+b}dx$<br>设$t=ax+b$<br>$\int \frac{1}{t}dx=\int \frac{1}{t}d(\frac{t-b}{a})=\frac{1}{a}\int \frac{1}{t}dt=\frac{1}{a}lnt+C=\frac{1}{a}ln(ax+b)+C$<br>大家觉得这个结果对吗？<br>答案是：这个结果是<strong>错的！错的！错的！</strong><br>为什么？这看起来没有错啊<br>问题在于当$ax+b&lt;0$时，就不能取对数了，所以正确答案是$\frac{1}{a}ln|ax+b|+C$<br>处理完一次式，我们再来处理一下二次式$\int \frac{Ax+B}{ax^2+bx+c}dx$<br>首先，我们进行配方$ax^2+bx+c=a(x+\frac{b}{2a})^2+\frac{4ac-b^2}{4a}$<br>设$x+\frac{b}{2a}=t$<br>$\int \frac{Ax+B}{ax^2+bx+c}dx=\int \frac{At+B-\frac{b}{2a}}{at^2-\frac{4ac-b^2}{4a}}dt=A\int \frac{t}{at^2+\frac{4ac-b^2}{4a}}dt+(B-\frac{b}{2a})\int \frac{1}{at^2+\frac{4ac-b^2}{4a}}dt$<br>现在的式子<del>有点</del>非常恶心，所以我们分两边处理<br>$\int \frac{t}{at^2-\frac{4ac-b^2}{4a}}dt=\frac{1}{2a}\int \frac{2at}{at^2+\frac{4ac-b^2}{4a}}dt=\frac{1}{2a}\int \frac{1}{at^2+\frac{4ac-b^2}{4a}}d\left(at^2\right)=\frac{1}{2a}ln|at^2+\frac{4ac-b^2}{4a}|+C=\frac{1}{2a}ln|ax^2+bx+c|+C$<br>至于右边，只需要记住一个公式：$\int \frac{1}{x^2+a^2}dt=\frac{1}{a}arctan\left(\frac{x}{a}\right)+C$（这其实就是一份第二类换元法，可以参照例3的做法）<br>问题是，我的式子中的所谓的$a^2$是$\frac{4ac-b^2}{4a}$！它大于0吗？<br>现在，你终于要知道我们为啥要部分分式化了<br>之所以这是一个二次式，是因为它无法因式分解！所以，它的$\Delta=b^2-4ac&lt;0$！所以，$\frac{4ac-b^2}{4a}$大于0<br>所以，$\int \frac{1}{at^2+\frac{4ac-b^2}{4a}}dt=\frac{1}{\sqrt{\frac{4ac-b^2}{4a}}}arctan\left(\frac{\sqrt{a}t}{\sqrt{\frac{4ac-b^2}{4a}}}\right)+C$<br>最后，我们把这两个部分合起来，$\int \frac{Ax+B}{ax^2+bx+c}dx=\frac{A}{2a}ln|ax^2+bx+c|+\frac{B-\frac{b}{2a}}{\sqrt{\frac{4ac-b^2}{4a}}}arctan\left(\frac{\sqrt{a}x+\sqrt{a}\frac{b}{2a}}{\sqrt{\frac{4ac-b^2}{4a}}}\right)+C$<br>又是一个令人无语的式子，这个式子太复杂了，以至于我相信没有人能背下来（包括我）<br>一般这种题目不会出得这么恶心，会出一些凑好的数给你<br>对于更高次的积分，你就只需要像二次一样，把它降次打击，就可以了<br>说着简单，做起来却很难<br>所以我告诫大家：积分千万条，生命第一条，积分用手算，一天写不完</p>
+<h4 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h4><p>相信大家已经对这种有理函数求积分的好方法有了一定的了解，我给大家总结一下这种方法的步骤</p>
+<ol>
+<li>先看分子分母最高项的次数，如果有必要请做除法</li>
+<li>对分母进行因式分解</li>
+<li>分部</li>
+<li>计算常数的值（以上为部分分式化内容）</li>
+<li>积分<h4 id="例题9"><a href="#例题9" class="headerlink" title="例题9"></a>例题9</h4>求$\int \frac{x^5-7x^4+19x^3-10x^2-19x+18}{x^4-5x^3+9x^2}dx$</li>
+</ol>
+<hr>
+<p>$\int \frac{x^5-7x^4+19x^3-10x^2-19x+18}{x^4-5x^3+9x^2}dx=\int \left(x-2+\frac{8x^2-19x+18}{x^4-5x^3+9x^2}\right)dx=\frac{x^2}{2}-2x+\int \frac{8x^2-19x+18}{x^4-5x^3+9x^2}dx+C=\frac{x^2}{2}-2x+\int \frac{8x^2-19x+18}{x^2(x^2-5x+9)}dx+C=\frac{x^2}{2}-2x+\int \frac{2(x^2-5x+9)-x(x^2-5x+9)+(x+1)x^2}{x^2(x^2-5x+9)}dx+C=\frac{x^2}{2}-2x+\int\left(\frac{2}{x^2}-\frac{1}{x}+\frac{x+1}{x^2-5x+9}\right)dx+C=\frac{x^2}{2}-2x-\frac{2}{x}-ln|x|+\frac{ln(x^2-5x+9)}{2}+\frac{7arctan\left(\frac{2x-5}{\sqrt{11}}\right)}{\sqrt{11}}+C$<br>这就是不定积分的全部内容了，下面给大家几道练习题：</p>
+<ol>
+<li>$\int tanxdx$</li>
+<li>$\int sin(ax+b)dx$</li>
+<li>$\int \frac{x}{1+x^4}dx$</li>
+<li>$\int \frac{1}{a^2-x^2}dx$</li>
+<li>$\int \sqrt{a^2-x^2}dx$</li>
+<li>$\int \frac{1}{\sqrt{a^2-x^2}}dx$</li>
+<li>$\int \frac{1}{\sqrt{x^2-a^2}}dx$</li>
+<li>$\int x^3lnxdx$</li>
+<li>$\int x^2e^xdx$</li>
+<li>$\int e^xsinxdx$</li>
+<li>$\int \frac{x+2}{x^2-1}dx$</li>
+<li>$\int \frac{x+8}{x^2+6x+13}dx$<h1 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h1>定积分的定义：$f(x)$在$[a,b]$上的函数图像的面积（这并不是定积分严格的定义，为了让大家好理解，把它写成这样了。原来的定义是：$\int_a^b f(x)dx=\lim \limits_{mesh\to 0} f(c_j)(x_j-x_{j-1})$，其中$a=x_0&lt;x_1&lt;\cdots \cdots&lt;x_n=b$且$\forall j\in [1,n],j\in \Z,c_j\in [x_j-1,x_j]$）<br><img src="https://img-blog.csdnimg.cn/20200126182607488.png" alt="在这里插入图片描述"><br>举个例子，$\int_a^bxdx=(a+b)*(a-b)/2$，直接画出图像，用梯形的面积计算即可<h2 id="定积分的性质"><a href="#定积分的性质" class="headerlink" title="定积分的性质"></a>定积分的性质</h2></li>
+<li>$\int_a^b f(x)dx=-\int_b^a f(x)dx$</li>
+<li>$\int_a^a f(x)dx=0$</li>
+<li>$\int_a^b f(x)dx=\int_a^c f(x)dx+\int_c^b f(x)dx$</li>
+<li>$\int_a^b Cf(x)dx=C\int_a^b f(x)dx$</li>
+<li>$\int_a^b(f(x)+g(x))dx=\int_a^bf(x)dx+\int_a^bg(x)dx$</li>
+</ol>
+<p>定积分的这些性质都很显然，按照定义来看就知道了</p>
+<h2 id="微积分基本定理"><a href="#微积分基本定理" class="headerlink" title="微积分基本定理"></a>微积分基本定理</h2><h3 id="微积分的第一基本定理"><a href="#微积分的第一基本定理" class="headerlink" title="微积分的第一基本定理"></a>微积分的第一基本定理</h3><p>$\frac{d}{dx}\int_a^x f(t)dt=f(x)$<br>这个式子还是很显然，不行的自己画个图<br>我们把形如$\int_a^x f(t)dt$的式子，我们称为变上限积分</p>
+<h3 id="微积分的第二基本定理"><a href="#微积分的第二基本定理" class="headerlink" title="微积分的第二基本定理"></a>微积分的第二基本定理</h3><p>$\int_a^b f(x)dx=\int f(b)dx-\int f(a)dx$<br>在知道微积分的第一基本定理后，我们就能很容易地推出微积分的第二基本定理了，现在知道这两个看似无关的东西的关联了吧？<br>定积分的内容比较少，因为它的计算就是通过微积分的第二基本定理，计算出该函数的不定积分，再相减，得出定积分。因此，我也没有给大家练习题了。这就是本篇文章的全部内容了，因为我的能力有限，写得不好的地方请大家多多包容。<br><strong>参考材料：</strong><br><strong>1、《普林斯顿微积分读本》Adrian Banner 著 杨爽 赵晓婷 高璞 译</strong></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jacky Dong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jrjacky.github.io/2020/02/13/%E5%BE%AE%E7%A7%AF%E5%88%86%E4%B9%8B%E7%A7%AF%E5%88%86/" title="微积分之积分">http://jrjacky.github.io/2020/02/13/微积分之积分/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i>数学</a>
+              <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i>微积分</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/09/22/DTOJ-Begin4028%20-DTOJ3603-table/" rel="prev" title="DTOJ Begin4028 DTOJ3603 table">
+      <i class="fa fa-chevron-left"></i> DTOJ Begin4028 DTOJ3603 table
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/13/%E8%A5%BF%E5%AE%89%E9%9B%86%E8%AE%AD%E6%97%A5%E8%AE%B0/" rel="next" title="西安集训日记">
+      西安集训日记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、不定积分"><span class="nav-number">1.</span> <span class="nav-text">一、不定积分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、不定积分运算法则"><span class="nav-number">1.1.</span> <span class="nav-text">1、不定积分运算法则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-加减法"><span class="nav-number">1.1.1.</span> <span class="nav-text">(1)加减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-乘除法"><span class="nav-number">1.1.2.</span> <span class="nav-text">(2)乘除法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、求不定积分的常见方法"><span class="nav-number">1.2.</span> <span class="nav-text">2、求不定积分的常见方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-第一类换元法"><span class="nav-number">1.2.1.</span> <span class="nav-text">(1)第一类换元法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例1"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">例1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例2"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">例2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-第二类换元法"><span class="nav-number">1.2.2.</span> <span class="nav-text">(2)第二类换元法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例3"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">例3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例4"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">例4</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-部分积分法"><span class="nav-number">1.2.3.</span> <span class="nav-text">(3)部分积分法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例题5"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">例题5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例题6"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">例题6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例题7"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">例题7</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-一种有理函数求积分的好方法"><span class="nav-number">1.2.4.</span> <span class="nav-text">(4)一种有理函数求积分的好方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a、部分分式化"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">a、部分分式化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#例题8"><span class="nav-number">1.2.4.1.1.</span> <span class="nav-text">例题8</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b、积分！"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">b、积分！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法总结"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">方法总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例题9"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">例题9</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定积分"><span class="nav-number">2.</span> <span class="nav-text">定积分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定积分的性质"><span class="nav-number">2.1.</span> <span class="nav-text">定积分的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微积分基本定理"><span class="nav-number">2.2.</span> <span class="nav-text">微积分基本定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#微积分的第一基本定理"><span class="nav-number">2.2.1.</span> <span class="nav-text">微积分的第一基本定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微积分的第二基本定理"><span class="nav-number">2.2.2.</span> <span class="nav-text">微积分的第二基本定理</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jacky Dong"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Jacky Dong</p>
+  <div class="site-description" itemprop="description">Jacky Dong的博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.org/" title="洛谷 → https:&#x2F;&#x2F;www.luogu.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>洛谷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://poj.org/" title="POJ → http:&#x2F;&#x2F;poj.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>POJ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://codeforces.com/" title="CF → http:&#x2F;&#x2F;codeforces.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>CF</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.lydsy.com/JudgeOnline/" title="BZOJ → https:&#x2F;&#x2F;www.lydsy.com&#x2F;JudgeOnline&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>BZOJ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://noi-test.zzstep.com/" title="Contest Hunter → http:&#x2F;&#x2F;noi-test.zzstep.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Contest Hunter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.acwing.com/" title="AcWing → https:&#x2F;&#x2F;www.acwing.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>AcWing</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://vijos.org/" title="vijos → https:&#x2F;&#x2F;vijos.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>vijos</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://114.116.248.90/" title="SHYOJ → http:&#x2F;&#x2F;114.116.248.90&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>SHYOJ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/" title="github → https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>github</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.org/space/show?uid=43373" title="https:&#x2F;&#x2F;www.luogu.org&#x2F;space&#x2F;show?uid&#x3D;43373" rel="noopener" target="_blank">我的洛谷账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://poj.org/userstatus?user_id=jackyss" title="http:&#x2F;&#x2F;poj.org&#x2F;userstatus?user_id&#x3D;jackyss" rel="noopener" target="_blank">我的POJ账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://codeforces.com/profile/jacky0705" title="http:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;jacky0705" rel="noopener" target="_blank">我的CF账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.lydsy.com/JudgeOnline/userinfo.php?user=jacky" title="https:&#x2F;&#x2F;www.lydsy.com&#x2F;JudgeOnline&#x2F;userinfo.php?user&#x3D;jacky" rel="noopener" target="_blank">我的BZOJ账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://noi-test.zzstep.com/user/jacky" title="http:&#x2F;&#x2F;noi-test.zzstep.com&#x2F;user&#x2F;jacky" rel="noopener" target="_blank">我的Contest Hunter账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.acwing.com/user/myspace/index/9710/" title="https:&#x2F;&#x2F;www.acwing.com&#x2F;user&#x2F;myspace&#x2F;index&#x2F;9710&#x2F;" rel="noopener" target="_blank">我的AcWing账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://vijos.org/user/140852" title="https:&#x2F;&#x2F;vijos.org&#x2F;user&#x2F;140852" rel="noopener" target="_blank">我的vijos账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://114.116.248.90/user-home?username=jacky567" title="http:&#x2F;&#x2F;114.116.248.90&#x2F;user-home?username&#x3D;jacky567" rel="noopener" target="_blank">我的SHYOJ账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/jrjacky" title="https:&#x2F;&#x2F;github.com&#x2F;jrjacky" rel="noopener" target="_blank">我的github账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/blog/jacky0705/you-lian" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;jacky0705&#x2F;you-lian" rel="noopener" target="_blank">更多友链</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      <div class="hitokoto-block">
+        <div class="hitokoto-inner hitokoto-comma hitokoto-left-comma">“</div>
+        <div class="hitokoto-inner hitokoto-content"><b><span><span id="hitokoto-content"></span></span></b></div>
+        <div class="hitokoto-inner hitokoto-comma hitokoto-right-comma">”</div>
+      </div>
+      <div id="hitokoto-from"></div>
+      <div class="hitokoto-bottom">
+        <a id="hitokoto-link" href="https://hitokoto.cn/" target="_blank" rel="noopener">Hitokoto</a>&nbsp;&nbsp;&nbsp;
+        <button id="hitokoto-like" title="通过给句子点赞可以增加其出现概率，由于技术原因并不能在博客中显示赞数与点赞是否成功的信息（红心表示成功发送点赞请求，但如果同 IP 重复点赞就会失败），如需查看可以点击左边的“Hitokoto”链接。"><i class="menu-item-icon fa fa-fw fa-heart"></i></button>
+      </div>
+    </div>
+    <div style="height: 15px"></div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jacky Dong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>

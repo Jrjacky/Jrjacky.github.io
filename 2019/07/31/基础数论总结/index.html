@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://jrjacky.github.io').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="一、数论中的基本概念与性质1、整除定义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础数论总结">
+<meta property="og:url" content="http://jrjacky.github.io/2019/07/31/%E5%9F%BA%E7%A1%80%E6%95%B0%E8%AE%BA%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Jacky Dong&#39;s blog">
+<meta property="og:description" content="一、数论中的基本概念与性质1、整除定义">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zMi5heDF4LmNvbS8yMDE5LzAyLzIwL2sybjdmcy5wbmc">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zMi5heDF4LmNvbS8yMDE5LzAyLzIwL2sybkw2MC5wbmc">
+<meta property="article:published_time" content="2019-07-31T09:25:54.000Z">
+<meta property="article:modified_time" content="2020-03-28T07:08:01.134Z">
+<meta property="article:author" content="Jacky Dong">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="数论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zMi5heDF4LmNvbS8yMDE5LzAyLzIwL2sybjdmcy5wbmc">
+
+<link rel="canonical" href="http://jrjacky.github.io/2019/07/31/%E5%9F%BA%E7%A1%80%E6%95%B0%E8%AE%BA%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>基础数论总结 | Jacky Dong's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jacky Dong's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">学好数理化，走遍天下都不怕</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">36</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">54</span></a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-htmlandcss">
+
+    <a href="/htmlcssteach/html&css%E6%95%99%E7%A8%8B" rel="section"><i class="fa fa-fw fa-code"></i>html和css教程</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2019/07/31/%E5%9F%BA%E7%A1%80%E6%95%B0%E8%AE%BA%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基础数论总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-31 17:25:54" itemprop="dateCreated datePublished" datetime="2019-07-31T17:25:54+08:00">2019-07-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-28 15:08:01" itemprop="dateModified" datetime="2020-03-28T15:08:01+08:00">2020-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6-%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">数学&信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="一、数论中的基本概念与性质"><a href="#一、数论中的基本概念与性质" class="headerlink" title="一、数论中的基本概念与性质"></a>一、数论中的基本概念与性质</h1><h2 id="1、整除"><a href="#1、整除" class="headerlink" title="1、整除"></a>1、整除</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><a id="more"></a>
+<p>若整数$b$除以非零整数$a$，商为整数，且余数为零， 我们就说$b$能被$a$整除（或说$a$能整除$b$），表示为$a \mid b$</p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><h4 id="1-反身性"><a href="#1-反身性" class="headerlink" title="(1)反身性"></a>(1)反身性</h4><p>$a \mid a$<br>证明：<br>$\because a \div a=1$<br>$\therefore a \mid a$</p>
+<h4 id="2-反对称性"><a href="#2-反对称性" class="headerlink" title="(2)反对称性"></a>(2)反对称性</h4><p>$a \mid b$且$b \mid a$则$\left\vert a \right\vert=\left\vert b \right\vert$<br>证明：<br>$\because a \mid b,b \mid a$<br>$\therefore$设$b \div a=x,a \div b=y \left(x,y \in Z\right)$<br>$\therefore \begin{cases}b=ax\\a=by\end{cases}$<br>$\therefore b=ax=bxy$<br>$\therefore xy=1$<br>$\therefore \begin{cases} x= \pm 1\\y= \pm 1\end{cases}$<br>$\therefore \left\vert a \right\vert=\left\vert b \right\vert$<br>$\left\vert a \right\vert=\left\vert b \right\vert$则$a \mid b$且$b \mid a$<br>证明：<br>$\because \left\vert a \right\vert=\left\vert b \right\vert$<br>$\therefore \begin{cases} a \div b= \pm 1\\b \div a= \pm 1\end{cases}$<br>$\therefore a \mid b$且$b \mid a$</p>
+<h4 id="3-传递性"><a href="#3-传递性" class="headerlink" title="(3)传递性"></a>(3)传递性</h4><p>$a \mid b$且$b \mid c$则$a \mid c$<br>证明：<br>$\because a \mid b,b \mid c$<br>$\therefore$设$b \div a=x,c \div b=y \left(x,y \in Z\right)$<br>$\therefore \begin{cases}b=ax\\c=by\end{cases}$<br>$\therefore c=by=axy$<br>$\therefore c \div a=xy$<br>$\therefore a \mid c$</p>
+<h4 id="4-其他性质"><a href="#4-其他性质" class="headerlink" title="(4)其他性质"></a>(4)其他性质</h4><p>①$a \mid b$且$a \mid c$且$a \mid d$则$a \mid \left(ka+mb+nc+ld\right)$<br>证明：<br>$\because a \mid b,a \mid c,a \mid d$<br>$\therefore$设$b \div a=x,c \div a=y,d \div a=z \left(x,y,z \in Z\right)$<br>$\therefore \begin{cases}b=ax\\c=ay\\d=az\end{cases}$<br>$\therefore \left(ka+mb+nc+ld\right) \div a=\left(ka+mxa+nya+lza\right) \div a=\left(k +mx+ny+lz\right)$<br>$\therefore a \mid \left(ka+mb+nc+ld\right)$<br>②质数$p \mid ab$则$p \mid a$或$p \mid b$<br>证明：<br>假设$p \nmid a$且$p \nmid b$<br>$\because p \nmid a,p \nmid b$<br>$\therefore a$中不含有质因子$p$，$b$中不含有质因子$p$<br>$\therefore ab$中不含有质因子$p$<br>$\therefore p \nmid ab$，与$p \mid ab$矛盾<br>$\therefore$假设不成立<br>$\therefore p \mid a$或$p \mid b$<br>③连续$n$个整数中恰有一个整数是$n$的倍数<br>证明：<br>设这$n$个数为$a,a+1,\cdots,a+n-1,a \equiv r \pmod{n},1 \leqslant r \leqslant n$<br>$\therefore \left(a+n-r\right) \equiv \left(r+n-r\right) \equiv n \equiv 0 \pmod{n}$<br>又$\because 0 \leqslant n-r &lt; n$<br>$\therefore n \mid \left(a+n-r\right)$<br>$\therefore$连续$n$个整数中恰有一个整数是$n$的倍数<br>④连续$n$个整数的乘积为$n!$的倍数<br>证明：<br>设这$n$个数为$a,a+1,\cdots,a+n-1$<br>$\because C_{a+n-1}^{n}=\frac{\prod \limits_{i=1}^n \left(a+n-i\right)}{n!}$为整数<br>$\therefore n! \mid \prod \limits_{i=1}^n \left(a+n-i\right)$</p>
+<h2 id="2、质数与合数"><a href="#2、质数与合数" class="headerlink" title="2、质数与合数"></a>2、质数与合数</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><h4 id="1-质数"><a href="#1-质数" class="headerlink" title="(1)质数"></a>(1)质数</h4><p>一个大于1的自然数，除了1和它自身外，不能整除其他自然数的数叫做质数</p>
+<h4 id="2-合数"><a href="#2-合数" class="headerlink" title="(2)合数"></a>(2)合数</h4><p>合数指自然数中除了能被1和本身整除外，还能被其他数（0除外）整除的数</p>
+<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><h4 id="质数无穷多"><a href="#质数无穷多" class="headerlink" title="质数无穷多"></a>质数无穷多</h4><p>证明（质数无穷多的证明方法有许多，这里只展示1种，<del>其实我知道两种</del>，感兴趣的可以上网查）：<br>假设质数只有$n$个<br>从小到大依次排列为$p_{1},p_{2}, \cdots ,p_{n}$，设$N=\prod \limits_{i=1}^n p_{i}$<br>$\because p_{1} \nmid N$,$p_{2} \nmid N,\cdots,p_{n} \nmid N$<br>$\therefore N$为质数，与质数只有$n$个矛盾<br>$\therefore$假设不成立<br>$\therefore$质数无穷多</p>
+<h4 id="算术基本定理"><a href="#算术基本定理" class="headerlink" title="算术基本定理"></a>算术基本定理</h4><p>每一个合数都可以以唯一形式被写成质数的乘积<br>证明：<br>假设合数可以以多种方式写成多个质数的乘积，设最小的是$n$<br>设$n=\prod \limits_{i=1}^{r}(p_{i}^{a_{i}})=\prod \limits_{i=1}^{s}(q_{i}^{b_{i}})$<br>$\because p_{1} \mid \prod \limits_{i=1}^{s}(q_{i}^{b_{i}})$<br>$\therefore q_{1}^{b_{1}},q_{2}^{b_{2}},\cdots,q_{s}^{b_{s}}$中有一个数能被$p_{1}$整除<br>$\therefore$不妨设为$q_{1}$<br>又$\because q_{1}$也是质数，因此$q_{1}=p_{1}$<br>假设$a_{1} &gt; b_{1}$<br>$\therefore p_{1}^{a_{1}-b_{1}} \prod \limits_{i=2}^{r}(p_{i}^{a_{i}})=\prod \limits_{i=2}^{s}(q_{i}^{b_{i}})$<br>$\therefore q_{2}^{b_{2}},q_{3}^{b_{3}},\cdots,q_{s}^{b_{s}}$中有一个数能被$p_{1}$整除<br>又$\because p_{1}=q_{1} \ne q_{i}(i \ne 1)$<br>$\therefore a_{1} \leqslant b_{1}$<br>同理，$\therefore a_{1} \geqslant b_{1}$<br>$\therefore a_{1} = b_{1}$<br>$\therefore$存在小于$n$的整数$m=\prod \limits_{i=2}^{r}(p_{i}^{a_{i}})=\prod \limits_{i=2}^{s}(q_{i}^{b_{i}})$可以用多于一种的方式写成多个质数的乘积，这与$n$的最小性矛盾<br>$\therefore$ 每一个合数都可以以唯一形式被写成质数的乘积</p>
+<h2 id="3、最大公约数和最小公倍数"><a href="#3、最大公约数和最小公倍数" class="headerlink" title="3、最大公约数和最小公倍数"></a>3、最大公约数和最小公倍数</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><h4 id="1-约数与倍数"><a href="#1-约数与倍数" class="headerlink" title="(1)约数与倍数"></a>(1)约数与倍数</h4><p>如果整数$a$能被整数$b$整除，$a$就叫做$b$的倍数，$b$就叫做$a$的约数</p>
+<h4 id="2-公约数与公倍数"><a href="#2-公约数与公倍数" class="headerlink" title="(2)公约数与公倍数"></a>(2)公约数与公倍数</h4><p>几个整数中公有的约数，叫做这几个整数的公约数；几个整数中公有的倍数，叫做这几个整数的公倍数</p>
+<h4 id="3-最大公约数与最小公倍数"><a href="#3-最大公约数与最小公倍数" class="headerlink" title="(3)最大公约数与最小公倍数"></a>(3)最大公约数与最小公倍数</h4><p>几个整数的公约数中，最大的一个，叫做这几个数的最大公约数；几个整数的公倍数中，最小的一个，叫做这几个数的最小公倍数数</p>
+<h4 id="4-互质"><a href="#4-互质" class="headerlink" title="(4)互质"></a>(4)互质</h4><p>$\forall a,b \in N$,若(a,b)=1,则称$a,b$互质</p>
+<h4 id="5-欧拉函数"><a href="#5-欧拉函数" class="headerlink" title="(5)欧拉函数"></a>(5)欧拉函数</h4><p>$1$~$N$中与$N$互质的数的个数被称为欧拉函数，记为$\varphi \left(N\right)=N \times \prod \limits_{质数p|N}(1-\frac{1}{p})$</p>
+<h4 id="6-积性函数"><a href="#6-积性函数" class="headerlink" title="(6)积性函数"></a>(6)积性函数</h4><p>如果当$a,b$互质，有$f \left(ab\right)=f \left(a\right) \times f \left(b\right)$，那么称函数$f$为积性函数</p>
+<h3 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h3><p>①$\forall a,b \in Z$，$gcd\left(a,b\right) \times lcm\left(a,b\right)=ab$<br>证明：<br>设$gcd\left(a,b\right)=d,a=a_{0}d,b=b_{0}d,(a_{0},b_{0})=1$<br>$lcm\left(a,b\right)=lcm\left(a_{0},b_{0}\right) \times d=a_{0}b_{0}d$<br>$\therefore gcd\left(a,b\right) \times lcm\left(a,b\right)=d \times a_{0}b_{0}d=a_{0}b_{0}d^{2}=\left(a_{0}d\right) \times \left(b_{0}d\right)=ab$<br>②$\forall n &gt; 1,1-n$中与$n$互质的数的和为$\frac{n \times \varphi \left(n\right)}{2}$<br>证明：<br>$\because gcd \left(n,x\right)=gcd \left(n,n-x\right)$<br>$\therefore$与$n$不互质的数$x,n-x$成对出现，平均值为$\frac{n}{2}$<br>$\therefore1-n$中与$n$互质的数的和为$\frac{n \times \varphi \left(n\right)}{2}$<br>③欧拉函数是积性函数<br>若$a,b$互质，则$\varphi \left(ab\right)=\varphi \left(a\right) \times \varphi \left(b\right)$<br>证明：<br>设$a=\prod \limits_{i=1}^{r}(p_{i}^{a_{i}}),b=\prod \limits_{i=1}^{s}(q_{i}^{b_{i}})$<br>$\therefore \varphi \left(a\right)=a \times \prod \limits_{i=1}^{r}(1-\frac{1}{p_{i}}),\varphi \left(b\right)=b \times \prod \limits_{i=1}^{s}(1-\frac{1}{q_{i}})$<br>$\therefore \varphi \left(ab\right)=ab \times \prod \limits_{i=1}^{r}(1-\frac{1}{p_{i}}) \times \prod \limits_{i=1}^{s}(1-\frac{1}{q_{i}})=\varphi \left(a\right) \times \varphi \left(b\right)$</p>
+<h2 id="4、同余"><a href="#4、同余" class="headerlink" title="4、同余"></a>4、同余</h2><h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><h4 id="1-同余"><a href="#1-同余" class="headerlink" title="(1)同余"></a>(1)同余</h4><p>若整数$a$和整数$b$除以正整数$m$的余数相等，则称$a,b$模$m$同余，记为$a \equiv b \pmod{m}$</p>
+<h4 id="2-同余类"><a href="#2-同余类" class="headerlink" title="(2)同余类"></a>(2)同余类</h4><p>对于$\forall a \in \left[0,m-1\right]$，集合$\left\{a+km\right\}(k \in Z)$的所有数模$m$同余，余数都是$a$，该集合称为一个模$m$的同余类，简记为$\overline{a}$</p>
+<h4 id="3-完全剩余系"><a href="#3-完全剩余系" class="headerlink" title="(3)完全剩余系"></a>(3)完全剩余系</h4><p>模$m$的同余类一共有m个，分别为$\overline{0} , \overline{1} , \cdots , \overline{m-1}$,它们构成$m$的完全剩余系</p>
+<h4 id="4-简化剩余系"><a href="#4-简化剩余系" class="headerlink" title="(4)简化剩余系"></a>(4)简化剩余系</h4><p>$1-m$中与$m$互质的数代表的同余类共有$\varphi \left(m\right)$个，它们构成$m$的简化剩余系</p>
+<h4 id="5-数论倒数（乘法逆元）"><a href="#5-数论倒数（乘法逆元）" class="headerlink" title="(5)数论倒数（乘法逆元）"></a>(5)数论倒数（乘法逆元）</h4><p>若整数$a,x$满足$ax \equiv 1 \pmod{b}$，则$x$为$a$对模$m$意义下的数论倒数（乘法逆元）记为$a^{-1} \pmod{m}$</p>
+<h3 id="性质-3"><a href="#性质-3" class="headerlink" title="性质"></a>性质</h3><h4 id="1-同余的充要条件"><a href="#1-同余的充要条件" class="headerlink" title="(1)同余的充要条件"></a>(1)同余的充要条件</h4><p>$a \equiv b \pmod{m}$的充要条件是$m \mid \left(a-b\right)$<br>证明：<br>$\because m \mid \left(a-b\right)$<br>$\therefore$存在整数$t$使得$a-b=mt$<br>$\therefore a=b+mt$<br>$\therefore a \equiv b \pmod{m}$</p>
+<hr>
+<p>$\because a \equiv b \pmod{m}$<br>$\therefore$存在整数$t$使得$a=b+mt$<br>$\therefore a-b=mt$<br>$\therefore m \mid \left(a-b\right)$</p>
+<h4 id="2-反身性"><a href="#2-反身性" class="headerlink" title="(2)反身性"></a>(2)反身性</h4><p>$a \equiv a \pmod{m}$<br>证明：<br>$\because a-a=0,m \ne 0$<br>$\therefore m \mid a-a$<br>$\therefore a \equiv a \pmod{m}$</p>
+<h4 id="3-对称性"><a href="#3-对称性" class="headerlink" title="(3)对称性"></a>(3)对称性</h4><p>$a \equiv b \pmod{m}$则$b \equiv a \pmod{m}$<br>证明：<br>$\because a \equiv b \pmod{m}$<br>$\therefore m \mid \left(a-b\right)$<br>$\therefore m \mid \left(b-a\right)$<br>$\therefore b \equiv a \pmod{m}$</p>
+<h4 id="4-传递性"><a href="#4-传递性" class="headerlink" title="(4)传递性"></a>(4)传递性</h4><p>$a \equiv b \pmod{m}$且$b \equiv c \pmod{m}$则$a \equiv c \pmod{m}$<br>$\because a \equiv b \pmod{m}$<br>$\therefore m \mid \left(a-b\right)$<br>又$\because b \equiv c \pmod{m}$<br>$\therefore m \mid \left(b-c\right)$<br>$\therefore m \mid \left[\left(a-b\right)+\left(b-c\right)\right]$<br>$\therefore m \mid \left(a-c\right)$<br>$\therefore a \equiv c \pmod{m}$</p>
+<h4 id="5-可加性"><a href="#5-可加性" class="headerlink" title="(5)可加性"></a>(5)可加性</h4><p>$a \equiv b \pmod{m}$且$c \equiv d \pmod{m}$则$a+c \equiv b+d \pmod{m}$<br>证明：<br>$\because a \equiv b \pmod{m}$<br>$\therefore m \mid \left(a-b\right)$<br>又$\because c \equiv d \pmod{m}$<br>$\therefore m \mid \left(c-d\right)$<br>$\therefore m \mid \left[\left(a-b\right)+\left(c-d\right)\right]$<br>$\therefore m \mid \left[\left(a+c\right)-\left(b+d\right)\right]$<br>$\therefore a+c \equiv b+d \pmod{m}$</p>
+<h4 id="6-可减性"><a href="#6-可减性" class="headerlink" title="(6)可减性"></a>(6)可减性</h4><p>$a \equiv b \pmod{m},c \equiv d \pmod{m}$则$a-c \equiv b-d \pmod{m}$<br>证明：<br>$\because a \equiv b \pmod{m}$<br>$\therefore m \mid \left(a-b\right)$<br>又$\because c \equiv d \pmod{m}$<br>$\therefore m \mid \left(c-d\right)$<br>$\therefore m \mid \left[\left(a-b\right)-\left(c-d\right)\right]$<br>$\therefore m \mid \left[\left(a-c\right)-\left(b-d\right)\right]$<br>$\therefore a-c \equiv b-d \pmod{m}$</p>
+<h4 id="7-可乘性"><a href="#7-可乘性" class="headerlink" title="(7)可乘性"></a>(7)可乘性</h4><p>①$a \equiv b \pmod{m}$则$ac \equiv bc \pmod{m}$<br>证明：<br>$\because a \equiv b \pmod{m}$<br>$\therefore m \mid \left(a-b\right)$<br>$\therefore m \mid \left(a-b\right)c$<br>$\therefore m \mid \left(ac-bc\right)$<br>$\therefore ac \equiv bc \pmod{m}$<br>②$a \equiv b \pmod{m},c \equiv d \pmod{m}$则$ac \equiv bd \pmod{m}$<br>证明：<br>$\because a \equiv b \pmod{m}$<br>$\therefore ac \equiv bc \pmod{m}$<br>又$\because c \equiv d \pmod{m}$<br>$\therefore bc \equiv bd \pmod{m}$<br>$\therefore ac \equiv bd \pmod{m}$</p>
+<h4 id="8-有关同余的其他性质"><a href="#8-有关同余的其他性质" class="headerlink" title="(8)有关同余的其他性质"></a>(8)有关同余的其他性质</h4><p>①$ac \equiv bc \pmod{m}$且$\left(m,c\right)=1$则$a \equiv b \pmod{m}$<br>证明：<br>$\because ac \equiv bc \pmod{m}$<br>$\therefore m \mid \left(ac-bc\right)$<br>$\therefore m \mid \left(a-b\right)c$<br>又$\because \left(m,c\right)=1$<br>$\therefore m \mid \left(a-b\right)$<br>$\therefore a \equiv b \pmod{m}$<br>②$ac \equiv bc \pmod{mc}$则$a \equiv b \pmod{m}$<br>证明：<br>$\because ac \equiv bc \pmod{mc}$<br>$\therefore mc \mid \left(ac-bc\right)$<br>$\therefore m \mid \left(a-b\right)$<br>$\therefore a \equiv b \pmod{m}$</p>
+<h4 id="9-有关完全剩余系的性质"><a href="#9-有关完全剩余系的性质" class="headerlink" title="(9)有关完全剩余系的性质"></a>(9)有关完全剩余系的性质</h4><p>$gcd\left(m,a\right)=1$且$\left\{\overline{b_{i}}\right\}\left(i\in \left[1,m\right]\right)$是模$m$的一个完全剩余系，则$\left\{\overline{ab_{i}}\right\}\left(i\in \left[1,m\right]\right)$也是模$m$的一个完全剩余系<br>证明：<br>假设存在两个整数$a \times b_{i} \equiv a \times b_{j} \pmod{m}$<br>$b_{i} \equiv b_{j} \pmod{m}$，与$\left\{\overline{b_{i}}\right\}\left(i\in \left[1,m\right]\right)$是模$m$的一个完全剩余系矛盾<br>$\therefore$假设不成立<br>$\therefore \left\{\overline{ab_{i}}\right\}\left(i\in \left[1,m\right]\right)$是模$m$的一个完全剩余系</p>
+<h4 id="10-有关简化剩余系的性质"><a href="#10-有关简化剩余系的性质" class="headerlink" title="(10)有关简化剩余系的性质"></a>(10)有关简化剩余系的性质</h4><p>$gcd\left(m,a\right)=1$且$\left\{\overline{b_{i}}\right\}\left(i\in \left[1,\varphi \left(m\right)\right]\right)$是模$m$的一个简化剩余系，则$\left\{\overline{ab_{i}}\right\}\left(i\in \left[1,\varphi \left(m\right)\right]\right)$也是模$m$的一个完全剩余系<br>证明：<br>假设存在两个整数$a \times b_{i} \equiv a \times b_{j} \pmod{m}$<br>$b_{i} \equiv b_{j} \pmod{m}$，与$\left\{\overline{b_{i}}\right\}\left(i\in \left[1,m\right]\right)$是模$m$的一个简化剩余系矛盾<br>$\therefore$假设不成立<br>$\therefore \left\{\overline{ab_{i}}\right\}\left(i\in \left[1,m\right]\right)$是模$m$的一个简化剩余系</p>
+<h4 id="11-费马小定理"><a href="#11-费马小定理" class="headerlink" title="(11)费马小定理"></a>(11)费马小定理</h4><p>若$p$是质数，则对任意与$p$互质的整数$a$，有$a^{p-1} \equiv 1 \pmod{p}$<br>证明：<br>设$p$的完全剩余系为$\left\{\overline{i}\right\}\left(i \in\left[1,p-1\right]\right)$<br>$\because gcd\left(a,p\right)=1$<br>$\therefore \{\overline{ai}\}(i\in\left[1,p-1\right])$也是$p$的一个完全剩余系<br>$\therefore$对于每一个$i(i\in\left[1,p-1\right])$，总存在一个$j$使得$i \equiv a \times j \pmod{p}$<br>$\therefore \left(p-1\right)! \equiv \left(p-1\right)! \times a^{p-1} \pmod{p}$<br>又$\because \left(p,\left(p-1\right)!\right)=1$<br>$\therefore a^{p-1} \equiv 1 \pmod{p}$</p>
+<h4 id="12-欧拉定理"><a href="#12-欧拉定理" class="headerlink" title="(12)欧拉定理"></a>(12)欧拉定理</h4><p>$gcd\left(a,n\right)=1,a \in Z^{+}$，则$a^{\varphi \left(n\right)} \equiv 1 \pmod{n}$<br>证明：<br>设$n$的简化剩余系为$\left\{\overline{a_{i}}\right\}\left(i \in\left[1,\varphi\left(n\right)\right]\right)$<br>$\because gcd\left(a,n\right)=1$<br>$\therefore \{\overline{aa_{i}}\}(i\in\left[1,\varphi \left(n\right)\right])$也是$p$的一个化简剩余系<br>$\therefore$对于每一个$a_{i}(i\in\left[1,\varphi \left(n\right)\right])$，总存在一个$j$使得$i \equiv a \times a_{j} \pmod{p}$<br>$\therefore \prod \limits_{i=1}^{\varphi \left(n\right)} a_{i} \equiv \prod \limits_{i=1}^{\varphi \left(n\right)}a_{i} \times a^{\varphi \left(n\right)} \pmod{n}$<br>$\therefore a^{\varphi \left(n\right)} \equiv 1 \pmod{n}$</p>
+<h4 id="13-欧拉定理推论"><a href="#13-欧拉定理推论" class="headerlink" title="(13)欧拉定理推论"></a>(13)欧拉定理推论</h4><p>$gcd\left(a,n\right)=1,a \in Z^{+}$，则对于任意的正整数$b$，有$a^b \equiv a^{b \% \varphi \left(n\right)} \pmod{n}$<br>证明：<br>设$b=q \times \varphi \left(n\right)+r,0 \leqslant r &lt; \varphi \left(n\right)$<br>$a^{b} \equiv a^{q \times \varphi \left(n\right)+r} \equiv \left(a^{\varphi \left(n\right)}\right)^{q} \times a^{r} \equiv 1^{q} \times a^{r} \equiv a^{r} \equiv a^{b \% \varphi \left(n\right)} \pmod{n}$</p>
+<h2 id="5、不定方程（丢番图方程）"><a href="#5、不定方程（丢番图方程）" class="headerlink" title="5、不定方程（丢番图方程）"></a>5、不定方程（丢番图方程）</h2><h3 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h3><p>不定方程是指未知数的个数多于方程个数，且未知数受到某些限制（如要求是有理数、整数或正整数等等）的方程或方程组</p>
+<h3 id="性质-4"><a href="#性质-4" class="headerlink" title="性质"></a>性质</h3><h4 id="1-裴蜀Bezout定理"><a href="#1-裴蜀Bezout定理" class="headerlink" title="(1)裴蜀Bézout定理"></a>(1)裴蜀Bézout定理</h4><p>对于任意正整数$a,b$，存在一对整数$x,y$，满足$ax+by=gcd\left(a,b\right)$<br>证明：<br>设$gcd\left(a,b\right)=d,a=a_{0}d,b=b_{0}d$<br>$aa_{0}+bb_{0}=1$<br>$\therefore \left(a_{0},b_{0}\right)$是方程$ax+by=\left(a,b\right)$的一组解</p>
+<h4 id="2-所有解与特解的关系"><a href="#2-所有解与特解的关系" class="headerlink" title="(2)所有解与特解的关系"></a>(2)所有解与特解的关系</h4><p>$\left(x_{0},y_{0}\right)$是方程$ax+by=c$的一组整数解，则方程的所有解为$\begin{cases}x=x_{0}+\frac{b}{gcd\left(a,b\right)}t\\y=y_{0}-\frac{a}{gcd\left(a,b\right)}t\end{cases},t \in Z$<br>证明：<br>设$ax_{1}+by_{1}=c,gcd\left(a,b\right)=c_{0},a=a_{0}c_{0},b=b_{0}c_{0},gcd\left(a_{0},b_{0}\right)=1$<br>$a_{0}x_{0}+b_{0}y_{0}=c_{0},a_{0}x_{1}+b_{0}y_{1}=c_{0}$<br>$\therefore a_{0}x_{0}+b_{0}y_{0}=a_{0}x_{1}+b_{0}y_{1}$<br>$\therefore a_{0}\left(x_{0}-x_{1}\right)=b_{0}\left(y_{1}-y_{0}\right)$<br>$\therefore b_{0} \mid a_{0}(x_{0}-x_{1})$<br>$\therefore b_{0} \mid \left(x_{0}-x_{1}\right)$<br>$\therefore x_{0} \equiv x_{1} \pmod{b_{0}}$<br>同理，$\therefore y_{0} \equiv y_{1} \pmod{b_{0}}$<br>$\therefore \begin{cases}x=x_{0}+b_{0}t\\y=y_{0}-a_{0}t\end{cases}$<br>$\therefore \begin{cases}x=x_{0}+\frac{b}{gcd\left(a,b\right)}t\\y=y_{0}-\frac{a}{gcd\left(a,b\right)}t\end{cases}$</p>
+<h4 id="3-其他性质"><a href="#3-其他性质" class="headerlink" title="(3)其他性质"></a>(3)其他性质</h4><p>①$gcd\left(a,b\right)=1,a,b \in Z^{+}$，则方程$ax+by=ab-a-b$没有非负整数解<br>证明：<br>$\because ax+by=ab-a-b$<br>$\therefore a \left(x+1\right)+b \left(y+1\right)=ab$<br>又$\because a \mid ab$<br>$\therefore a \mid \left(a \left(x+1\right)+b \left(y+1\right)\right)$<br>$\therefore a \mid b \left(y+1\right)$<br>又$\because gcd\left(a,b\right)=1$<br>$\therefore a \mid \left(y+1\right)$<br>②$gcd\left(a,b\right)=1,c&gt;ab-a-b,a,b,c \in Z^{+}$，则方程$ax+by=c$有非负整数解<br>证明：<br>$\because gcd\left(a,b\right)=1$<br>$\therefore$设$ax_{0}+by_{0}=c,0 \leqslant x_{0} \leqslant b-1$<br>$\therefore y_{0}=\frac{c-ax_{0}}{b}&gt;\frac{ab-a-b-ax_{0}}{b} \geqslant \frac{ab-a-b-a\left(b-1\right)}{b}=-1$<br>$\therefore y_{0} \geqslant 0$<br>$\therefore x_{0},y_{0}$为非负整数<br>$\therefore$方程$ax+by=c$有非负整数解<br>③$gcd\left(a,b\right)=1,a,b \in Z^{+},0 \leqslant c \leqslant ab-a-b$，则恰有$\frac{\left(a-1\right)\left(b-1\right)}{2}$个整数$c$不能表示成$ax+by$的形式，$x,y \in \N$</p>
+<h2 id="6、同余方程"><a href="#6、同余方程" class="headerlink" title="6、同余方程"></a>6、同余方程</h2><h3 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h3><p>设$f(x)=\sum \limits_{i=0}^{n}a_{i}x^{i}$是整系数多项式，称$f(x) \equiv 0 \pmod{m}$是$x$模$m$的同余方程</p>
+<h2 id="7、高斯函数"><a href="#7、高斯函数" class="headerlink" title="7、高斯函数"></a>7、高斯函数</h2><h3 id="定义-6"><a href="#定义-6" class="headerlink" title="定义"></a>定义</h3><h4 id="1-取整函数"><a href="#1-取整函数" class="headerlink" title="(1)取整函数"></a>(1)取整函数</h4><p>不超过实数$x$的最大整数称为$x$的整数部分，记作$\left[x\right]$<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zMi5heDF4LmNvbS8yMDE5LzAyLzIwL2sybjdmcy5wbmc" alt=""></p>
+<h3 id="2-取小函数"><a href="#2-取小函数" class="headerlink" title="(2)取小函数"></a>(2)取小函数</h3><p>实数$x$的非负纯小数部分，记作$\left\{x\right\}$<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zMi5heDF4LmNvbS8yMDE5LzAyLzIwL2sybkw2MC5wbmc" alt=""></p>
+<h3 id="性质-5"><a href="#性质-5" class="headerlink" title="性质"></a>性质</h3><p>①$x=\left[x\right]+\left\{x\right\}$<br>②$x-1&lt;\left[x\right] \leqslant x$<br>③$0 \leqslant \left\{x\right\}&lt;1$<br>④若$x \leqslant y$，则$\left[x\right] \leqslant \left[y\right]$<br>证明：<br>$\because \left[x\right] \leqslant x \leqslant y&lt;\left[y\right]+1$<br>$\therefore \left[x\right] \leqslant \left[y\right]$<br>⑤$\forall a \in Z^{*},b \in Z$，则$b=a \left[\frac{b}{a}\right]+a\left\{\frac{b}{a}\right\},a\left\{\frac{b}{a}\right\} \in Z$<br>证明：<br>$\because \frac{b}{a}=\left[\frac{b}{a}\right]+\left\{\frac{b}{a}\right\}$<br>$\therefore b=a \left[\frac{b}{a}\right]+a\left\{\frac{b}{a}\right\}$<br>$\therefore a\left\{\frac{b}{a}\right\}=b-a \left[\frac{b}{a}\right]$<br>$\therefore a\left\{\frac{b}{a}\right\} \in Z$<br>⑥$\left[x\right]+\left[y\right]=\left[x+y\right]$或$\left[x+y\right]=\left[x\right]+\left[y\right]+1$<br>证明：<br>$\because x+y=\left[x\right]+\left[y\right]+\left\{x\right\}+\left\{y\right\}$<br>$\therefore$当$0 \leqslant \left\{x\right\}+\left\{y\right\}&lt;1$时，$\left[x\right]+\left[y\right]=\left[x+y\right]$<br>$  \;$当$1 \leqslant \left\{x\right\}+\left\{y\right\}&lt;2$时，$\left[x\right]+\left[y\right]+1=\left[x+y\right]$</p>
+<h1 id="二、数论中相关的数和方程的求法"><a href="#二、数论中相关的数和方程的求法" class="headerlink" title="二、数论中相关的数和方程的求法"></a>二、数论中相关的数和方程的求法</h1><h2 id="1、埃拉托斯特尼筛法（埃氏筛法）"><a href="#1、埃拉托斯特尼筛法（埃氏筛法）" class="headerlink" title="1、埃拉托斯特尼筛法（埃氏筛法）"></a>1、埃拉托斯特尼筛法（埃氏筛法）</h2><h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><p>要得到自然数$n$以内的全部素数，必须把不大于$\sqrt{n}$的所有素数的倍数剔除，剩下的就是素数</p>
+<h3 id="程序实现"><a href="#程序实现" class="headerlink" title="程序实现"></a>程序实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">primes</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(v,<span class="number">0</span>,<span class="keyword">sizeof</span>(v));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;=n/i;j++) v[i*j]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>$\Theta \left(n \times \log \left(\log \left(n\right)\right)\right)$</p>
+<h3 id="时间复杂度证明"><a href="#时间复杂度证明" class="headerlink" title="时间复杂度证明"></a>时间复杂度证明</h3><p>$\Theta \left(\log \left(n\right)\right)=\Theta \left(\ln \left(n\right)\right)=\Theta \left(\int_{1}^{n+1} \frac{dx}{x}\right)=\Theta \left(\sum \limits_{i=1}^{n} \int_{i}^{i+1} \frac{dx}{x}\right) &lt; \Theta \left(\sum \limits_{i=1}^{n} \frac{1}{i}\right) \leqslant \Theta \left(\prod \limits_{质数p \leqslant n} \left(1+\frac{1}{p}\right) \times \sum \limits_{k=1}^{n} \frac{1}{k^{2}}\right) &lt; \Theta \left(\prod \limits_{质数p \leqslant n} \left(1+\frac{1}{p}\right) \times \left(1+\sum \limits_{k=2}^{n} \left(\frac{1}{k-\frac{1}{2}}-\frac{1}{k+\frac{1}{2}} \right) \right) \right) = \Theta \left(\prod \limits_{质数p \leqslant n} \left(1+\frac{1}{p}\right) \times \left(1+\frac{2}{3}+\frac{1}{n+\frac{1}{2}}\right)\right) &lt; \Theta \left(\frac{5}{3}\prod \limits_{质数p \leqslant n} \left(1+\frac{1}{p}\right)\right) &lt; \Theta \left(\frac{5}{3} \prod \limits_{质数p \leqslant n} \exp  \left(\frac{1}{p}\right)\right) = \Theta \left(\frac{5}{3} \exp \left(\sum \limits_{质数p \leqslant n} \frac{1}{p}\right)\right)$<br>$\therefore \Theta \left(n \times \log \left(\log \left(n\right)\right)\right) = \Theta \left(n \times \ln \left(\ln \left(n\right)\right)\right) &lt; \Theta \left(n \times \ln \left(\frac{5}{3} \exp \left(\sum \limits_{质数p \leqslant n} \frac{1}{p}\right)\right)\right) = \Theta \left(n \times \sum \limits_{质数p \leqslant n} \frac{1}{p}\right)$</p>
+<h2 id="2、欧拉筛法"><a href="#2、欧拉筛法" class="headerlink" title="2、欧拉筛法"></a>2、欧拉筛法</h2><h3 id="内容-1"><a href="#内容-1" class="headerlink" title="内容"></a>内容</h3><p>在埃氏筛法的基础上，让每个合数只被它的最小质因子筛选一次，以达到不重复的目的</p>
+<h3 id="程序实现-1"><a href="#程序实现-1" class="headerlink" title="程序实现"></a>程序实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">primes</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(v,<span class="number">0</span>,<span class="keyword">sizeof</span>(v));</span><br><span class="line">    m=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            v[i]=i;</span><br><span class="line">            prime[++m]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(prime[j]&gt;v[i]||prime[j]&gt;n/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*prime[j]]=prime[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++) <span class="built_in">cout</span>&lt;&lt;prime[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="时间复杂度-1"><a href="#时间复杂度-1" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>$\Theta \left(n\right)$</p>
+<h2 id="3、质因数分解"><a href="#3、质因数分解" class="headerlink" title="3、质因数分解"></a>3、质因数分解</h2><h3 id="内容-2"><a href="#内容-2" class="headerlink" title="内容"></a>内容</h3><p>$\forall N \in Z^{+} \setminus \left\{1\right\}$，把$N$化为$\prod \limits^{m}_{i=1} p^{c_{i}}_{i}$的过程叫质因数分解</p>
+<h3 id="程序实现-2"><a href="#程序实现-2" class="headerlink" title="程序实现"></a>程序实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  m=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;=n;i++) <span class="keyword">if</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">    p[++m]=i,c[m]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n%i==<span class="number">0</span>) n/=i,c[m]++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(n&gt;<span class="number">1</span>) p[++m]=n,c[m]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++) <span class="built_in">cout</span>&lt;&lt;p[i]&lt;&lt;<span class="string">'^'</span>&lt;&lt;c[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="时间复杂度-2"><a href="#时间复杂度-2" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>$\Theta \left(\sqrt N\right)$</p>
+<h2 id="4、欧几里得算法（辗转相除法）"><a href="#4、欧几里得算法（辗转相除法）" class="headerlink" title="4、欧几里得算法（辗转相除法）"></a>4、欧几里得算法（辗转相除法）</h2><h3 id="内容-3"><a href="#内容-3" class="headerlink" title="内容"></a>内容</h3><p>$\forall a,b \in N,b \ne 0,gcd(a,b)=gcd(b,a \% b)$</p>
+<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>若$a&lt;b$，则$gcd(b,a \% b)=gcd(b,a)=gcd(a,b)$，命题成立<br>若$a \geqslant b$，设$a=q \times b+r,0 \leqslant r&lt;b,a,b$的一个公约数为$d$<br>$d \mid a,d \mid qb$<br>$\therefore d \mid \left(a-qb\right)$<br>$\therefore d \mid r$<br>$\therefore d$也是$b,r$的公约数<br>$\therefore a,b$的公约数集合与$b,r$的公约数集合相同<br>$\therefore a,b$和$b,r$的最大公约数相等</p>
+<h3 id="程序实现-3"><a href="#程序实现-3" class="headerlink" title="程序实现"></a>程序实现</h3><h4 id="递归写法"><a href="#递归写法" class="headerlink" title="递归写法"></a>递归写法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> b?gcd(b,a%b):a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="非递归写法"><a href="#非递归写法" class="headerlink" title="非递归写法"></a>非递归写法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(b!=<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">int</span> temp=a;</span><br><span class="line">    a=b;</span><br><span class="line">    b=temp%a;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="时间复杂度-3"><a href="#时间复杂度-3" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>$\Theta \left(\log \left(a+b\right)\right)$</p>
+<h2 id="5、扩展欧几里得算法"><a href="#5、扩展欧几里得算法" class="headerlink" title="5、扩展欧几里得算法"></a>5、扩展欧几里得算法</h2><h3 id="内容-4"><a href="#内容-4" class="headerlink" title="内容"></a>内容</h3><p>求方程$ax+by=gcd\left(a,b\right),a,b,x,y \in Z$的解$x,y$<br>当$b=0$时，$x=1,y=0$为方程的解<br>当$b&gt;0$时，$gcd \left(a,b\right)=gcd \left(b,a\%b\right)$<br>设$bx’+\left(a\%b\right)y’=gcd\left(b,a\%b\right),x’,y’ \in Z$<br>$\therefore bx’+\left(a\%b\right)y’=bx’+\left(a-b \left \lfloor \frac{a}{b} \right \rfloor\right)y’=ay’+b \left(x’-\left \lfloor \frac{a}{b} \right \rfloor y’\right)$<br>$\therefore \begin{cases} x=y’ \\y=x’-\left \lfloor \frac{a}{b} \right \rfloor y \end{cases}$</p>
+<h3 id="程序实现-4"><a href="#程序实现-4" class="headerlink" title="程序实现"></a>程序实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!b)&#123;x=<span class="number">1</span>,y=<span class="number">0</span>;<span class="keyword">return</span> a;&#125;</span><br><span class="line">    <span class="keyword">int</span> d=exgcd(b,a%b,x,y),z=x;</span><br><span class="line">    x=y,y=z-y*(a/b);</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6、线性同余方程组的解法"><a href="#6、线性同余方程组的解法" class="headerlink" title="6、线性同余方程组的解法"></a>6、线性同余方程组的解法</h2><h3 id="内容-5"><a href="#内容-5" class="headerlink" title="内容"></a>内容</h3><p>设$m_{1},m_{2},\cdots \cdots,m_{n} \in Z^{+}$，对于任意$n$个整数$a_{1},a_{2},\cdots \cdots,a_{n}$，求方程组$\begin{cases} x \equiv a_{1} \pmod{m_{1}}\\x \equiv a_{2} \pmod{m_{2}}\\             \vdots\\x \equiv a_{n} \pmod{m_{n}} \end{cases}$的解</p>
+<h3 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h3><p>设前$k-1$个方程的解为$x,m= \sum \limits^{t-1}_{i=1}m_{i},tm \equiv a_{k}-x \pmod{m_{k}}$<br>$\therefore x+tm \equiv a^{k} \pmod{m^{k}}$<br>$\therefore x’=x+tm$为前$k$个方程的解</p>
+<h3 id="程序实现-5"><a href="#程序实现-5" class="headerlink" title="程序实现"></a>程序实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n,m[<span class="number">20</span>],a[<span class="number">20</span>];</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a,<span class="keyword">long</span> <span class="keyword">long</span> b,<span class="keyword">long</span> <span class="keyword">long</span> &amp;x,<span class="keyword">long</span> <span class="keyword">long</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!b)&#123;x=<span class="number">1</span>,y=<span class="number">0</span>;<span class="keyword">return</span> a;&#125;</span><br><span class="line">  <span class="keyword">long</span> <span class="keyword">long</span> d=exgcd(b,a%b,x,y),z=x;</span><br><span class="line">  x=y,y=z-y*(a/b);</span><br><span class="line">  <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">xxtyfcz</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">long</span> <span class="keyword">long</span> M,A,d,x,y;</span><br><span class="line">  M=m[<span class="number">1</span>];</span><br><span class="line">  A=a[<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    d=exgcd(M,m[i],x,y);</span><br><span class="line">    <span class="keyword">if</span>((a[i]-A)%d!=<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> temp=<span class="built_in">abs</span>(m[i]/d);</span><br><span class="line">    x=x*((a[i]-A)/d);</span><br><span class="line">    x=(x%temp+temp)%temp;</span><br><span class="line">    A=M*x+A;</span><br><span class="line">    M=M*m[i]/d;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (A%M+M)%M;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="三、例题"><a href="#三、例题" class="headerlink" title="三、例题"></a>三、例题</h1><h2 id="1、POJ2689-Prime-Distance题解"><a href="#1、POJ2689-Prime-Distance题解" class="headerlink" title="1、POJ2689 Prime Distance题解"></a>1、POJ2689 Prime Distance题解</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p><strong><a href="http://poj.org/problem?id=2689" target="_blank" rel="noopener">原题</a></strong></p>
+<h5 id="英文题目"><a href="#英文题目" class="headerlink" title="英文题目"></a>英文题目</h5><p>The branch of mathematics called number theory is about properties of numbers. One of the areas that has captured the interest of number theoreticians for thousands of years is the question of primality. A prime number is a number that is has no proper factors (it is only evenly divisible by $1$ and itself). The first prime numbers are $2,3,5,7$ but they quickly become less frequent. One of the interesting questions is how dense they are in various ranges. Adjacent primes are two numbers that are both primes, but there are no other prime numbers between the adjacent primes. For example, $2,3$ are the only adjacent primes that are also adjacent numbers.<br>Your program is given $2$ numbers: $L$ and $U$ ($1 \leqslant L&lt; U \leqslant 2,147,483,647$), and you are to find the two adjacent primes $C1$ and $C2$ ($L \leqslant C1&lt; C2 \leqslant U$) that are closest (i.e. $C2-C1$ is the minimum). If there are other pairs that are the same distance apart, use the first pair. You are also to find the two adjacent primes $D1$ and $D2$ ($L \leqslant D1&lt; D2 \leqslant U$) where $D1$ and $D2$ are as distant from each other as possible (again choosing the first pair if there is a tie).</p>
+<h5 id="中文题意"><a href="#中文题意" class="headerlink" title="中文题意"></a>中文题意</h5><p>给定两个整数$L,R$($1 \leqslant L&lt; R \leqslant 2,147,483,647$)，求闭区间 $\left[L,R\right]$中相邻两个质数的差的最小值和最大值是多少，分别输出这两对质数</p>
+<h4 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h5><p>每行两个整数$L,R$($1 \leqslant L&lt; R \leqslant 2,147,483,647,R-L \leqslant 10^6$)</p>
+<h5 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h5><p>对于每个$L,R$，输出最小值和最大值，格式参照样例<br>若区间内无质数，输出”There are no adjacent primes.”</p>
+<h4 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h5><p>2 17<br>14 17</p>
+<h5 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h5><p>2,3 are closest, 7,11 are most distant.<br>There are no adjacent primes.</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>由于$L,R$的范围很大，所以埃氏筛法和欧拉筛法都无法生成$\left[1,R\right]$的所有质数<br>但是$R-L$的范围很小且任何一个合数$n$一定包含一个不超过$\sqrt{n}$的质因子，所以我们只需要用筛法求出$2,3,\cdots,\sqrt{n}$的所有质数<br>而对于每一个质数$p$，标记$i \times p \left(\left\lceil\frac{L}{p}\right\rceil \leqslant i \leqslant \left\lceil\frac{R}{p}\right\rceil\right)$为合数<br>标记完后，剩下的所有数就是$\left[L,R\right]$中的质数了<br>再两两比较，找出差最大和最小的就可以了，时间复杂度$\Theta(\sqrt{R}lnln\sqrt{R}+(R-L)lnlnR)$</p>
+<h2 id="2、洛谷P1072-Hankson的趣味题"><a href="#2、洛谷P1072-Hankson的趣味题" class="headerlink" title="2、洛谷P1072 Hankson的趣味题"></a>2、洛谷P1072 Hankson的趣味题</h2><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p><strong><a href="https://www.luogu.org/problem/P1072" target="_blank" rel="noopener">原题</a></strong><br>Hanks博士是 BT(Bio-Tech，生物技术)领域的知名专家，他的儿子名叫Hankson。现在，刚刚放学回家的Hankson正在思考一个有趣的问题。<br>今天在课堂上，老师讲解了如何求两个正整数$c_1$和$c_2$的最大公约数和最小公倍数。现在Hankson认为自己已经熟练地掌握了这些知识，他开始思考一个“求公约数”和“求公倍数”之类问题的“逆问题”，这个问题是这样的：已知正整数$a_0,a_1,b_0,b_1$，设某未知正整数$x$满足：<br>1.$x$和 $a_0$的最大公约数是$a_1$​；<br>2.$x$和$b_0$的最小公倍数是$b_1$。<br>Hankson的“逆问题”就是求出满足条件的正整数$x$。但稍加思索之后，他发现这样的$x$并不唯一，甚至可能不存在。因此他转而开始考虑如何求解满足条件的$x$的个数。请你帮助他编程求解这个问题。</p>
+<h4 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h5><p>第一行为一个正整数$n$，表示有$n$组输入数据。接下来的$n$行每行一组输入数据，为四个正整数 $a_0,a_1,b_0,b_1$​，每两个整数之间用一个空格隔开。输入数据保证$a_0$能被$a_1$整除，$b_1$能被$b_0$​整除。</p>
+<h5 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h5><p>共$n$行。每组输入数据的输出结果占一行，为一个整数。<br>对于每组数据：若不存在这样的$x$，请输出$0$；<br>若存在这样的$x$，请输出满足条件的$x$的个数；</p>
+<h4 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例"></a>输入样例</h5><p>2<br>41 1 96 288<br>95 1 37 1776 </p>
+<h5 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例"></a>输出样例</h5><p>6<br>2</p>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>因为$x$是$b_1$的约数，所以$x$的质因子一定也是$b_1$的质因子，所以我对于$b_1$的每个质因子$p$，我们可以计算$x$中有多少个$p$<br>假设$a_0,a_1,b_0,b_1,x$中分别有$m_{a_0},m_{a_1},m_{b_0},m_{b_1},m_x$个质因子$p$<br>由于$gcd(a_0,x)=b_0$，所以有$3$种情况：</p>
+<ol>
+<li>若$m_{a_0}&gt;m_{b_0}$，则$m_x=m_{b_0}$</li>
+<li>若$m_{a_0}=m_{b_0}$，则$m_x\geqslant m_{b_0}$</li>
+<li>若$m_{a_0}&lt;m_{b_0}$，则$m_x$无解</li>
+</ol>
+<p>同理，由于$lcm(a_1,x)=b_1$，所以有$3$种情况：</p>
+<ol>
+<li>若$m_{a_1}&lt;m_{b_1}$，则$m_x=m_{b_1}$</li>
+<li>若$m_{a_1}=m_{b_1}$，则$m_x\leqslant m_{b_1}$</li>
+<li>若$m_{a_1}&gt;m_{b_1}$，则$m_x$无解</li>
+</ol>
+<p>综合以上所有情况，我们可以得出共有$5$种情况：</p>
+<ol>
+<li>若$m_{a_0}&gt;m_{b_0},m_{a_1}&lt;m_{b_1},m_{b_0}=m_{b_1}$，则$m_x=m_{b_0}=m_{b_1}$</li>
+<li>若$m_{a_0}&gt;m_{b_0},m_{a_1}=m_{b_1},m_{b_0}\leqslant m_{b_1}$，则$m_x=m_{b_0}$</li>
+<li>若$m_{a_0}=m_{b_0},m_{a_1}&lt;m_{b_1},m_{b_0}\leqslant m_{b_1}$，则$m_x=m_{b_1}$</li>
+<li>若$m_{a_0}=m_{b_0},m_{a_1}=m_{b_1},m_{b_0}\leqslant m_{b_1}$，则$m_{b_0}\leqslant m_x\leqslant m_{b_1}$</li>
+<li>若其他情况，则$m_x$均无解</li>
+</ol>
+<p>我们将$m_x$的取法记为$sum_p$，则$x$的数量为$\prod\limits_{\text{质数}p|d}sum_p$，时间复杂度$\Theta\left(\frac{n\sqrt{d}}{lnd}\right)$</p>
+<h2 id="POJ3696-The-Luckiest-number"><a href="#POJ3696-The-Luckiest-number" class="headerlink" title="POJ3696 The Luckiest number"></a>POJ3696 The Luckiest number</h2><h3 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h3><h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p><strong><a href="http://poj.org/problem?id=3696" target="_blank" rel="noopener">原题</a></strong></p>
+<h5 id="英文题目-1"><a href="#英文题目-1" class="headerlink" title="英文题目"></a>英文题目</h5><p>Chinese people think of ‘$8$’ as the lucky digit. Bob also likes digit ‘$8$’. Moreover, Bob has his own lucky number $L$. Now he wants to construct his luckiest number which is the minimum among all positive integers that are a multiple of $L$ and consist of only digit ‘$8$’.</p>
+<h5 id="中文题意-1"><a href="#中文题意-1" class="headerlink" title="中文题意"></a>中文题意</h5><p>给定一个正整数$L$($L\leqslant 2\times10^9$)<br>问至少有多少个$8$连在一起组成的正整数是$L$的倍数</p>
+<h4 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h5><p>每行一个正整数$L$($L\leqslant 2\times10^9$)</p>
+<h5 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h5><p>对于每个$L$，输出至少有多少个$8$连在一起组成的正整数是$L$的倍数，格式参照样例。若不存在，输出$0$</p>
+<h4 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例-2"><a href="#输入样例-2" class="headerlink" title="输入样例"></a>输入样例</h5><p>8<br>11<br>16<br>0</p>
+<h5 id="输出样例-2"><a href="#输出样例-2" class="headerlink" title="输出样例"></a>输出样例</h5><p>Case 1: 1<br>Case 2: 2<br>Case 3: 0</p>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>$n$个$8$连在一起组成的正整数可以记为$\frac{8}{9}(10^x-1)$<br>所以题目就转化为求最小的$x$使得$L|\frac{8}{9}(10^x-1)$<br>设$d=gcd(L,8)$<br>$L|\frac{8}{9}(10^x-1)\iff9L|8(10^x-1)\iff\frac{9L}{d}|10^x-1\iff10^x\equiv1\pmod{\frac{9L}{d}}$<br>这题的关键在于一个结论：若正整数$a,n$互质，则满足$a^x\equiv1\pmod{n}$的最小整数$x_0$为$\varphi(n)$的约数<br>证明：<br>假设满足$a^x\equiv1\pmod{n}$的最小整数$x_0$不能整除$\varphi(n)$<br>设$\varphi(n)=qx_0+r(0\leqslant r&lt;x_0)$<br>$\because a^{x_0}\equiv1\pmod{n}$<br>$\therefore a^{qx_0}\equiv1\pmod{n}$<br>又$\because a^{\varphi(n)}\equiv1\pmod{n}$（欧拉定理）<br>$\therefore a^{r}\equiv1\pmod{n}$，与$x_0$最小矛盾！<br>$\therefore$假设不成立，原命题成立</p>
+<p>所以，我们只需要求出$\varphi(\frac{9L}{d})$，时间复杂度$\Theta(\sqrt{L}lnL)$</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>数论的练习题还有很多，在这里就不一一细细分析了，推荐几道题目供大家练习</p>
+<ol>
+<li><a href="https://www.luogu.org/problem/P1463" target="_blank" rel="noopener">洛谷P1463反素数</a> <a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1053" target="_blank" rel="noopener">双倍经验：BZOJ1053</a></li>
+<li><a href="https://www.luogu.org/problem/P2261" target="_blank" rel="noopener">洛谷P2261余数求和</a> <a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1257" target="_blank" rel="noopener">双倍经验：BZOJ1257</a></li>
+<li><a href="http://poj.org/problem?id=3090" target="_blank" rel="noopener">POJ3090Visible Lattice Points</a>这题洛谷上好像有原题，只是名字改了，有知道题号的可以跟我说</li>
+<li><a href="https://www.luogu.org/problem/P1082" target="_blank" rel="noopener">洛谷P1082同余方程</a></li>
+<li><a href="http://poj.org/problem?id=3070" target="_blank" rel="noopener">POJ2891Strange Way to Express Integers</a></li>
+<li><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2818" target="_blank" rel="noopener">BZOJ1257Gcd</a></li>
+<li><a href="http://poj.org/problem?id=2480" target="_blank" rel="noopener">POJ2480Longge’s problem</a></li>
+<li><a href="https://www.luogu.org/problem/P1516" target="_blank" rel="noopener">洛谷P1516青蛙的约会</a> <a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1477" target="_blank" rel="noopener">双倍经验：BZOJ1447</a> <a href="http://poj.org/problem?id=1061" target="_blank" rel="noopener">三倍经验！！！POJ1061</a></li>
+<li><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2242" target="_blank" rel="noopener">BZOJ2242计算器</a></li>
+</ol>
+<p><strong>参考材料：</strong><br><strong>1、《算法竞赛进阶指南》李煜东 著</strong><br><strong>2、《数论初步》周春荔 著</strong><br><strong>3、《简明数论》潘承洞、潘承彪 著</strong></p>
+<p><strong>ps:写得比较匆忙，有错误请在评论区指出，我将及时更改，谢谢！</strong></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jacky Dong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jrjacky.github.io/2019/07/31/%E5%9F%BA%E7%A1%80%E6%95%B0%E8%AE%BA%E6%80%BB%E7%BB%93/" title="基础数论总结">http://jrjacky.github.io/2019/07/31/基础数论总结/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i>数学</a>
+              <a href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i>数论</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/07/31/%E6%B4%9B%E8%B0%B7P1072-DTOJ%20Begin1014Hankson%E7%9A%84%E8%B6%A3%E5%91%B3%E9%A2%98/" rel="prev" title="洛谷P1072 DTOJ Begin1014Hankson的趣味题">
+      <i class="fa fa-chevron-left"></i> 洛谷P1072 DTOJ Begin1014Hankson的趣味题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/07/31/POJ3696%20The%20Luckiest%20number%E9%A2%98%E8%A7%A3/" rel="next" title="POJ3696 The Luckiest number题解">
+      POJ3696 The Luckiest number题解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、数论中的基本概念与性质"><span class="nav-number">1.</span> <span class="nav-text">一、数论中的基本概念与性质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、整除"><span class="nav-number">1.1.</span> <span class="nav-text">1、整除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质"><span class="nav-number">1.1.2.</span> <span class="nav-text">性质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-反身性"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">(1)反身性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-反对称性"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">(2)反对称性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-传递性"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">(3)传递性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-其他性质"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">(4)其他性质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、质数与合数"><span class="nav-number">1.2.</span> <span class="nav-text">2、质数与合数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-质数"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">(1)质数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-合数"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">(2)合数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">性质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#质数无穷多"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">质数无穷多</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算术基本定理"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">算术基本定理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、最大公约数和最小公倍数"><span class="nav-number">1.3.</span> <span class="nav-text">3、最大公约数和最小公倍数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-约数与倍数"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">(1)约数与倍数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-公约数与公倍数"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">(2)公约数与公倍数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-最大公约数与最小公倍数"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">(3)最大公约数与最小公倍数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-互质"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">(4)互质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-欧拉函数"><span class="nav-number">1.3.1.5.</span> <span class="nav-text">(5)欧拉函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-积性函数"><span class="nav-number">1.3.1.6.</span> <span class="nav-text">(6)积性函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、同余"><span class="nav-number">1.4.</span> <span class="nav-text">4、同余</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-同余"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">(1)同余</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-同余类"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">(2)同余类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-完全剩余系"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">(3)完全剩余系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-简化剩余系"><span class="nav-number">1.4.1.4.</span> <span class="nav-text">(4)简化剩余系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-数论倒数（乘法逆元）"><span class="nav-number">1.4.1.5.</span> <span class="nav-text">(5)数论倒数（乘法逆元）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">性质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-同余的充要条件"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">(1)同余的充要条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-反身性"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">(2)反身性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-对称性"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">(3)对称性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-传递性"><span class="nav-number">1.4.2.4.</span> <span class="nav-text">(4)传递性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-可加性"><span class="nav-number">1.4.2.5.</span> <span class="nav-text">(5)可加性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-可减性"><span class="nav-number">1.4.2.6.</span> <span class="nav-text">(6)可减性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-可乘性"><span class="nav-number">1.4.2.7.</span> <span class="nav-text">(7)可乘性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-有关同余的其他性质"><span class="nav-number">1.4.2.8.</span> <span class="nav-text">(8)有关同余的其他性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-有关完全剩余系的性质"><span class="nav-number">1.4.2.9.</span> <span class="nav-text">(9)有关完全剩余系的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-有关简化剩余系的性质"><span class="nav-number">1.4.2.10.</span> <span class="nav-text">(10)有关简化剩余系的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-费马小定理"><span class="nav-number">1.4.2.11.</span> <span class="nav-text">(11)费马小定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-欧拉定理"><span class="nav-number">1.4.2.12.</span> <span class="nav-text">(12)欧拉定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-欧拉定理推论"><span class="nav-number">1.4.2.13.</span> <span class="nav-text">(13)欧拉定理推论</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、不定方程（丢番图方程）"><span class="nav-number">1.5.</span> <span class="nav-text">5、不定方程（丢番图方程）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-4"><span class="nav-number">1.5.2.</span> <span class="nav-text">性质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-裴蜀Bezout定理"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">(1)裴蜀Bézout定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-所有解与特解的关系"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">(2)所有解与特解的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-其他性质"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">(3)其他性质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、同余方程"><span class="nav-number">1.6.</span> <span class="nav-text">6、同余方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-5"><span class="nav-number">1.6.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、高斯函数"><span class="nav-number">1.7.</span> <span class="nav-text">7、高斯函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-6"><span class="nav-number">1.7.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-取整函数"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">(1)取整函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-取小函数"><span class="nav-number">1.7.2.</span> <span class="nav-text">(2)取小函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-5"><span class="nav-number">1.7.3.</span> <span class="nav-text">性质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、数论中相关的数和方程的求法"><span class="nav-number">2.</span> <span class="nav-text">二、数论中相关的数和方程的求法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、埃拉托斯特尼筛法（埃氏筛法）"><span class="nav-number">2.1.</span> <span class="nav-text">1、埃拉托斯特尼筛法（埃氏筛法）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容"><span class="nav-number">2.1.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序实现"><span class="nav-number">2.1.2.</span> <span class="nav-text">程序实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.1.3.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度证明"><span class="nav-number">2.1.4.</span> <span class="nav-text">时间复杂度证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、欧拉筛法"><span class="nav-number">2.2.</span> <span class="nav-text">2、欧拉筛法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序实现-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">程序实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、质因数分解"><span class="nav-number">2.3.</span> <span class="nav-text">3、质因数分解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序实现-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">程序实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度-2"><span class="nav-number">2.3.3.</span> <span class="nav-text">时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、欧几里得算法（辗转相除法）"><span class="nav-number">2.4.</span> <span class="nav-text">4、欧几里得算法（辗转相除法）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容-3"><span class="nav-number">2.4.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证明"><span class="nav-number">2.4.2.</span> <span class="nav-text">证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序实现-3"><span class="nav-number">2.4.3.</span> <span class="nav-text">程序实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#递归写法"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">递归写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非递归写法"><span class="nav-number">2.4.3.2.</span> <span class="nav-text">非递归写法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度-3"><span class="nav-number">2.4.4.</span> <span class="nav-text">时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、扩展欧几里得算法"><span class="nav-number">2.5.</span> <span class="nav-text">5、扩展欧几里得算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容-4"><span class="nav-number">2.5.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序实现-4"><span class="nav-number">2.5.2.</span> <span class="nav-text">程序实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、线性同余方程组的解法"><span class="nav-number">2.6.</span> <span class="nav-text">6、线性同余方程组的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容-5"><span class="nav-number">2.6.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证明-1"><span class="nav-number">2.6.2.</span> <span class="nav-text">证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序实现-5"><span class="nav-number">2.6.3.</span> <span class="nav-text">程序实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、例题"><span class="nav-number">3.</span> <span class="nav-text">三、例题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、POJ2689-Prime-Distance题解"><span class="nav-number">3.1.</span> <span class="nav-text">1、POJ2689 Prime Distance题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">3.1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#英文题目"><span class="nav-number">3.1.1.1.1.</span> <span class="nav-text">英文题目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#中文题意"><span class="nav-number">3.1.1.1.2.</span> <span class="nav-text">中文题意</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式"><span class="nav-number">3.1.1.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式"><span class="nav-number">3.1.1.2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例"><span class="nav-number">3.1.1.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例"><span class="nav-number">3.1.1.3.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例"><span class="nav-number">3.1.1.3.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">3.1.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、洛谷P1072-Hankson的趣味题"><span class="nav-number">3.2.</span> <span class="nav-text">2、洛谷P1072 Hankson的趣味题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-1"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式-1"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式-1"><span class="nav-number">3.2.1.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式-1"><span class="nav-number">3.2.1.2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例-1"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例-1"><span class="nav-number">3.2.1.3.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例-1"><span class="nav-number">3.2.1.3.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POJ3696-The-Luckiest-number"><span class="nav-number">3.3.</span> <span class="nav-text">POJ3696 The Luckiest number</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目-2"><span class="nav-number">3.3.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-2"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#英文题目-1"><span class="nav-number">3.3.1.1.1.</span> <span class="nav-text">英文题目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#中文题意-1"><span class="nav-number">3.3.1.1.2.</span> <span class="nav-text">中文题意</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式-2"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式-2"><span class="nav-number">3.3.1.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式-2"><span class="nav-number">3.3.1.2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例-2"><span class="nav-number">3.3.1.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例-2"><span class="nav-number">3.3.1.3.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例-2"><span class="nav-number">3.3.1.3.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-number">3.3.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.4.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jacky Dong"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Jacky Dong</p>
+  <div class="site-description" itemprop="description">Jacky Dong的博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.org/" title="洛谷 → https:&#x2F;&#x2F;www.luogu.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>洛谷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://poj.org/" title="POJ → http:&#x2F;&#x2F;poj.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>POJ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://codeforces.com/" title="CF → http:&#x2F;&#x2F;codeforces.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>CF</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.lydsy.com/JudgeOnline/" title="BZOJ → https:&#x2F;&#x2F;www.lydsy.com&#x2F;JudgeOnline&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>BZOJ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://noi-test.zzstep.com/" title="Contest Hunter → http:&#x2F;&#x2F;noi-test.zzstep.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Contest Hunter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.acwing.com/" title="AcWing → https:&#x2F;&#x2F;www.acwing.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>AcWing</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://vijos.org/" title="vijos → https:&#x2F;&#x2F;vijos.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>vijos</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://114.116.248.90/" title="SHYOJ → http:&#x2F;&#x2F;114.116.248.90&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>SHYOJ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/" title="github → https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>github</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.org/space/show?uid=43373" title="https:&#x2F;&#x2F;www.luogu.org&#x2F;space&#x2F;show?uid&#x3D;43373" rel="noopener" target="_blank">我的洛谷账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://poj.org/userstatus?user_id=jackyss" title="http:&#x2F;&#x2F;poj.org&#x2F;userstatus?user_id&#x3D;jackyss" rel="noopener" target="_blank">我的POJ账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://codeforces.com/profile/jacky0705" title="http:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;jacky0705" rel="noopener" target="_blank">我的CF账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.lydsy.com/JudgeOnline/userinfo.php?user=jacky" title="https:&#x2F;&#x2F;www.lydsy.com&#x2F;JudgeOnline&#x2F;userinfo.php?user&#x3D;jacky" rel="noopener" target="_blank">我的BZOJ账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://noi-test.zzstep.com/user/jacky" title="http:&#x2F;&#x2F;noi-test.zzstep.com&#x2F;user&#x2F;jacky" rel="noopener" target="_blank">我的Contest Hunter账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.acwing.com/user/myspace/index/9710/" title="https:&#x2F;&#x2F;www.acwing.com&#x2F;user&#x2F;myspace&#x2F;index&#x2F;9710&#x2F;" rel="noopener" target="_blank">我的AcWing账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://vijos.org/user/140852" title="https:&#x2F;&#x2F;vijos.org&#x2F;user&#x2F;140852" rel="noopener" target="_blank">我的vijos账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://114.116.248.90/user-home?username=jacky567" title="http:&#x2F;&#x2F;114.116.248.90&#x2F;user-home?username&#x3D;jacky567" rel="noopener" target="_blank">我的SHYOJ账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/jrjacky" title="https:&#x2F;&#x2F;github.com&#x2F;jrjacky" rel="noopener" target="_blank">我的github账号</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/blog/jacky0705/you-lian" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;jacky0705&#x2F;you-lian" rel="noopener" target="_blank">更多友链</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      <div class="hitokoto-block">
+        <div class="hitokoto-inner hitokoto-comma hitokoto-left-comma">“</div>
+        <div class="hitokoto-inner hitokoto-content"><b><span><span id="hitokoto-content"></span></span></b></div>
+        <div class="hitokoto-inner hitokoto-comma hitokoto-right-comma">”</div>
+      </div>
+      <div id="hitokoto-from"></div>
+      <div class="hitokoto-bottom">
+        <a id="hitokoto-link" href="https://hitokoto.cn/" target="_blank" rel="noopener">Hitokoto</a>&nbsp;&nbsp;&nbsp;
+        <button id="hitokoto-like" title="通过给句子点赞可以增加其出现概率，由于技术原因并不能在博客中显示赞数与点赞是否成功的信息（红心表示成功发送点赞请求，但如果同 IP 重复点赞就会失败），如需查看可以点击左边的“Hitokoto”链接。"><i class="menu-item-icon fa fa-fw fa-heart"></i></button>
+      </div>
+    </div>
+    <div style="height: 15px"></div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jacky Dong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>
