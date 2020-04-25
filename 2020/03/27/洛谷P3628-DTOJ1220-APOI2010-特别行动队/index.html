@@ -420,7 +420,7 @@ $\frac{f_j-f_k+a(sum_j^2-sum_k^2)-b(sum_j-sum_k)}{sum_j-sum_k}<2asum_i$
           })
           .then(function (data) {
             var hitokoto = document.getElementById('hitokoto');
-            hitokoto.innerText = data.hitokoto + "<br><span style="text-align:right">——【" + data.from + "】</span>";
+            hitokoto.innerText = data.hitokoto + "<br><span style="text-align:right;">——【" + data.from + "】</span>";
           })
           .catch(function (err) {
             console.error(err);
