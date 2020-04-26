@@ -874,8 +874,8 @@ $\frac{f_j-f_k+a(sum_j^2-sum_k^2)-b(sum_j-sum_k)}{sum_j-sum_k}<2asum_i$
         <tag>数学</tag>
         <tag>几何</tag>
         <tag>洛谷</tag>
-        <tag>APIO</tag>
         <tag>斜率优化DP</tag>
+        <tag>APIO</tag>
       </tags>
   </entry>
   <entry>
