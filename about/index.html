@@ -288,11 +288,9 @@
     <span class="toggle-line toggle-line-middle"></span>
     <span class="toggle-line toggle-line-last"></span>
   </div>
+  <aside id="sidebar" class="sidebar">
   <aside class="sidebar">
     <div class="sidebar-inner">
-      <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
-      <!--End-->
       <script>
         fetch('https://v1.hitokoto.cn')
           .then(function (res){
@@ -307,7 +305,6 @@
           })
       </script>
       <p id="hitokoto">正在加载一言...</p>
-      </div>
     </div>
     <div style="height: 15px"></div>
     <div class="sidebar-inner">
@@ -320,7 +317,9 @@
           站点概览
         </li>
       </ul>
-
+      <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+      <!--End-->
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#个人资料"><span class="nav-number">1.</span> <span class="nav-text">个人资料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新日志"><span class="nav-number">2.</span> <span class="nav-text">更新日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V1-0"><span class="nav-number">2.1.</span> <span class="nav-text">V1.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V2-0"><span class="nav-number">2.2.</span> <span class="nav-text">V2.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V2-1"><span class="nav-number">2.3.</span> <span class="nav-text">V2.1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#洛谷报纸订阅专栏"><span class="nav-number">3.</span> <span class="nav-text">洛谷报纸订阅专栏</span></a></li></ol></div>
