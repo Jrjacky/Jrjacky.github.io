@@ -329,7 +329,6 @@
     <span class="toggle-line toggle-line-middle"></span>
     <span class="toggle-line toggle-line-last"></span>
   </div>
-  <aside id="sidebar" class="sidebar">
   <aside class="sidebar">
     <div class="sidebar-inner">
 
@@ -344,6 +343,8 @@
       <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
       <!--End-->
+    </div>
+    <div class="sidebar-inner">
       <script>
         fetch('https://v1.hitokoto.cn')
           .then(function (res){
@@ -358,7 +359,9 @@
           })
       </script>
       <p id="hitokoto">正在加载一言...</p>
-      <div style="height: 15px"></div>
+    </div>
+    <div style="height: 15px"></div>
+    <div class="sidebar-inner">
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
       </div>

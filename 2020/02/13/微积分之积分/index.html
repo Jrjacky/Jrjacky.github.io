@@ -437,7 +437,6 @@
     <span class="toggle-line toggle-line-middle"></span>
     <span class="toggle-line toggle-line-last"></span>
   </div>
-  <aside id="sidebar" class="sidebar">
   <aside class="sidebar">
     <div class="sidebar-inner">
 
@@ -452,6 +451,8 @@
       <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
       <!--End-->
+    </div>
+    <div class="sidebar-inner">
       <script>
         fetch('https://v1.hitokoto.cn')
           .then(function (res){
@@ -466,7 +467,9 @@
           })
       </script>
       <p id="hitokoto">正在加载一言...</p>
-      <div style="height: 15px"></div>
+    </div>
+    <div style="height: 15px"></div>
+    <div class="sidebar-inner">
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、不定积分"><span class="nav-number">1.</span> <span class="nav-text">一、不定积分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、不定积分运算法则"><span class="nav-number">1.1.</span> <span class="nav-text">1、不定积分运算法则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-加减法"><span class="nav-number">1.1.1.</span> <span class="nav-text">(1)加减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-乘除法"><span class="nav-number">1.1.2.</span> <span class="nav-text">(2)乘除法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、求不定积分的常见方法"><span class="nav-number">1.2.</span> <span class="nav-text">2、求不定积分的常见方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-第一类换元法"><span class="nav-number">1.2.1.</span> <span class="nav-text">(1)第一类换元法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例1"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">例1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例2"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">例2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-第二类换元法"><span class="nav-number">1.2.2.</span> <span class="nav-text">(2)第二类换元法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例3"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">例3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例4"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">例4</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-部分积分法"><span class="nav-number">1.2.3.</span> <span class="nav-text">(3)部分积分法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例题5"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">例题5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例题6"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">例题6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例题7"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">例题7</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-一种有理函数求积分的好方法"><span class="nav-number">1.2.4.</span> <span class="nav-text">(4)一种有理函数求积分的好方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a、部分分式化"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">a、部分分式化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#例题8"><span class="nav-number">1.2.4.1.1.</span> <span class="nav-text">例题8</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b、积分！"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">b、积分！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法总结"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">方法总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例题9"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">例题9</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定积分"><span class="nav-number">2.</span> <span class="nav-text">定积分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定积分的性质"><span class="nav-number">2.1.</span> <span class="nav-text">定积分的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微积分基本定理"><span class="nav-number">2.2.</span> <span class="nav-text">微积分基本定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#微积分的第一基本定理"><span class="nav-number">2.2.1.</span> <span class="nav-text">微积分的第一基本定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微积分的第二基本定理"><span class="nav-number">2.2.2.</span> <span class="nav-text">微积分的第二基本定理</span></a></li></ol></li></ol></li></ol></div>
