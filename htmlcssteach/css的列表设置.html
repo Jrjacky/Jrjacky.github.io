@@ -27,6 +27,7 @@
 				<li class="navbar"><a href="css的文本设置.html">css的文本设置</a></li>
 				<li class="navbar"><a href="css的链接设置.html">css的链接设置</a></li>
 				<li class="navbar"><a class="Active" href="css的列表设置.html">css的列表设置</a></li>
+				<li class="navbar"><a href="css的表格设置.html">css的表格设置</a></li>
 			</ul>
 		</div>
 	</div>
@@ -46,11 +47,57 @@
 			<h2>自定义标记图像</h2>
 			如果你不想用系统的标记，就可以使用自己的图片<br>
 			格式是：<span class="htmlcode">list-style-image:url('...');</span><br>
-			在单引号中输入图片的文件名
+			在单引号中输入图片的文件名即可<br>
+			<h2>列表标记的位置</h2>
+			分里面和外面，属性设置是：<span class="htmlcode">list-style-position:inside/outside</span><br>
+			如果你自己尝试，会发现好像除了距离左端的位置变了以外，好像没啥区别<br>
+			是的，这样看确实没啥差别，所以我们需要加一些css设置：<br>
+			<span class="htmlcode">
+				li.a{<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;border-style:solid;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;border-width:3px;<br>
+				}<br>
+			</span>
+			这两句话是设置边框的意思，我们稍后会提到，你可以先不理解<br>
+			接下来，在html中写上：<br>
+			<span class="htmlcode">
+				<
+				ul class="inside"><br>&nbsp;&nbsp;&nbsp;&nbsp;<
+				li class="a">apple<
+				/li><br>&nbsp;&nbsp;&nbsp;&nbsp;<
+				li class="a">banana<
+				/li><br>&nbsp;&nbsp;&nbsp;&nbsp;<
+				li class="a">orange<
+				/li><br><
+				/ul><br><
+				ul class="outside"><br>&nbsp;&nbsp;&nbsp;&nbsp;<
+				li class="a">apple<
+				/li><br>&nbsp;&nbsp;&nbsp;&nbsp;<
+				li class="a">banana<
+				/li><br>&nbsp;&nbsp;&nbsp;&nbsp;<
+				li class="a">orange<
+				/li><br><
+				/ul><br>
+			</span>
+			然后运行结果就是：
+			<ul class="example4-inside">
+				<li class="example4-list">apple</li>
+				<li class="example4-list">banana</li>
+				<li class="example4-list">orange</li>
+			</ul>
+			<ul class="example4-outside">
+				<li class="example4-list">apple</li>
+				<li class="example4-list">banana</li>
+				<li class="example4-list">orange</li>
+			</ul>
+			看出来了吗？<br>
+			是的，inside和outside的区别就是是否在后面的“文本框”内<br>
+			<h2>列表设置的简写</h2>
+			列表的特殊设置就只有这三个了，一样可以简写：<span class="htmlcode">list-style:list-style-type list-style-position list-style-image</span>
 		</div>
 		<div class="pre-next-links">
 			<div class="pre-design-link"><a href="css的链接设置.html"><img src="pre.jpg"></a><a href="css的链接设置.html" rel="pre" title="css的链接设置">css的链接设置</a></div>
-			<!-- <div class="next-design-link"><a href="css的创建.html" rel="next" title="css的创建">css的创建</a><a href="css的创建.html"><img src="next.jpg"></a></div> -->
+			<div class="next-design-link"><a href="css的表格设置.html" rel="next" title="css的表格设置">css的表格设置</a><a href="css的表格设置.html"><img src="next.jpg"></a></div>
 		</div>
 	</div>
 </div>

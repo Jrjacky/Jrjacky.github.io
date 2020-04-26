@@ -197,8 +197,8 @@
         <tag>题解</tag>
         <tag>图论</tag>
         <tag>数学</tag>
-        <tag>最短路</tag>
         <tag>01分数规划</tag>
+        <tag>最短路</tag>
       </tags>
   </entry>
   <entry>
@@ -549,8 +549,8 @@
       <tags>
         <tag>DTOJ</tag>
         <tag>题解</tag>
-        <tag>DP</tag>
         <tag>图论</tag>
+        <tag>DP</tag>
         <tag>概率DP</tag>
       </tags>
   </entry>
@@ -766,9 +766,9 @@
       <tags>
         <tag>DTOJ</tag>
         <tag>题解</tag>
+        <tag>图论</tag>
         <tag>DP</tag>
         <tag>状压DP</tag>
-        <tag>图论</tag>
         <tag>最短路</tag>
       </tags>
   </entry>
@@ -960,8 +960,8 @@ $\frac{f_{k,j-1}-f_{l,j-1}+sum_k^2-sum_k^2}{sum_k-sum_l}<2sum_i$
         <tag>数学</tag>
         <tag>几何</tag>
         <tag>洛谷</tag>
-        <tag>省选</tag>
         <tag>斜率优化DP</tag>
+        <tag>省选</tag>
       </tags>
   </entry>
   <entry>

@@ -63,7 +63,7 @@ li.navbar a:hover:not(.Active) {
 }
 
 .next-design-link a{
-	color:grey;
+  color:grey;
 	text-decoration: none;
 }
 
@@ -123,4 +123,17 @@ a.example3:hover{
 
 a.example3:active{
 	color:#0000FF;
+}
+
+ul.example4-inside{
+  list-style-position:inside;
+}
+
+ul.example4-outside{
+  list-style-position:outside;
+}
+
+li.example4-list{
+  border-style:solid;
+  border-width:3px;
 }
