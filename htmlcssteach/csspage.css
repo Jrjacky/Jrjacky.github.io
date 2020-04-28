@@ -43,6 +43,7 @@ li.navbar a:hover:not(.Active) {
     color: white;
 }
 
+/* 实现前后页面跳转 */
 .pre-next-links {
 	margin: 0;
     line-height: 24px;
@@ -86,19 +87,23 @@ li.navbar a:hover:not(.Active) {
 	width: auto;
 }
 
+/* html和css代码使用consolas字体，个人喜好 */
 .htmlcode {
 	font-family: consolas
 }
 
+/* 删除线 */
 .delete {
 	text-decoration: line-through;
 }
 
+/* 图片设置 */
 .picture {
 	width: 500px;
 	height: auto;
 }
 
+/* 教程中的例子 */
 .example1 {
 	color:red;
 	background-color:green;

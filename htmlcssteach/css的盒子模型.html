@@ -25,51 +25,43 @@
 			<ul class="navbar">
 				<li class="navbar"><a href="css教程.html">css简介</a></li>
 				<li class="navbar"><a href="css的创建.html">css的创建</a></li>
-				<li class="navbar"><a class="Active" href="css的基本语法.html">css的基本语法</a></li>
+				<li class="navbar"><a href="css的基本语法.html">css的基本语法</a></li>
 				<li class="navbar"><a href="css的id和class选择器.html">css的id和class选择器</a></li>
 				<li class="navbar"><a href="css的背景设置.html">css的背景设置</a></li>
 				<li class="navbar"><a href="css的文本设置.html">css的文本设置</a></li>
 				<li class="navbar"><a href="css的链接设置.html">css的链接设置</a></li>
 				<li class="navbar"><a href="css的列表设置.html">css的列表设置</a></li>
 				<li class="navbar"><a href="css的表格设置.html">css的表格设置</a></li>
-				<li class="navbar"><a href="css的盒子模型.html">css的盒子模型</a></li>
+				<li class="navbar"><a class="Active" href="css的盒子模型.html">css的盒子模型</a></li>
 				<li class="navbar"><a href="css的边框设置.html">css的边框设置</a></li>
 			</ul>
 		</div>
 	</div>
 	<div class="rightcolumn">
 		<div class="card">
-			<h2>基本语法</h2>
-			css的基本语法包含两部分：选择器和声明，声明的部分又包含属性和值
-			基本的格式是这样的：<br>
+			这一节，我们先告别一下难记的属性，来聊一聊css的盒子模型<br>
+			盒子模型是啥？能吃吗？小朋友你是不是有很多问号？<br>
+			你有没有在使用谷歌的时候点开过开发者工具？右下角就会出现一堆不同颜色的方框，就像这样：<br>
+			<img src="boxmodel.jpg"><br>
+			这是个啥呢？<br>
+			我们来翻译一下这四个词：margin:外边距,border:边框,padding：内边距,content:内容<br>
+			这就组成了我们今天要介绍的一个css的重要模型——盒子模型！<br>
+			对于具体的属性设置，这里先不做介绍了，我们先来算几个数：
+			<ol>
+				<li>盒子模型的宽度怎么算？</li>
+				<li>盒子模型的高度怎么算？</li>
+			</ol>
+			我们在margin/border/padding后面加上left/right/top/bottom来表示左、右、上、下<br>
+			现在，开始计算吧！<br>
 			<span class="htmlcode">
-				选择器{<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;属性:值;/*这就是一个声明*/
-				&nbsp;&nbsp;&nbsp;&nbsp;属性:值;......<br>
-				}<br>
+				width=margin_left+border_left+padding_left+content+padding_right+border_right+margin_right<br>
+				high=margin_top+border_top+padding_top+content+padding_bottom+border_bottom+margin_bottom<br>
 			</span>
-			选择器其实就代表着html标签（就是尖角括号中的p、div、span等等）<br>
-			如果想同时设置好几个html标签，也可以用逗号隔开<br>
-			举个例子：<br>
-			<span class="htmlcode">
-				p{<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;color:red;/*这句话代表把字体颜色设置为红色*/<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;background-color:green;/*这句话代表把背景颜色设为绿色/<br>
-				}<br>
-			</span>
-			然后我们在html代码中写入（或者其他你想写的东西，这只是一个示范）：<br>
-			<span class="htmlcode">
-				<
-				p>红配绿，臭狗屁<
-				/p><br>
-			</span>
-			就可以得到：<!-- <p class="example1">红配绿，臭狗屁</p> -->
-			<h2>注释</h2>
-			那如果我要添加注释呢？上面的演示代码中就出现了，只需要把注释的内容的两侧添加上/*和*/就可以了
+			是不是很简单呢？
 		</div>
 		<div class="pre-next-links">
-			<div class="pre-design-link"><a href="css的创建.html"><img src="pre.jpg"></a><a href="css的创建.html" rel="pre" title="css的创建">css的创建</a></div>
-			<div class="next-design-link"><a href="css的id和class选择器.html" rel="next" title="css的id和class选择器">css的id和class选择器</a><a href="css的id和class选择器.html"><img src="next.jpg"></a></div>
+			<div class="pre-design-link"><a href="css的表格设置.html"><img src="pre.jpg"></a><a href="css的表格设置.html" rel="pre" title="css的表格设置">css的表格设置</a></div>
+			<div class="next-design-link"><a href="css的边框设置.html" rel="next" title="css的边框设置">css的边框设置</a><a href="css的边框设置.html"><img src="next.jpg"></a></div>
 		</div>
 	</div>
 </div>

@@ -1,3 +1,4 @@
+/* 来源：菜鸟教程+自行魔改 */
 body
 {
  	font-family: Arial;
@@ -76,6 +77,26 @@ body
   margin-top: 20px;
 }
 
+/* 返回顶部按钮，来源：菜鸟教程+自行魔改 */
+#myBtn {
+    display: none; /* 默认隐藏 */
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none;
+    outline: none; 
+    background-color: #3498DB; /* 设置背景颜色，你可以设置自己想要的颜色或图片 */
+    color: white; /* 文本颜色 */
+    cursor: pointer; 
+    padding: 15px; 
+    border-radius: 10px; /* 圆角 */
+}
+ 
+#myBtn:hover {
+    background-color: red; 
+}
+
 /* 下拉式菜单 
 .dropbtn {
     background-color: #333;
@@ -114,4 +135,4 @@ body
 
 .dropdown:hover .dropbtn {
     background-color: #ddd;
-}*/
+}
