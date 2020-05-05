@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>html&css教程</title>
+<title>各种编程语言教程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="icon" href="logo.ico" type="image/x-icon"/>
 <link rel="stylesheet" type="text/css" href="homepage.css">
@@ -13,7 +14,7 @@
 <button onclick="topFunction()" id="myBtn" title="回顶部">hhh</button>
 <div class="header">css教程</div>
 <div class="topnav">
- 	<a href="html&css教程.html">首页</a>
+ 	<a href="各种编程语言教程.html">首页</a>
  	<a href="html教程.html">html教程</a>
  	<a class="active" href="css教程.html">css教程</a>
  	<a href="about.html">关于</a>
@@ -50,10 +51,14 @@
 			</ul>
 			我列举的只是常用的，还有一些奇奇怪怪的，比如日文片假名，传统的希伯来编号，传统的亚美尼亚……<br>
 			另外，关于字母多说一嘴，如果列表长度超过了所有字母的个数，就会像Excle那样，两个字母组合，再三个字母组合……
+		</div>
+		<div class="card">
 			<h2>自定义标记图像</h2>
 			如果你不想用系统的标记，就可以使用自己的图片<br>
 			格式是：<span class="htmlcode">list-style-image:url('...');</span><br>
 			在单引号中输入图片的文件名即可<br>
+		</div>
+		<div class="card">
 			<h2>列表标记的位置</h2>
 			分里面和外面，属性设置是：<span class="htmlcode">list-style-position:inside/outside</span><br>
 			如果你自己尝试，会发现好像除了距离左端的位置变了以外，好像没啥区别<br>
@@ -85,19 +90,13 @@
 				/li><br><
 				/ul><br>
 			</span>
-			然后运行结果就是：
-			<ul class="example4-inside">
-				<li class="example4-list">apple</li>
-				<li class="example4-list">banana</li>
-				<li class="example4-list">orange</li>
-			</ul>
-			<ul class="example4-outside">
-				<li class="example4-list">apple</li>
-				<li class="example4-list">banana</li>
-				<li class="example4-list">orange</li>
-			</ul>
+			然后运行结果就是：<br>
+			<iframe src="example/css的列表设置-例子.html"></iframe><br>
+			<a class="examplelink" href="example/css的列表设置-例子.html">例子连接</a><br>
 			看出来了吗？<br>
 			是的，inside和outside的区别就是是否在后面的“文本框”内<br>
+		</div>
+		<div class="card">
 			<h2>列表设置的简写</h2>
 			列表的特殊设置就只有这三个了，一样可以简写：<span class="htmlcode">list-style:list-style-type list-style-position list-style-image</span>
 		</div>

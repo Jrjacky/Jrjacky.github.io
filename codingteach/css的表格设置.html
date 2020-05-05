@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>html&css教程</title>
+<title>各种编程语言教程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="icon" href="logo.ico" type="image/x-icon"/>
 <link rel="stylesheet" type="text/css" href="homepage.css">
@@ -13,7 +14,7 @@
 <button onclick="topFunction()" id="myBtn" title="回顶部">hhh</button>
 <div class="header">css教程</div>
 <div class="topnav">
- 	<a href="html&css教程.html">首页</a>
+ 	<a href="各种编程语言教程.html">首页</a>
  	<a href="html教程.html">html教程</a>
  	<a class="active" href="css教程.html">css教程</a>
  	<a href="about.html">关于</a>
@@ -23,7 +24,7 @@
 		<div class="card">
 			<h3>目录</h3>
 			<ul class="navbar">
-				<li class="navbar"><a class="Active" href="css教程.html">css简介</a></li>
+				<li class="navbar"><a href="css教程.html">css简介</a></li>
 				<li class="navbar"><a href="css的创建.html">css的创建</a></li>
 				<li class="navbar"><a href="css的基本语法.html">css的基本语法</a></li>
 				<li class="navbar"><a href="css的id和class选择器.html">css的id和class选择器</a></li>
@@ -31,7 +32,7 @@
 				<li class="navbar"><a href="css的文本设置.html">css的文本设置</a></li>
 				<li class="navbar"><a href="css的链接设置.html">css的链接设置</a></li>
 				<li class="navbar"><a href="css的列表设置.html">css的列表设置</a></li>
-				<li class="navbar"><a href="css的表格设置.html">css的表格设置</a></li>
+				<li class="navbar"><a class="Active" href="css的表格设置.html">css的表格设置</a></li>
 				<li class="navbar"><a href="css的盒子模型.html">css的盒子模型</a></li>
 				<li class="navbar"><a href="css的边框设置.html">css的边框设置</a></li>
 			</ul>
@@ -39,23 +40,26 @@
 	</div>
 	<div class="rightcolumn">
 		<div class="card">
-			<h2>什么是CSS？</h2>
-			CSS指层叠样式表(<b>C</b>ascading <b>S</b>tyle <b>S</b>heets)<br>
-			样式定义如何显示 HTML 元素<br>
-			样式通常存储在样式表中<br>
-			把样式添加到 HTML 4.0 中，是为了解决内容与表现分离的问题<br>
-			外部样式表可以极大提高工作效率<br>
-			外部样式表通常存储在 CSS 文件中<br>
-			多个样式定义可层叠为一个<br>
-			<h2>CSS功能有多强大？</h2>
-			看两张同一个网页的图就知道了
-			有css：<br></noframes><img class="picture" src="havecss.jpg"><br>
-			没有css：<br><img class="picture" src="nocss.jpg"><br>
-			可见css的强大之处了
-			点击左侧目录进入具体模块的学习吧！
+			可以进行和文本一样的设置这点就不用说了吧……<br>
+			<h2>宽度和高度</h2>
+			属性分别是：<span class="htmlcode">width:...</span>和<span class="htmlcode">height:...</span><br>
+			值可以是任何css单位<br>
+			通过这个功能，我们可以完成类似于excle的调整行高和列高的功能<br>
+			当然，你只需要设置不同的class选择器就可以实现不同行的高度和宽度不同
+		</div>
+		<div class="card">
+			<h2>表格文本垂直对齐</h2>
+			因为我们可以调整行高，所以我们就需要选择文字在上面、中间还是下面<br>
+			属性设置就是：<span class="htmlcode">vertical-align:top/middle/bottom</span>
+		</div>
+		<div class="card">
+			<h2>表格的标题</h2>
+			表格的标题可以再表格的上方，也可以在下方<span class="delete">虽然应该没有人会放下下面</span><br>
+			通过属性<span class="htmlcode">caption-side:top/bottom</span>可以设置
 		</div>
 		<div class="pre-next-links">
-			<div class="next-design-link"><a href="css的创建.html" rel="next" title="css的创建">css的创建</a><a href="css的创建.html"><img src="next.jpg"></a></div>
+			<div class="pre-design-link"><a href="css的列表设置.html"><img src="pre.jpg"></a><a href="css的列表设置.html" rel="pre" title="css的列表设置">css的列表设置</a></div>
+			<div class="next-design-link"><a href="css的盒子模型.html" rel="next" title="css的盒子模型">css的盒子模型</a><a href="css的盒子模型.html"><img src="next.jpg"></a></div>
 		</div>
 	</div>
 </div>

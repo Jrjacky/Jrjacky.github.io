@@ -103,42 +103,22 @@ li.navbar a:hover:not(.Active) {
 	height: auto;
 }
 
-/* 教程中的例子 */
-.example1 {
-	color:red;
-	background-color:green;
+/* 例子的连接样式 */
+a.examplelink:link,a.examplelink:visited {
+  text-decoration: none;
+  color: blue;
+}
+a.examplelink:hover,a.examplelink:active {
+  text-decoration: none;
+  color: red;
 }
 
-.example2 {
-	text-align:justify;
-	width:150px;
-}
-
-a.example3:link{
-	color:#000000;
-}
-
-a.example3:visited{
-	color:#00FF00;
-}
-
-a.example3:hover{
-	color:#FF00FF;
-}
-
-a.example3:active{
-	color:#0000FF;
-}
-
-ul.example4-inside{
-  list-style-position:inside;
-}
-
-ul.example4-outside{
-  list-style-position:outside;
-}
-
-li.example4-list{
-  border-style:solid;
-  border-width:3px;
+/* 响应式网页设计 */
+@media only screen and (max-width: 768px) {
+    .leftcolumn{
+        width: 100%;
+    }
+    .rightcolumn{
+        width: 100%;
+    }
 }
