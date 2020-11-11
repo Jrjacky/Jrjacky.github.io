@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://jrjacky.github.io').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="第一次当标题党好方，但好像也没啥问题，因为我就是一个初中的菜鸡 前置知识 基础的组合计数知识 NTT（非必要） 看到一长串的式子不会晕过去的能力">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初中生都看得懂的快速上手斯特林数指南--从盒放球问题说起">
+<meta property="og:url" content="http://jrjacky.github.io/2020/11/11/%E5%88%9D%E4%B8%AD%E7%94%9F%E9%83%BD%E7%9C%8B%E5%BE%97%E6%87%82%E7%9A%84%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E6%8C%87%E5%8D%97-%E4%BB%8E%E7%9B%92%E6%94%BE%E7%90%83%E9%97%AE%E9%A2%98%E8%AF%B4%E8%B5%B7/index.html">
+<meta property="og:site_name" content="Jacky Dong&#39;s blog">
+<meta property="og:description" content="第一次当标题党好方，但好像也没啥问题，因为我就是一个初中的菜鸡 前置知识 基础的组合计数知识 NTT（非必要） 看到一长串的式子不会晕过去的能力">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200818224238510.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020021616135437.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200216163715754.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200216163047456.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200818224238510.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200819200904457.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200818224238510.png#pic_center">
+<meta property="article:published_time" content="2020-11-11T14:46:57.000Z">
+<meta property="article:modified_time" content="2020-11-11T14:52:09.614Z">
+<meta property="article:author" content="Jacky Dong">
+<meta property="article:tag" content="组合">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="数论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200818224238510.png#pic_center">
+
+<link rel="canonical" href="http://jrjacky.github.io/2020/11/11/%E5%88%9D%E4%B8%AD%E7%94%9F%E9%83%BD%E7%9C%8B%E5%BE%97%E6%87%82%E7%9A%84%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E6%8C%87%E5%8D%97-%E4%BB%8E%E7%9B%92%E6%94%BE%E7%90%83%E9%97%AE%E9%A2%98%E8%AF%B4%E8%B5%B7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>初中生都看得懂的快速上手斯特林数指南--从盒放球问题说起 | Jacky Dong's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jacky Dong's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">学好数理化，走遍天下都不怕</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">41</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">79</span></a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-codingteach">
+
+    <a href="/codingteach/%E5%90%84%E7%A7%8D%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B.html" rel="section"><i class="fa fa-fw fa-code"></i>codingteach</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/11/11/%E5%88%9D%E4%B8%AD%E7%94%9F%E9%83%BD%E7%9C%8B%E5%BE%97%E6%87%82%E7%9A%84%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E6%8C%87%E5%8D%97-%E4%BB%8E%E7%9B%92%E6%94%BE%E7%90%83%E9%97%AE%E9%A2%98%E8%AF%B4%E8%B5%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初中生都看得懂的快速上手斯特林数指南--从盒放球问题说起
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-11 22:46:57 / 修改时间：22:52:09" itemprop="dateCreated datePublished" datetime="2020-11-11T22:46:57+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><del>第一次当标题党好方，但好像也没啥问题，因为我就是一个初中的菜鸡</del></p>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><ol>
+<li><a href="https://blog.csdn.net/weixin_43849488/article/details/104846262" target="_blank" rel="noopener">基础的组合计数知识</a></li>
+<li>NTT（非必要）</li>
+<li>看到一长串的式子不会晕过去的能力<a id="more"></a>
+<h1 id="盒放球"><a href="#盒放球" class="headerlink" title="盒放球"></a>盒放球</h1>盒放球问题可以描述为：<blockquote>
+<p>有$n$个相同/不同的球，$k$个相同/不同的盒子，把$n$个球放到盒子里，盒子允许/不允许为空，有多少种方案</p>
+</blockquote>
+</li>
+</ol>
+<p>稍微有点智商的人都知道，这一共有$2\times2\times2=8$个问题<br>我们一个个来看</p>
+<h2 id="球相同，盒不同，不允许为空"><a href="#球相同，盒不同，不允许为空" class="headerlink" title="球相同，盒不同，不允许为空"></a>球相同，盒不同，不允许为空</h2><p>这个非常简单，只需要使用隔板法就可以了，在$n-1$个空中插入$k-1$个板，把球隔成$k$段，每一段对应地放到盒子中，所以有$\binom{n-1}{k-1}$种</p>
+<h2 id="球相同，盒不同，允许为空"><a href="#球相同，盒不同，允许为空" class="headerlink" title="球相同，盒不同，允许为空"></a>球相同，盒不同，允许为空</h2><p>这回变成了允许为空，怎么办？<br>很简单，先在每个盒子里都放一个球，这样就转化为了<code>球相同，盒不同，不允许为空</code>的情况了！一共有$\binom{n+k-1}{k-1}$</p>
+<h2 id="球相同，盒相同，不允许-允许为空"><a href="#球相同，盒相同，不允许-允许为空" class="headerlink" title="球相同，盒相同，不允许/允许为空"></a>球相同，盒相同，不允许/允许为空</h2><p>这个需要使用到母函数（生成函数），不是本篇文章的重点，所以先不讲</p>
+<h2 id="球不同，盒不同，允许为空"><a href="#球不同，盒不同，允许为空" class="headerlink" title="球不同，盒不同，允许为空"></a>球不同，盒不同，允许为空</h2><p>这个应该没人不会吧……当然是$k^n$种了</p>
+<h2 id="球不同，盒相同，不允许为空"><a href="#球不同，盒相同，不允许为空" class="headerlink" title="球不同，盒相同，不允许为空"></a>球不同，盒相同，不允许为空</h2><p>emmm……<br>这是一个很有难度的问题，我们先看看如何递推吧<br>假设有$S(n,k)$种，那么可能是前$n-1$个球就用了$k$个盒子，那么我们把第$n$个球放在$k$个盒子中的任意一个即可；如果前$n-1$个球用了$k-1$个盒子，那么我们就把第$n$个球放在第$k$个盒子中<br>所以$S(n,k)=S(n-1,k)\times k+S(n-1,k-1)$<br>话说我们不是要斯特林数吗？怎么还没讲？<br>别急，看看这个问题所使用的的字母：$S$，好像跟斯特林的首字母一样<br>不会吧不会吧，难道这就是传说中的斯特林数，原来斯特林数这么简单！！！<del>对，您太强了，所以觉得简单，可以爆踩我这个菜鸡，妈妈再也不用担心你的学习啦！（大雾</del><br>接下来，我们暂且放下剩下的两种盒放球问题，来看看我们刚刚计算的$S(n,k)$，也就是第二类斯特林数的定义</p>
+<h1 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>将$n$个元素分成$m$个<strong>无标号</strong>的集合$S(n,m)=\begin{Bmatrix}n\\m\end{Bmatrix}$<br>等等，啥叫无标号集合啊？如果用上面的盒放球问题来解释，就是盒子是相同的，如果严谨一点说，就是如果一<strong>堆</strong>集合调换顺序后和另一<strong>堆</strong>集合完全相同（所有对应的集合都相等），那么这两<strong>堆</strong>集合就是等价的<br>比如$\{\{1\},\{2,3\}\}$和$\{\{2,3\},\{1\}\}$就是等价的<br>看到这里，相信有的人还是理解不了第二类斯特林数，所以，我们举一个例子：$\begin{Bmatrix}3\\2\end{Bmatrix}=3$<br>三种方法如下：</p>
+<ol>
+<li>$\{\{1\},\{2,3\}\}$</li>
+<li>$\{\{2\},\{1,3\}\}$</li>
+<li>$\{\{3\},\{1,2\}\}$</li>
+</ol>
+<p>现在清楚多了吧？</p>
+<h2 id="通项"><a href="#通项" class="headerlink" title="通项"></a>通项</h2><p>第二类斯特林数的通项为$\begin{Bmatrix}n\\m\end{Bmatrix}=\frac{1}{m!}\sum \limits_{i=0}^m(-1)^i\binom{m}{i}(m-i)^n$<br>可以通过盒放球问题，来感性理解这个公式：我们考虑容斥，假设有$i$个空盒，那么，我们先从$m$个盒子中，选出$i$个，剩下的盒子随便塞<br>最后，不要忘记<strong>无标号</strong>这个问题，所以我们需要除以$m!$<br>这个公式非常重要，它可以帮助我们用NTT计算出一整行的第二类斯特林数，这个后面会讲到</p>
+<h2 id="特殊值"><a href="#特殊值" class="headerlink" title="特殊值"></a>特殊值</h2><p>在开始讲NTT求第二类斯特林数之前，为了让大家放松心情，我们先来看看第二类斯特林数的特殊值：<br>$\begin{Bmatrix}n\\0\end{Bmatrix}=0,\begin{Bmatrix}n\\1\end{Bmatrix}=1,\begin{Bmatrix}n\\n-1\end{Bmatrix}=\binom{n}{2},\begin{Bmatrix}n\\n\end{Bmatrix}=1$<br>自己想吧，太简单了，不证了</p>
+<h2 id="计算第二类斯特林数"><a href="#计算第二类斯特林数" class="headerlink" title="计算第二类斯特林数"></a>计算第二类斯特林数</h2><p><strong>Warning!Warning!Warning!前方高能，请没学过NTT迅速跳过这一节</strong><br>好的，我们开始推式子吧！<br>$\begin{Bmatrix}n\\m\end{Bmatrix}=\frac{1}{m!}\sum \limits_{i=0}^m(-1)^i\binom{m}{i}(m-i)^n=\frac{1}{m!}\sum \limits_{i=0}^m(-1)^i\frac{m!}{i!(m-i)!}(m-i)^n=\sum \limits_{i=0}^m\frac{(-1)^i}{i!}\frac{(m-i)^n}{(m-i)!}$<br>看，这是什么？是不是一个漂亮的卷积式？<br>还没看出来？设$f(x)=\sum \limits_{i\geqslant 0} \frac{(-1)^i}{i!}x^i,g(x)=\sum\limits_{i\geqslant 0}\frac{i^n}{i!}x^i$，则$\begin{Bmatrix}n\\m\end{Bmatrix}$就是$f(x)$和$g(x)$的卷积<br>所以，我们就可以愉快地使用逆天塔（NTT）了！<br><a href="https://www.luogu.com.cn/problem/P5395" target="_blank" rel="noopener">模板题</a>代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ljc 167772161</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,k,r[<span class="number">800006</span>],lim,w[<span class="number">800006</span>],a[<span class="number">800006</span>],b[<span class="number">800006</span>],inv[<span class="number">800006</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">fast_pow</span><span class="params">(ll a,ll b,ll p)</span></span>&#123;</span><br><span class="line">    ll t=<span class="number">1</span>;a%=p;</span><br><span class="line">    <span class="keyword">while</span> (b)&#123;</span><br><span class="line">        <span class="keyword">if</span> (b&amp;<span class="number">1</span>) t=t*a%p;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;a=a*a%p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">NTT</span><span class="params">(ll f[],<span class="keyword">int</span> lim,<span class="keyword">int</span> id)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;lim;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (i&lt;r[i]) swap(f[r[i]],f[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    w[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> len=<span class="number">1</span>;len&lt;lim;len&lt;&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">        ll gen=fast_pow(<span class="number">3</span>,(ljc<span class="number">-1</span>)/(len&lt;&lt;<span class="number">1</span>)*id+ljc<span class="number">-1</span>,ljc);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++) w[i]=w[i<span class="number">-1</span>]*gen%ljc;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;lim;i+=len&lt;&lt;<span class="number">1</span>)&#123;</span><br><span class="line">            ll *f1=f+i,*f2=f1+len;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++)&#123;</span><br><span class="line">                ll x=f1[j]%ljc,y=f2[j]*w[j]%ljc;</span><br><span class="line">                f1[j]=(x+y)%ljc;f2[j]=(x-y+ljc)%ljc;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (id==<span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">    ll Inv=fast_pow(lim,ljc<span class="number">-2</span>,ljc);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;lim;i++) f[i]=f[i]*Inv%ljc;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;n++;</span><br><span class="line">    inv[<span class="number">0</span>]=inv[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;n;i++) inv[i]=(ljc-(ljc/i)*inv[ljc%i]%ljc)%ljc;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++) inv[i]=inv[i<span class="number">-1</span>]*inv[i]%ljc;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>,one=<span class="number">1</span>;i&lt;n;one=ljc-one,i++)&#123;</span><br><span class="line">        a[i]=one*inv[i]%ljc;b[i]=fast_pow(i,n<span class="number">-1</span>,ljc)*inv[i]%ljc;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> lim=<span class="number">1</span>,len=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (lim&lt;=(n&lt;&lt;<span class="number">1</span>)) lim&lt;&lt;=<span class="number">1</span>,len++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;lim;i++) r[i]=(r[i&gt;&gt;<span class="number">1</span>]&gt;&gt;<span class="number">1</span>)|((i&amp;<span class="number">1</span>)&lt;&lt;(len<span class="number">-1</span>));</span><br><span class="line">    NTT(a,lim,<span class="number">1</span>);NTT(b,lim,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;lim;i++) a[i]=a[i]*b[i]%ljc;</span><br><span class="line">    NTT(a,lim,<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">printf</span>(<span class="string">"%lld "</span>,a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="自然数幂和"><a href="#自然数幂和" class="headerlink" title="自然数幂和"></a>自然数幂和</h2><p>你有没有见过这样的题目：让你求$\sum\limits_{i=1}^ni^k$的题目？<br>你可能会想：这不简单吗，每次使用快速幂不就好了嘛<br>不！没有那么简单！$n\leqslant 10^9,k\leqslant 5000$的时候你还能用快速幂吗？不能！<del>不要告诉我你要分段打表</del><br>但是！第二类斯特林数可以！<br>这只能说明：斯特林数（停顿）行！快速幂（停顿）不行！我爱斯特林数！<del>老伏拉夫了</del><br>那斯特林数到底怎么行了呢？我们要从一个假快速幂讲起</p>
+<h3 id="快速幂？"><a href="#快速幂？" class="headerlink" title="快速幂？"></a>快速幂？</h3><p>$n^m=\sum \limits_{i=0}^{m} \begin{Bmatrix}m\\i\end{Bmatrix} n^{\underline{i}}$<br>其中$n^{\underline{i}}$表示$n$的$i$次下降幂，即$n^{\underline{i}}=\prod \limits_{k=0}^{i-1}(n-k)$<br>证明：<br>考虑归纳证明，当$m=1$时，$\sum \limits_{i=0}^{m} \begin{Bmatrix}m\\i\end{Bmatrix} n^{\underline{i}}=\begin{Bmatrix}1\\1\end{Bmatrix} n=n$<br>假设$m=k$时成立<br>当$m=k+1$时，$n^{k+1}=n\sum \limits_{i=0}^{k} \begin{Bmatrix}k\\i\end{Bmatrix} n^{\underline{i}}=\sum \limits_{i=0}^{k} \begin{Bmatrix}k\\i\end{Bmatrix}\left( n^{\underline{i+1}}+in^{\underline{i}}\right)=\sum \limits_{i=0}^{k} \begin{Bmatrix}k\\i\end{Bmatrix} n^{\underline{i+1}}+\sum \limits_{i=0}^{k} \begin{Bmatrix}k\\i\end{Bmatrix} in^{\underline{i}}=\sum \limits_{i=0}^{k+1} \begin{Bmatrix}k\\i-1\end{Bmatrix} n^{\underline{i}}+\sum \limits_{i=0}^{k+1} \begin{Bmatrix}k\\i\end{Bmatrix} in^{\underline{i}}=\sum \limits_{i=0}^{k+1} \left(\begin{Bmatrix}k\\i-1\end{Bmatrix}+i\begin{Bmatrix}k\\i\end{Bmatrix}\right) n^{\underline{i}}=\sum \limits_{i=0}^{k+1} \begin{Bmatrix}k+1\\i\end{Bmatrix} n^{\underline{i}}$<br>$\therefore n^m=\sum \limits_{i=0}^{m} \begin{Bmatrix}m\\i\end{Bmatrix} n^{\underline{i}}$</p>
+<h3 id="解决自然数幂和问题"><a href="#解决自然数幂和问题" class="headerlink" title="解决自然数幂和问题"></a>解决自然数幂和问题</h3><p>设$S_{n,k}=\sum\limits_{i=1}^ni^k$<br>$S_{n,k}=\sum\limits_{i=1}^ni^k=\sum\limits_{i=1}^n\sum \limits_{j=0}^{k} \begin{Bmatrix}k\\j\end{Bmatrix} i^{\underline{j}}$<br>考虑到$n$的范围太大，$k$的范围小，交换求和顺序<br>$=\sum \limits_{j=0}^{k} \begin{Bmatrix}k\\j\end{Bmatrix}\sum\limits_{i=1}^ni^{\underline{j}}=\sum \limits_{j=0}^{k} \begin{Bmatrix}k\\j\end{Bmatrix}j!\sum\limits_{i=1}^n\binom{i}{j}=\sum \limits_{j=0}^{k} \begin{Bmatrix}k\\j\end{Bmatrix}j!\binom{n+1}{j+1}$<br>斯特林数预处理，组合数和阶乘边算边推，所以效率就是$\Theta(k)$！<br><img src="https://img-blog.csdnimg.cn/20200818224238510.png#pic_center" alt="完美"><br>再次证明了我说的话：<strong>斯特林数行！快速幂不行！我爱斯特林数！</strong></p>
+<h1 id="第一类斯特林数"><a href="#第一类斯特林数" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h1><p>既然刚刚讲了第二类斯特林数，一定有第一类斯特林数吧？<br>有！接下来我们就来讲讲</p>
+<h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>将$n$个元素分成$m$个<strong>无标号</strong>的轮换$s(n,m)=\begin{bmatrix}n\\m\end{bmatrix}$<br>什么叫轮换？<br>就是把一堆数放在一个圈上，如果可以通过旋转使得圈上的每个位置上数都和另一个圈上的数是相等的，那么这两个圈等价（意思就是它们是同一个轮换）<br>比如，现在有三个轮换：<br><img src="https://img-blog.csdnimg.cn/2020021616135437.png" alt="在这里插入图片描述"><br>第一个轮换和第二个轮换是等价的，第一个和第三个轮换不是等价的<br>那么，什么叫<strong>无标号</strong>的轮换？<br>和<strong>无标号</strong>的集合类似，就是如果一<strong>堆</strong>轮换调换顺序后和另一<strong>堆</strong>轮换完全相同（所有对应的轮换等价），那么这两堆轮换就是等价的<br>比如，现在有两<strong>堆</strong>轮换：<br><img src="https://img-blog.csdnimg.cn/20200216163715754.png" alt="在这里插入图片描述"><br>第一堆轮换和第二堆轮换完全相同，是等价的<br>为了让大家更了解第一类斯特林数，我们举一个例子：$\begin{bmatrix}3\\2\end{bmatrix}=3$<br>三种方法如下：<br><img src="https://img-blog.csdnimg.cn/20200216163047456.png" alt="在这里插入图片描述"><br>第一类斯特林数还有另一种定义，就是$\prod \limits_{i=0}^{n-1}(x-i)$的$m$次项系数叫$\begin{bmatrix}n\\m\end{bmatrix}$<br>因为我太菜了，所以我并不知道第一类斯特林数是否有通项</p>
+<h2 id="特殊值-1"><a href="#特殊值-1" class="headerlink" title="特殊值"></a>特殊值</h2><p>$\begin{bmatrix}n\\0\end{bmatrix}=0,\begin{bmatrix}n\\1\end{bmatrix}=1,\begin{bmatrix}n\\n-1\end{bmatrix}=\binom{n}{2},\begin{bmatrix}n\\n\end{bmatrix}=1$<br>自己想吧，太简单了，不证了</p>
+<h2 id="快速幂？-1"><a href="#快速幂？-1" class="headerlink" title="快速幂？"></a>快速幂？</h2><p>和第二类斯特林数一样，第一类斯特林数也有假的快速幂，还有两个：<br>①$n^{\overline{m}}=\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} n^i$<br>其中$n^{\overline{m}}$表示$n$的$i$次上升幂，即$n^{\overline{m}}=\prod \limits_{i=0}^{m-1}(n+i)$<br>证明：<br>当$m=1$时，$\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} n^i=\begin{bmatrix}1\\1\end{bmatrix} n=n$<br>假设$m=k$时成立<br>当$m=k+1$时，$n^{\overline{k+1}}=(n+k)n^{\overline{k}}=n\sum \limits_{i=0}^{k} \begin{bmatrix}k\\i\end{bmatrix} n^i+k\sum \limits_{i=0}^{k} \begin{bmatrix}k\\i\end{bmatrix} n^i=\sum \limits_{i=0}^{k+1} \begin{bmatrix}k\\i-1\end{bmatrix} n^i+\sum \limits_{i=0}^{k+1} k\begin{bmatrix}k\\i\end{bmatrix} n^i=\sum \limits_{i=0}^{k+1} \left(\begin{bmatrix}k\\i-1\end{bmatrix}+k\begin{bmatrix}k\\i\end{bmatrix}\right) n^i=\sum \limits_{i=0}^{k+1} \begin{bmatrix}k+1\\i\end{bmatrix} n^i$<br>$\therefore n^{\overline{m}}=\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} n^i$<br>②$n^{\underline{m}}=\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} (-1)^{m-i} n^i$<br>证明：<br>当$m=1$时，$\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} (-1)^{m-i} n^i=\begin{bmatrix}1\\1\end{bmatrix} n=n$<br>假设$m=k$时成立<br>当$m=k+1$时，$n^{\underline{k+1}}=(n-k)n^{\underline{k}}=n\sum \limits_{i=0}^{k} \begin{bmatrix}k\\i\end{bmatrix} (-1)^{k-i} n^i-k\sum \limits_{i=0}^{k} \begin{bmatrix}k\\i\end{bmatrix} (-1)^{k-i} n^i=\sum \limits_{i=0}^{k+1} \begin{bmatrix}k\\i-1\end{bmatrix} (-1)^{k+1-i} n^i+\sum \limits_{i=0}^{k+1} k\begin{bmatrix}k\\i\end{bmatrix} (-1)^{k+1-i} n^i=\sum \limits_{i=0}^{k+1} \left(\begin{bmatrix}k\\i-1\end{bmatrix}+k\begin{bmatrix}k\\i\end{bmatrix}\right) (-1)^{k+1-i} n^i=\sum \limits_{i=0}^{k+1} \begin{bmatrix}k+1\\i\end{bmatrix} (-1)^{k+1-i} n^i$<br>$\therefore n^{\underline{m}}=\sum \limits_{i=0}^{m} \begin{bmatrix}m\\i\end{bmatrix} (-1)^{m-i} n^i$<br>通过第一个假快速幂，我们可以用分治NTT，求出第一类斯特林数，但是我太菜了，不会，等会了再来更博吧</p>
+<h1 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h1><p>最后我们来讲讲斯特林反演<br>若$f(n)=\sum \limits_{i=1}^n\begin{Bmatrix}n\\i\end{Bmatrix}g(i)$，则$g(n)=\sum \limits_{i=1}^n(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}f(i)$<br>这个$-1$的次数怎么这么熟？<br>是的，这就是上面的第一类斯特林数的第二个假快速幂中$-1$次数<br>可以用斯特林反演说明第二类斯特林数的假快速幂和第一类斯特林数的第二个假快速幂是等价的<br>但是这玩意儿好像没啥用，至少我没用过<del>我就没做过几道斯特林数的题目</del>，但是我还是来证一下</p>
+<h2 id="引理1"><a href="#引理1" class="headerlink" title="引理1"></a>引理1</h2><p>引理描述：$x^{\underline{n}}=(-1)^n(-x)^{\overline{n}},x^{\overline{n}}=(-1)^n(-x)^{\underline{n}}$<br>引理证明：$(-1)^n(-x)^{\overline{n}}=\sum\limits_{i=0}^{i=n-1} (-1)\times(-x+i)=\sum\limits_{i=0}^{i=n-1} (x-i)=x^{\underline{n}}$<br>$\therefore (-1)^n(-x)^{\underline{n}}=(-1)^{2n}x^{\overline{n}}=x^{\overline{n}}$</p>
+<h2 id="引理2"><a href="#引理2" class="headerlink" title="引理2"></a>引理2</h2><p>引理描述：$\sum\limits_{i=m}^{n}(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}\begin{Bmatrix}i\\m\end{Bmatrix}=[n==m],\sum\limits_{i=m}^{n}(-1)^{n-i}\begin{Bmatrix}n\\i\end{Bmatrix}\begin{bmatrix}i\\m\end{bmatrix}=[n==m]$<br>引理证明：$n^m=\sum \limits_{i=0}^{m} \begin{Bmatrix}m\\i\end{Bmatrix} n^{\underline{i}}=\sum \limits_{i=0}^{m} \begin{Bmatrix}m\\i\end{Bmatrix} (-1)^i (-n)^{\overline{i}}=\sum \limits_{i=0}^{m} \begin{Bmatrix}m\\i\end{Bmatrix} (-1)^i\sum \limits_{j=0}^{i} \begin{bmatrix}i\\j\end{bmatrix} (-n)^j=\sum \limits_{j=0}^{m}n^j \sum \limits_{i=j}^{m} \begin{Bmatrix}m\\i\end{Bmatrix}\begin{bmatrix}i\\j\end{bmatrix} (-1)^{i-j}$<br>$\therefore \sum \limits_{i=j}^{m} \begin{Bmatrix}m\\i\end{Bmatrix}\begin{bmatrix}i\\j\end{bmatrix} (-1)^{i-j}=[j==m]$<br>$\therefore \sum\limits_{i=m}^{n}(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}\begin{Bmatrix}i\\m\end{Bmatrix}=[n==m]$<br>同理可证，$\sum\limits_{i=m}^{n}(-1)^{n-i}\begin{Bmatrix}n\\i\end{Bmatrix}\begin{bmatrix}i\\m\end{bmatrix}=[n==m]$</p>
+<h2 id="斯特林反演证明"><a href="#斯特林反演证明" class="headerlink" title="斯特林反演证明"></a>斯特林反演证明</h2><p>斯特林反演命题描述：若$f(n)=\sum \limits_{i=1}^n\begin{Bmatrix}n\\i\end{Bmatrix}g(i)$，则$g(n)=\sum \limits_{i=1}^n(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}f(i)$<br>证明：$g(n)=\sum\limits_{i=0}^n [i==n]g(i)=\sum\limits_{i=0}^{n}\sum\limits_{j=i}^{n}(-1)^{n-j}\begin{bmatrix}n\\j\end{bmatrix}\begin{Bmatrix}j\\i\end{Bmatrix}g(i)=\sum \limits_{j=1}^n(-1)^{n-j}\begin{bmatrix}n\\j\end{bmatrix}\sum \limits_{i=0}^j\begin{Bmatrix}j\\i\end{Bmatrix}g(i)=\sum \limits_{j=1}^n(-1)^{n-j}\begin{bmatrix}n\\j\end{bmatrix}f(j)$<br><img src="https://img-blog.csdnimg.cn/20200818224238510.png#pic_center" alt="完美"></p>
+<h1 id="例题详解"><a href="#例题详解" class="headerlink" title="例题详解"></a>例题详解</h1><h2 id="第一类斯特林数-1"><a href="#第一类斯特林数-1" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h2><h3 id="FJOI2016-建筑师"><a href="#FJOI2016-建筑师" class="headerlink" title="[FJOI2016]建筑师"></a>[FJOI2016]建筑师</h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p><a href="https://www.luogu.com.cn/problem/P4609" target="_blank" rel="noopener">题目链接</a></p>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>显然，这个建筑群一定会呈现这个样子：<br><img src="https://img-blog.csdnimg.cn/20200819200904457.png" alt="建筑"><br>其中，红色的代表一栋建筑，黑色的框代表一个建筑块（？？？），填充为红色的建筑高为$n$<br>去掉这个最高的建筑，剩下的建筑就一定被分成了$A+B-2$个块，其中左边有$A-1$个，右边有$B-1$个<br>这是因为每个建筑块有且仅有一个建筑能被看见（这是显然的吧……感性理解一下）<br>研究一下每一个建筑块会发现，对于一个一共有$k$个建筑的建筑块，当最高的建筑已经被选出时，这个建筑块一共有$(k-1)!$种方案<br>这让我们想到了单独一个环的排列也是$(k-1)!$种！<br>所以这岂不是第一类斯特林数？<br>最后，我们就会知道，答案是$\binom{A+B-2}{A-1}\begin{bmatrix}n-1\\A+B-2\end{bmatrix}$<br>附上代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,a,b,MOD=<span class="number">1e9</span>+<span class="number">7</span>,s[<span class="number">50010</span>][<span class="number">210</span>],c[<span class="number">210</span>][<span class="number">210</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    s[<span class="number">0</span>][<span class="number">0</span>]=c[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">50000</span>;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=min(i,<span class="number">200</span>);j++) s[i][j]=(<span class="number">1l</span>l*s[i<span class="number">-1</span>][j]*(i<span class="number">-1</span>)%MOD+s[i<span class="number">-1</span>][j<span class="number">-1</span>])%MOD;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">200</span>;i++)&#123;</span><br><span class="line">        c[i][<span class="number">0</span>]=c[i][i]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;i;j++) c[i][j]=(c[i<span class="number">-1</span>][j]+c[i<span class="number">-1</span>][j<span class="number">-1</span>])%MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">    <span class="keyword">while</span>(T--) <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;a&gt;&gt;b,<span class="built_in">cout</span>&lt;&lt;<span class="number">1l</span>l*s[n<span class="number">-1</span>][a+b<span class="number">-2</span>]*c[a+b<span class="number">-2</span>][a<span class="number">-1</span>]%MOD&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="其他练习题"><a href="#其他练习题" class="headerlink" title="其他练习题"></a>其他练习题</h3><ol>
+<li><a href="https://www.luogu.com.cn/problem/P5408" target="_blank" rel="noopener">洛谷P5408 第一类斯特林数·行</a></li>
+<li><a href="codeforces.com/problemset/problem/960/G">CF960G Bandit Blues</a><h2 id="第二类斯特林数-1"><a href="#第二类斯特林数-1" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h2><h3 id="省选联考-2020-A-卷-组合数问题"><a href="#省选联考-2020-A-卷-组合数问题" class="headerlink" title="[省选联考 2020 A 卷] 组合数问题"></a>[省选联考 2020 A 卷] 组合数问题</h3><h4 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h4><a href="https://www.luogu.com.cn/problem/P6620" target="_blank" rel="noopener">题目链接</a><h4 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h4>$\sum\limits_{i=0}^ma_i\sum \limits_{k=0}^nx^k\binom{n}{k}k^i=\sum\limits_{i=0}^ma_i\sum \limits_{k=0}^nx^k\binom{n}{k}\sum\limits_{j=1}^ik^{\underline{j}}\begin{Bmatrix}i\\j\end{Bmatrix}=\sum\limits_{i=0}^ma_i\sum\limits_{j=1}^i\begin{Bmatrix}i\\j\end{Bmatrix}\sum \limits_{k=0}^nx^k\binom{n}{k}k^{\underline{j}}=\sum\limits_{i=0}^ma_i\sum\limits_{j=1}^i\begin{Bmatrix}i\\j\end{Bmatrix}\sum \limits_{k=0}^nx^k\binom{n}{k}j!\binom{k}{j}=\sum\limits_{i=0}^ma_i\sum\limits_{j=1}^i\begin{Bmatrix}i\\j\end{Bmatrix}j!\sum \limits_{k=0}^nx^k\binom{n}{k}\binom{k}{j}=\sum\limits_{i=0}^ma_i\sum\limits_{j=1}^i\begin{Bmatrix}i\\j\end{Bmatrix}j!\sum \limits_{k=0}^nx^k\binom{n}{j}\binom{n-j}{k-j}=\sum\limits_{i=0}^ma_i\sum\limits_{j=1}^i\begin{Bmatrix}i\\j\end{Bmatrix}j!\binom{n}{j}\sum \limits_{k=0}^{n-j}x^{k+j}\binom{n-j}{k}=\sum\limits_{j=1}^i\begin{Bmatrix}i\\j\end{Bmatrix}j!\binom{n}{j}x^j\sum \limits_{k=0}^{n-j}x^k\binom{n-j}{k}=\sum\limits_{j=1}^i\begin{Bmatrix}i\\j\end{Bmatrix}j!\binom{n}{j}x^j(x+1)^{n-j}$<br><img src="https://img-blog.csdnimg.cn/20200818224238510.png#pic_center" alt="完美"><br>附上代码：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,x,MOD,m,ans,a[<span class="number">1010</span>],sti[<span class="number">1010</span>][<span class="number">1010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">POW</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans=(<span class="number">1l</span>l*ans*a)%MOD;</span><br><span class="line">        a=(<span class="number">1l</span>l*a*a)%MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;n,&amp;x,&amp;MOD,&amp;m),sti[<span class="number">1</span>][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=m;i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=m;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++) sti[i][j]=((<span class="number">1l</span>l*sti[i<span class="number">-1</span>][j]*j)%MOD+sti[i<span class="number">-1</span>][j<span class="number">-1</span>])%MOD;</span><br><span class="line">    ans=(<span class="number">1l</span>l*a[<span class="number">0</span>]*POW((x+<span class="number">1</span>)%MOD,n))%MOD;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=(<span class="number">1l</span>l*POW(x%MOD,i)*POW((x+<span class="number">1</span>)%MOD,n-i))%MOD,sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i<span class="number">-1</span>;j++) temp=(<span class="number">1l</span>l*temp*(n-j))%MOD;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;=m;j++) (sum+=(<span class="number">1l</span>l*sti[j][i]*a[j])%MOD)%=MOD;</span><br><span class="line">        (ans+=(<span class="number">1l</span>l*sum*temp)%MOD)%=MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="其他练习题-1"><a href="#其他练习题-1" class="headerlink" title="其他练习题"></a>其他练习题</h3></li>
+<li><a href="https://www.luogu.com.cn/problem/P4091" target="_blank" rel="noopener">[HEOI2016/TJOI2016]求和</a></li>
+<li><a href="codeforces.com/problemset/problem/961/G">CF961G Partitions</a><h2 id="自然数幂和-1"><a href="#自然数幂和-1" class="headerlink" title="自然数幂和"></a>自然数幂和</h2><h3 id="CF932E-Team-Work"><a href="#CF932E-Team-Work" class="headerlink" title="CF932E Team Work"></a>CF932E Team Work</h3><h4 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h4><a href="https://www.luogu.com.cn/problem/CF932E" target="_blank" rel="noopener">题目链接（洛谷）</a><br><a href="codeforces.com/problemset/problem/932/E">题目链接（CF）</a><h4 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h4>$\sum\limits_{i=1}^n\binom{n}{i}i^k=\sum\limits_{i=1}^n\binom{n}{i}\sum\limits_{j=0}^i\binom{i}{j}\begin{Bmatrix}k\\j\end{Bmatrix}j!=\sum\limits_{i=1}^n\frac{n!}{(n-i)!}\sum\limits_{j=0}^i\frac{\begin{Bmatrix}k\\j\end{Bmatrix}}{(i-j)!}=\sum\limits_{j=1}^{min(n,k)}\begin{Bmatrix}k\\j\end{Bmatrix}\sum\limits_{i=j}^n\frac{n!}{(n-i)!(i-j)!}=\sum\limits_{j=1}^{min(n,k)}\begin{Bmatrix}k\\j\end{Bmatrix}\sum\limits_{i=j}^n\frac{n!}{(n-j)!}\frac{(n-j)!}{(n-i)!(i-j)!}=\sum\limits_{j=1}^{min(n,k)}\begin{Bmatrix}k\\j\end{Bmatrix}\frac{n!}{(n-j)!}\sum\limits_{i=j}^n\binom{n-j}{i-j}=\sum\limits_{j=1}^{min(n,k)}\begin{Bmatrix}k\\j\end{Bmatrix}\frac{n!}{(n-j)!}2^{n-j}$<br>斯特林数预处理，$2^{n-j}$用快速幂，$\frac{n!}{(n-j)!}$边推边算，效率$\Theta(k)$<br>附上代码：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,k,t,mod=<span class="number">1e9</span>+<span class="number">7</span>,ans,sti[<span class="number">5010</span>][<span class="number">5010</span>],c[<span class="number">300010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">POW</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans=<span class="number">1l</span>l*ans*a%mod;</span><br><span class="line">        a=<span class="number">1l</span>l*a*a%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;k,t=min(n,k),sti[<span class="number">1</span>][<span class="number">1</span>]=<span class="number">1</span>,c[<span class="number">0</span>]=n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=k;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=min(n,i);j++) sti[i][j]=(<span class="number">1l</span>l*sti[i<span class="number">-1</span>][j]*j%mod+sti[i<span class="number">-1</span>][j<span class="number">-1</span>])%mod;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=t;i++) c[i]=<span class="number">1l</span>l*c[i<span class="number">-1</span>]*(n-i)%mod;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=t;i++) ans=(ans+<span class="number">1l</span>l*c[i<span class="number">-1</span>]%mod*sti[k][i]%mod*POW(<span class="number">2</span>,n-i)%mod)%mod;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+对于这道题目，有一道升级版的题目叫做<code>原题的价值</code>，需要使用NTT（当然，这道题你也可以使用NTT三模数的方式书写，但是太复杂啦！），可是我并不知道哪里可以提交这道题目（我们学校的OJ上有）<br>另外说一句，自然数幂和也可以用第一类斯特林数$\Theta\left(k^2\right)$解决，只是比较复杂，这里就不讲了<h3 id="相关练习题"><a href="#相关练习题" class="headerlink" title="相关练习题"></a>相关练习题</h3></li>
+<li><a href="https://www.luogu.com.cn/problem/P4827" target="_blank" rel="noopener">[国家集训队] Crash 的文明世界</a></li>
+<li><a href="codeforces.com/problemset/problem/1097/G">CF1097G Vladislav and a Great Legend</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jacky Dong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jrjacky.github.io/2020/11/11/%E5%88%9D%E4%B8%AD%E7%94%9F%E9%83%BD%E7%9C%8B%E5%BE%97%E6%87%82%E7%9A%84%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E6%8C%87%E5%8D%97-%E4%BB%8E%E7%9B%92%E6%94%BE%E7%90%83%E9%97%AE%E9%A2%98%E8%AF%B4%E8%B5%B7/" title="初中生都看得懂的快速上手斯特林数指南--从盒放球问题说起">http://jrjacky.github.io/2020/11/11/初中生都看得懂的快速上手斯特林数指南-从盒放球问题说起/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%84%E5%90%88/" rel="tag"><i class="fa fa-tag"></i>组合</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i>数学</a>
+              <a href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i>数论</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/11/%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%931-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A6%82%E8%BF%B0/" rel="prev" title="网络流算法总结1--网络流最大流概述">
+      <i class="fa fa-chevron-left"></i> 网络流算法总结1--网络流最大流概述
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/11/%E7%BB%84%E5%90%88%E6%95%B0%E7%9A%84%E5%B8%B8%E8%A7%81%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/" rel="next" title="组合数的常见计算方法">
+      组合数的常见计算方法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+  <aside class="sidebar">
+    <div class="sidebar-Inner">
+      <script>
+        fetch('https://v1.hitokoto.cn')
+          .then(function (res){
+            return res.json();
+          })
+          .then(function (data) {
+            var hitokoto = document.getElementById('hitokoto');
+            hitokoto.innerText = data.hitokoto + "——【" + data.from + "】";
+          })
+          .catch(function (err) {
+            console.error(err);
+          })
+      </script>
+      <p id="hitokoto">正在加载一言...</p>
+    </div>
+    <div style="height: 15px"></div>
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+      <!--End-->
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前置知识"><span class="nav-number">1.</span> <span class="nav-text">前置知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#盒放球"><span class="nav-number">2.</span> <span class="nav-text">盒放球</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#球相同，盒不同，不允许为空"><span class="nav-number">2.1.</span> <span class="nav-text">球相同，盒不同，不允许为空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#球相同，盒不同，允许为空"><span class="nav-number">2.2.</span> <span class="nav-text">球相同，盒不同，允许为空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#球相同，盒相同，不允许-允许为空"><span class="nav-number">2.3.</span> <span class="nav-text">球相同，盒相同，不允许&#x2F;允许为空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#球不同，盒不同，允许为空"><span class="nav-number">2.4.</span> <span class="nav-text">球不同，盒不同，允许为空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#球不同，盒相同，不允许为空"><span class="nav-number">2.5.</span> <span class="nav-text">球不同，盒相同，不允许为空</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二类斯特林数"><span class="nav-number">3.</span> <span class="nav-text">第二类斯特林数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通项"><span class="nav-number">3.2.</span> <span class="nav-text">通项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊值"><span class="nav-number">3.3.</span> <span class="nav-text">特殊值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算第二类斯特林数"><span class="nav-number">3.4.</span> <span class="nav-text">计算第二类斯特林数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自然数幂和"><span class="nav-number">3.5.</span> <span class="nav-text">自然数幂和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速幂？"><span class="nav-number">3.5.1.</span> <span class="nav-text">快速幂？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决自然数幂和问题"><span class="nav-number">3.5.2.</span> <span class="nav-text">解决自然数幂和问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一类斯特林数"><span class="nav-number">4.</span> <span class="nav-text">第一类斯特林数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义-1"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊值-1"><span class="nav-number">4.2.</span> <span class="nav-text">特殊值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速幂？-1"><span class="nav-number">4.3.</span> <span class="nav-text">快速幂？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斯特林反演"><span class="nav-number">5.</span> <span class="nav-text">斯特林反演</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引理1"><span class="nav-number">5.1.</span> <span class="nav-text">引理1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引理2"><span class="nav-number">5.2.</span> <span class="nav-text">引理2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斯特林反演证明"><span class="nav-number">5.3.</span> <span class="nav-text">斯特林反演证明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题详解"><span class="nav-number">6.</span> <span class="nav-text">例题详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一类斯特林数-1"><span class="nav-number">6.1.</span> <span class="nav-text">第一类斯特林数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FJOI2016-建筑师"><span class="nav-number">6.1.1.</span> <span class="nav-text">[FJOI2016]建筑师</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">6.1.1.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他练习题"><span class="nav-number">6.1.2.</span> <span class="nav-text">其他练习题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二类斯特林数-1"><span class="nav-number">6.2.</span> <span class="nav-text">第二类斯特林数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#省选联考-2020-A-卷-组合数问题"><span class="nav-number">6.2.1.</span> <span class="nav-text">[省选联考 2020 A 卷] 组合数问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目-1"><span class="nav-number">6.2.1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-1"><span class="nav-number">6.2.1.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他练习题-1"><span class="nav-number">6.2.2.</span> <span class="nav-text">其他练习题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自然数幂和-1"><span class="nav-number">6.3.</span> <span class="nav-text">自然数幂和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CF932E-Team-Work"><span class="nav-number">6.3.1.</span> <span class="nav-text">CF932E Team Work</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目-2"><span class="nav-number">6.3.1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-2"><span class="nav-number">6.3.1.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关练习题"><span class="nav-number">6.3.2.</span> <span class="nav-text">相关练习题</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jacky Dong"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Jacky Dong</p>
+  <div class="site-description" itemprop="description">Jacky Dong的博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.org/" title="洛谷 → https:&#x2F;&#x2F;www.luogu.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>洛谷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://poj.org/" title="POJ → http:&#x2F;&#x2F;poj.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>POJ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://codeforces.com/" title="CF → http:&#x2F;&#x2F;codeforces.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>CF</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/" title="github → https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>github</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/blog/jacky567/about#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;jacky567&#x2F;about#" rel="noopener" target="_blank">关于我</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jrjacky.github.io/links/" title="https:&#x2F;&#x2F;jrjacky.github.io&#x2F;links&#x2F;">友链</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jacky Dong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>

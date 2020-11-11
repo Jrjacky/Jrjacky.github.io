@@ -46,17 +46,21 @@
   };
 </script>
 
-  <meta name="description" content="Jacky Dong的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jacky Dong&#39;s blog">
-<meta property="og:url" content="http://jrjacky.github.io/tags/CP/index.html">
+  <meta name="description" content="网络流中的一些概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络流算法总结1--网络流最大流概述">
+<meta property="og:url" content="http://jrjacky.github.io/2020/11/11/%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%931-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A6%82%E8%BF%B0/index.html">
 <meta property="og:site_name" content="Jacky Dong&#39;s blog">
-<meta property="og:description" content="Jacky Dong的博客">
+<meta property="og:description" content="网络流中的一些概念">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-11T14:46:46.000Z">
+<meta property="article:modified_time" content="2020-11-11T14:50:48.645Z">
 <meta property="article:author" content="Jacky Dong">
+<meta property="article:tag" content="图论">
+<meta property="article:tag" content="网络流">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://jrjacky.github.io/tags/CP/">
+<link rel="canonical" href="http://jrjacky.github.io/2020/11/11/%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%931-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A6%82%E8%BF%B0/">
 
 
 <script id="page-configurations">
@@ -64,11 +68,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>标签: CP | Jacky Dong's blog</title>
+  <title>网络流算法总结1--网络流最大流概述 | Jacky Dong's blog</title>
   
 
 
@@ -154,7 +158,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">73</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">79</span></a>
 
   </li>
         <li class="menu-item menu-item-links">
@@ -210,50 +214,141 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">CP
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/11/11/%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%931-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网络流算法总结1--网络流最大流概述
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-11 22:46:46 / 修改时间：22:50:48" itemprop="dateCreated datePublished" datetime="2020-11-11T22:46:46+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <h1 id="网络流中的一些概念"><a href="#网络流中的一些概念" class="headerlink" title="网络流中的一些概念"></a>网络流中的一些概念</h1><a id="more"></a>
+<ol>
+<li>边（弧）：在网络流问题中基本上所有的边都为有向边，所以在不加说明的情况下，文中出现的所有边都为有向边，有向边也成为弧，记为有序对$(a,b)$</li>
+<li>图：一堆点加上一堆边就是一张图，也就是说，图是边集加上点集，用$G=\langle V,E\rangle$</li>
+<li>路径：图中的一条路径就是一串相连的点，一条路径$v_1,v_2,\cdots\cdots,v_n$满足$\forall i\in [1,n],v_i\in V$且$\forall i\in [1,n),(v_i,v_{i+1})\in E$或$(v_{i+1},v_i)\in E$</li>
+<li>前向弧：一条路径$v_1,v_2,\cdots\cdots,v_n$中，如果$(v_i,v_{i+1})\in E$，则称$(v_i,v_{i+1})$为前向弧</li>
+<li>后向弧：一条路径$v_1,v_2,\cdots\cdots,v_n$中，如果$(v_{i+1},v_i)\in E$，则称$(v_i,v_{i+1})$为后向弧</li>
+<li>割：一个图中如果存在一个边集$E’$，使得删除$E’$中的边后，原图分为两个集合，且这两个集合没有任何连边，那么$E’$就称为图$G$的一个割</li>
+<li>边的容量：一条边所能承受的流量上界称为容量，$(u,v)$的容量用$C(u,v)$表示，类似于水管的截面面积，水管的截面面积就是它所能承受的水流流量上界</li>
+<li>割的容量：把图$G$分为两个集合$S$和$T$的割中的所有边的流量之和记为$C(S,T)$，即$C(S,T)=\sum\limits_{u\in S,v\in T,(u,v)\in E} C(u,v)$</li>
+<li>流量：类似于容量，用$F(u,v)$表示一条边的流量，$F(S,T)$表示一个割的流量</li>
+<li>增广路： 一条路径，满足前向弧的流量<strong>严格小于</strong>容量，后向弧的流量大于$0$</li>
+<li>可行流：从源点出发，到汇点结束，所有边的流量未超过容量且除源点和汇点外，流入任意一点的流量等于流出这一点的流量（如果你学过高中物理中的电学，你可以把这个理解为基尔霍夫第一定律）</li>
+<li>最大流：可行流中流量最大的流</li>
+<li>最小割：把源点和汇点分成两个集合，容量最小的割</li>
+<li>残余网络：对于任意的流$f$，建立新图$G_f$满足连边方式相同，边的容量等于原边的容量减去流量（当然，如果新的边的容量为$0$，去掉这条边也无所谓）<h1 id="性质-amp-定理证明"><a href="#性质-amp-定理证明" class="headerlink" title="性质&amp;定理证明"></a>性质&amp;定理证明</h1><h2 id="性质1"><a href="#性质1" class="headerlink" title="性质1"></a>性质1</h2>可行流的流量等于它的一个割的流量<br>证明：假设割将源点（$V_S$）和汇点（$V_T$）分为两个集合$S$和$T$，可行流流量为$F$<br>$\therefore$当$T=\{V_T\}$时，$F(S,T)=\sum\limits_{(x,V_T)\in E} F(x,V_T)=F$<br>$\therefore$假设当$T\subsetneq T’$时成立<br>$\therefore$当$T=T’$时，设$V_P\in T$<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;$\therefore~F(S,T)=F(S\cup\{V_P\},T\setminus {V_P})-\sum\limits_{(V_P,x)\in E,x\in T} F(V_P,x)+\sum\limits_{(V_P,x)\in E,x\in S} F(V_P,x)=F(S\cup\{V_P\},T\setminus {V_P})=F$<h2 id="推论1"><a href="#推论1" class="headerlink" title="推论1"></a>推论1</h2>可行流的流量小于等于它的一个割的容量<br>证明：由性质1知，可行流的流量等于它的一个割的流量，小于等于这个割的容量<h2 id="性质2"><a href="#性质2" class="headerlink" title="性质2"></a>性质2</h2>若残余网络中仍有增广路，那么可行流$F$不是最大流<br>证明：$\because$增广路的前向弧可以增加流量，后向弧可以减少流量<br>$\therefore F$可以继续增大<br>$\therefore$可行流$F$不是最大流<h2 id="性质3"><a href="#性质3" class="headerlink" title="性质3"></a>性质3</h2>若残余网络中无增广路，则存在一个割，使得割的容量等于可行流的流量<br>证明：$\because$残余网络中无增广路<br>$\therefore$原图中的每一条从源点到汇点的路径，都一定有一个前向弧的流量为容量或有一个后向弧的流量为$0$<br>$\therefore$设集合$S$为从源点出发，不经过流量为容量的前向弧和流量为$0$的后向弧所能到达的所有点的集合，$T=V\setminus S$<br>$\therefore$$F=F(S,T)=\sum\limits_{u\in S,v\in T,(u,v)\in E} F(u,v)=$前向弧总流量-后向弧总流量$=$前向弧总容量$-0=$前向弧总容量$=C(S,T)$<h2 id="性质4"><a href="#性质4" class="headerlink" title="性质4"></a>性质4</h2>对于一个可行流，<strong>若</strong>存在一个它的割，使得割的容量等于可行流的流量，则这个可行流为最大流，且这个割为最小割<br>证明：设可行流的流量为$F$，割的容量为$C$<br>假设$C$不是最小割的容量<br>$\therefore$存在一个割的流量为$C_0$，且$C_0&lt;C$<br>又$\because F\leqslant C_0$<br>$\therefore C\leqslant C_0$，矛盾！<br>$\therefore$这个割为最小割<br>$\therefore F$到达了流量的上界<br>$\therefore$这个可行流的最大流</li>
+</ol>
+<hr>
+<p>特别注意，这个性质并不代表最大流等于最小割（虽然这是对的），因为我们并没有说明这样的割一定存在</p>
+<h2 id="最大流最小割定理"><a href="#最大流最小割定理" class="headerlink" title="最大流最小割定理"></a>最大流最小割定理</h2><p>最大流（的流量）等于最小割（的容量）<br>证明：取图$G$的最大流$F$<br>$\therefore$根据性质2的逆否命题可知：残余网络中无增广路<br>$\therefore$根据性质3可知：存在一个割，使得割的容量等于最大流的流量<br>$\therefore$根据性质4可知：这个割为最小割<br>$\therefore$最大流等于最小割</p>
+<hr>
+<p>这样，我们就完成了网络流中<strong>最重要！最重要！最重要！</strong> 的定理：最大流最小割定理，请大家一定记住这个定理，因为有时在解题过程中，我们需要使用最小割的方式来思考问题，最终通过最大流的算法解决<br>如果你难以理解我写的证明，那么你只要把这个定理的表述背下来即可（惊奇的发现表述和名称一样长耶！）</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-31T21:58:55+08:00"
-              content="2020-07-31">
-          07-31
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jacky Dong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jrjacky.github.io/2020/11/11/%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%931-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A6%82%E8%BF%B0/" title="网络流算法总结1--网络流最大流概述">http://jrjacky.github.io/2020/11/11/网络流算法总结1-网络流最大流概述/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/07/31/DTOJ3681-%E8%B4%AD%E7%89%A9%EF%BC%88shopping%EF%BC%89/" itemprop="url">
-            <span itemprop="name">DTOJ3681 购物（shopping）</span>
-          </a>
-      </h2>
 
-    </header>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i>图论</a>
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag"><i class="fa fa-tag"></i>网络流</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/11/HDU6753-DTOJ4963-2020-Multi-University-Training-Contest-1-cookies%EF%BC%88%E7%9C%8B%E6%98%9F%EF%BC%89/" rel="prev" title="HDU6753&DTOJ4963 2020 Multi-University Training Contest 1 cookies（看星）">
+      <i class="fa fa-chevron-left"></i> HDU6753&DTOJ4963 2020 Multi-University Training Contest 1 cookies（看星）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/11/%E5%88%9D%E4%B8%AD%E7%94%9F%E9%83%BD%E7%9C%8B%E5%BE%97%E6%87%82%E7%9A%84%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E6%8C%87%E5%8D%97-%E4%BB%8E%E7%9B%92%E6%94%BE%E7%90%83%E9%97%AE%E9%A2%98%E8%AF%B4%E8%B5%B7/" rel="next" title="初中生都看得懂的快速上手斯特林数指南--从盒放球问题说起">
+      初中生都看得懂的快速上手斯特林数指南--从盒放球问题说起 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -322,6 +417,7 @@
       <!--End-->
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络流中的一些概念"><span class="nav-number">1.</span> <span class="nav-text">网络流中的一些概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性质-amp-定理证明"><span class="nav-number">2.</span> <span class="nav-text">性质&amp;定理证明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质1"><span class="nav-number">2.1.</span> <span class="nav-text">性质1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推论1"><span class="nav-number">2.2.</span> <span class="nav-text">推论1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质2"><span class="nav-number">2.3.</span> <span class="nav-text">性质2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质3"><span class="nav-number">2.4.</span> <span class="nav-text">性质3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质4"><span class="nav-number">2.5.</span> <span class="nav-text">性质4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大流最小割定理"><span class="nav-number">2.6.</span> <span class="nav-text">最大流最小割定理</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -337,7 +433,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -366,21 +462,6 @@
         <a href="http://codeforces.com/" title="CF → http:&#x2F;&#x2F;codeforces.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>CF</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.lydsy.com/JudgeOnline/" title="BZOJ → https:&#x2F;&#x2F;www.lydsy.com&#x2F;JudgeOnline&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>BZOJ</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="http://noi-test.zzstep.com/" title="Contest Hunter → http:&#x2F;&#x2F;noi-test.zzstep.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Contest Hunter</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.acwing.com/" title="AcWing → https:&#x2F;&#x2F;www.acwing.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>AcWing</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://vijos.org/" title="vijos → https:&#x2F;&#x2F;vijos.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>vijos</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="http://114.116.248.90/" title="SHYOJ → http:&#x2F;&#x2F;114.116.248.90&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>SHYOJ</a>
-      </span>
-      <span class="links-of-author-item">
         <a href="https://github.com/" title="github → https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>github</a>
       </span>
   </div>
@@ -396,34 +477,10 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.org/space/show?uid=43373" title="https:&#x2F;&#x2F;www.luogu.org&#x2F;space&#x2F;show?uid&#x3D;43373" rel="noopener" target="_blank">我的洛谷账号</a>
+          <a href="https://www.luogu.com.cn/blog/jacky567/about#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;jacky567&#x2F;about#" rel="noopener" target="_blank">关于我</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://poj.org/userstatus?user_id=jackyss" title="http:&#x2F;&#x2F;poj.org&#x2F;userstatus?user_id&#x3D;jackyss" rel="noopener" target="_blank">我的POJ账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://codeforces.com/profile/jacky0705" title="http:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;jacky0705" rel="noopener" target="_blank">我的CF账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.lydsy.com/JudgeOnline/userinfo.php?user=jacky" title="https:&#x2F;&#x2F;www.lydsy.com&#x2F;JudgeOnline&#x2F;userinfo.php?user&#x3D;jacky" rel="noopener" target="_blank">我的BZOJ账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://noi-test.zzstep.com/user/jacky" title="http:&#x2F;&#x2F;noi-test.zzstep.com&#x2F;user&#x2F;jacky" rel="noopener" target="_blank">我的Contest Hunter账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.acwing.com/user/myspace/index/9710/" title="https:&#x2F;&#x2F;www.acwing.com&#x2F;user&#x2F;myspace&#x2F;index&#x2F;9710&#x2F;" rel="noopener" target="_blank">我的AcWing账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://vijos.org/user/140852" title="https:&#x2F;&#x2F;vijos.org&#x2F;user&#x2F;140852" rel="noopener" target="_blank">我的vijos账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://114.116.248.90/user-home?username=jacky567" title="http:&#x2F;&#x2F;114.116.248.90&#x2F;user-home?username&#x3D;jacky567" rel="noopener" target="_blank">我的SHYOJ账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/jrjacky" title="https:&#x2F;&#x2F;github.com&#x2F;jrjacky" rel="noopener" target="_blank">我的github账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/jacky0705/you-lian" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;jacky0705&#x2F;you-lian" rel="noopener" target="_blank">更多友链</a>
+          <a href="https://jrjacky.github.io/links/" title="https:&#x2F;&#x2F;jrjacky.github.io&#x2F;links&#x2F;">友链</a>
         </li>
     </ul>
   </div>

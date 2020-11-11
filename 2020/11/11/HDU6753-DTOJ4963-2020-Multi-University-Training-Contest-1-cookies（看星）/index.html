@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://jrjacky.github.io').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="题目原题 题目描述">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU6753&amp;DTOJ4963 2020 Multi-University Training Contest 1 cookies（看星）">
+<meta property="og:url" content="http://jrjacky.github.io/2020/11/11/HDU6753-DTOJ4963-2020-Multi-University-Training-Contest-1-cookies%EF%BC%88%E7%9C%8B%E6%98%9F%EF%BC%89/index.html">
+<meta property="og:site_name" content="Jacky Dong&#39;s blog">
+<meta property="og:description" content="题目原题 题目描述">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020081114373881.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200811145337691.png">
+<meta property="article:published_time" content="2020-11-11T14:46:26.000Z">
+<meta property="article:modified_time" content="2020-11-11T14:50:07.194Z">
+<meta property="article:author" content="Jacky Dong">
+<meta property="article:tag" content="DTOJ">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="数论">
+<meta property="article:tag" content="打表">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020081114373881.png">
+
+<link rel="canonical" href="http://jrjacky.github.io/2020/11/11/HDU6753-DTOJ4963-2020-Multi-University-Training-Contest-1-cookies%EF%BC%88%E7%9C%8B%E6%98%9F%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>HDU6753&DTOJ4963 2020 Multi-University Training Contest 1 cookies（看星） | Jacky Dong's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jacky Dong's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">学好数理化，走遍天下都不怕</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">41</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">79</span></a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-codingteach">
+
+    <a href="/codingteach/%E5%90%84%E7%A7%8D%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B.html" rel="section"><i class="fa fa-fw fa-code"></i>codingteach</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/11/11/HDU6753-DTOJ4963-2020-Multi-University-Training-Contest-1-cookies%EF%BC%88%E7%9C%8B%E6%98%9F%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HDU6753&DTOJ4963 2020 Multi-University Training Contest 1 cookies（看星）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-11 22:46:26 / 修改时间：22:50:07" itemprop="dateCreated datePublished" datetime="2020-11-11T22:46:26+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6753" target="_blank" rel="noopener">原题</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><a id="more"></a>
+<p>Elsa’s elder brother Eric has got $n$ cookies in his icebox and each cookie has a special number written on it. Let’s denote the number written on the $i^{th}$ cookie by $f_i$. $f_i$ is defined as follows<br><img src="https://img-blog.csdnimg.cn/2020081114373881.png" alt="f_i is defined as this"><br>Here, $divmed(x)$ states the median value of divisors of $x$. Let $x$ has $k$ divisors, then $divmed(x)$ is $\left\lceil\frac{k}{2}\right\rceil^{th}$ smallest divisor. For example, $divmed(100)=10$, $divmed(10)=2$, $divmed(1)=1$.<br>One day, Eric opened the icebox and recognized that some of his cookies are missing. His sister Elsa had eaten some of them.<br>On the first day, she ate cookies that have multiples of $p_1$ as indexes and then, re-indexed them starting from $1$ according to their original order. In the same way, she ate cookies with multiples of $p_i$ as indexes on the $i^{th}$ day and re-indexed them. If there were less than $p_i$ cookies left, she ate none of them. Elsa continued to do so for m days.</p>
+<p>As Elsa is keen on math and Eric didn’t want to blame his sister, Eric asked her to find out the number written on the $k^{th}$ of remaining cookies.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line of the input contains an integer$T(1\leqslant T\leqslant 60)$, denoting the number of test cases. The first line of each test case contains $3$ positive integers $n(1\leqslant n\leqslant 10^{10}), m(1\leqslant m\leqslant 10^5)$and$k(1\leqslant k\leqslant 10^{10})$. The next line contains m integers$p_1,p_2,\cdots \cdots,p_m (1\leqslant p_i\leqslant 10^{10})$.</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output one line containing the answer. If the kth cookie doesn’t exist, then output $-1$ in a single line.</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">25 5 9</span><br><span class="line">3 5 8 12 10</span><br><span class="line">25 5 2</span><br><span class="line">3 5 8 12 10</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">31</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>在OI界，有一句名言：“暴力出奇迹，打表出省一”<br>如果你认为这句话不可能，那么你就错了<br>你可以点开HDU上的statistic，看看大家的代码长度（已按代码长度从小到大排序）：<br><img src="https://img-blog.csdnimg.cn/20200811145337691.png" alt="HDU中的statistic">也就是说，最短的代码也有22.5K！！！<br>这不是打表是什么？<br>接下来，我们就来看看这道打表题<br>显然，我们可以用二分或计算，找到第$k$个饼干初始的位置$K$，那么问题就在于求$\sum\limits_{i=1}^K divmed(i)$的值了<br>显然，这个东西计算效率很低，因为你肯定需要枚举$1\sim \sqrt{K}$之间的所有数，然后计算，效率很低（事实证明很低，我也算不出来）<br>所以我们可以考虑分段打表！<br>取$2500000$为一段，计算$\sum\limits_{i=t+1}^{t+2500000}divmed(i)$（$2500000|t$），然后把求出来的$4000$个值复制到主程序中，就可以了<br>计算时用类似于挨氏筛质数的方法就可以了<br>打表代码如下（写题解的时候打的，可能有问题，自己改一下）：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> D=<span class="number">2500000</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> l,r,a[<span class="number">4010</span>],d[D+<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"const long long a[4010]=&#123;0,"</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">1</span>;t&lt;=<span class="number">4000</span>;++t)&#123;</span><br><span class="line">        a[t]=a[t<span class="number">-1</span>],l=(t<span class="number">-1</span>)*D+<span class="number">1</span>,r=t*D;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i=<span class="number">1</span>;i&lt;=<span class="number">100000</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i*i&gt;r) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> L=((l<span class="number">-1</span>)/i)*i+<span class="number">1</span>,j=(r/i)*i;i*i&lt;=j&amp;&amp;L&lt;=j;j-=i) d[j-l]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i=l;i&lt;=r;i++) a[t]+=d[i-l];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld,"</span>,a[t]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"&#125;;"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>我自己运行这个程序花了$24$分钟<br>然后剩下的内容就类似于分块了，如果有剩余的，暴力计算即可<br>最后还有一个要注意的点，就是为了节省时间，对剩余的部分，如果长度不到$1250000$，就加上正着算的结果，如果超过$1250000$，就减去倒着算的结果（这个优化在HDU上可加可不加，但是在DTOJ上不加就会挂，就像我一样，调了一个中午，连饭都没吃……<del>abcde真是太毒瘤啦！</del>）<br>完整代码如下（打表的内容自行填充）：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> D=<span class="number">2500000</span>,a[]=&#123;<span class="number">0</span>,<span class="number">876804130</span>,<span class="number">2440016214</span>,...,<span class="number">190808468780767</span>&#125;;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n,m,k,ans,flag,l,r,p[<span class="number">100010</span>],d[D+<span class="number">10</span>];</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">inline</span> <span class="title">void</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">x</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    x=<span class="number">0</span>;<span class="keyword">int</span> f=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)  &#123;f|=(ch==<span class="string">'-'</span>);ch=getchar();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(ch^<span class="number">48</span>);ch=getchar();&#125;</span><br><span class="line">    x=f?-x:x;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    read(T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        read(n),read(m),read(k),flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++) read(p[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i=m;i;i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(p[i]==<span class="number">1</span>)&#123;k=<span class="number">1</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(k&gt;n)&#123;flag=<span class="number">1</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span> k+=(k<span class="number">-1</span>)/(p[i]<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag||k&gt;n)&#123;<span class="built_in">printf</span>(<span class="string">"-1\n"</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">        ans=a[k/D];</span><br><span class="line">        <span class="keyword">if</span>(k%D)&#123;</span><br><span class="line">            <span class="keyword">if</span>(k%D&lt;=D/<span class="number">2</span>)&#123;</span><br><span class="line">            	l=(k/D)*D+<span class="number">1</span>,r=k;</span><br><span class="line">            	<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> i=<span class="number">1</span>;i&lt;=<span class="number">100000</span>;i++)&#123;</span><br><span class="line">            		<span class="keyword">if</span>(i*i&gt;r) <span class="keyword">break</span>;</span><br><span class="line">            		<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> L=((l<span class="number">-1</span>)/i)*i+<span class="number">1</span>,j=(r/i)*i;i*i&lt;=j&amp;&amp;L&lt;=j;j-=i) d[j-l]=i;</span><br><span class="line">                &#125;</span><br><span class="line">            	<span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i=l;i&lt;=r;i++) ans+=d[i-l];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">            	ans=a[k/D+<span class="number">1</span>],l=k+<span class="number">1</span>,r=(k/D+<span class="number">1</span>)*D;</span><br><span class="line">            	<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> i=<span class="number">1</span>;i&lt;=<span class="number">100000</span>;i++)&#123;</span><br><span class="line">            		<span class="keyword">if</span>(i*i&gt;r) <span class="keyword">break</span>;</span><br><span class="line">            		<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> L=((l<span class="number">-1</span>)/i)*i+<span class="number">1</span>,j=(r/i)*i;i*i&lt;=j&amp;&amp;L&lt;=j;j-=i) d[j-l]=i;</span><br><span class="line">                &#125;</span><br><span class="line">            	<span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i=l;i&lt;=r;i++) ans-=d[i-l];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jacky Dong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jrjacky.github.io/2020/11/11/HDU6753-DTOJ4963-2020-Multi-University-Training-Contest-1-cookies%EF%BC%88%E7%9C%8B%E6%98%9F%EF%BC%89/" title="HDU6753&amp;DTOJ4963 2020 Multi-University Training Contest 1 cookies（看星）">http://jrjacky.github.io/2020/11/11/HDU6753-DTOJ4963-2020-Multi-University-Training-Contest-1-cookies（看星）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DTOJ/" rel="tag"><i class="fa fa-tag"></i>DTOJ</a>
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i>题解</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i>数学</a>
+              <a href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i>数论</a>
+              <a href="/tags/%E6%89%93%E8%A1%A8/" rel="tag"><i class="fa fa-tag"></i>打表</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/31/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%E4%B9%8B%E9%87%8D%E9%93%BE%E5%89%96%E5%88%86%E8%AF%A6%E8%A7%A3/" rel="prev" title="树链剖分之重链剖分详解">
+      <i class="fa fa-chevron-left"></i> 树链剖分之重链剖分详解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/11/%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%931-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A6%82%E8%BF%B0/" rel="next" title="网络流算法总结1--网络流最大流概述">
+      网络流算法总结1--网络流最大流概述 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+  <aside class="sidebar">
+    <div class="sidebar-Inner">
+      <script>
+        fetch('https://v1.hitokoto.cn')
+          .then(function (res){
+            return res.json();
+          })
+          .then(function (data) {
+            var hitokoto = document.getElementById('hitokoto');
+            hitokoto.innerText = data.hitokoto + "——【" + data.from + "】";
+          })
+          .catch(function (err) {
+            console.error(err);
+          })
+      </script>
+      <p id="hitokoto">正在加载一言...</p>
+    </div>
+    <div style="height: 15px"></div>
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+      <!--End-->
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入格式"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出格式"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">1.4.</span> <span class="nav-text">样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-number">1.4.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出"><span class="nav-number">1.4.2.</span> <span class="nav-text">样例输出</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jacky Dong"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Jacky Dong</p>
+  <div class="site-description" itemprop="description">Jacky Dong的博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.org/" title="洛谷 → https:&#x2F;&#x2F;www.luogu.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>洛谷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://poj.org/" title="POJ → http:&#x2F;&#x2F;poj.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>POJ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://codeforces.com/" title="CF → http:&#x2F;&#x2F;codeforces.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>CF</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/" title="github → https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>github</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/blog/jacky567/about#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;jacky567&#x2F;about#" rel="noopener" target="_blank">关于我</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jrjacky.github.io/links/" title="https:&#x2F;&#x2F;jrjacky.github.io&#x2F;links&#x2F;">友链</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jacky Dong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>

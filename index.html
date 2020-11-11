@@ -154,7 +154,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">73</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">79</span></a>
 
   </li>
         <li class="menu-item menu-item-links">
@@ -211,6 +211,473 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/11/11/DTOJ5021-%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/DTOJ5021-%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" class="post-title-link" itemprop="url">DTOJ5021 最近公共祖先</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-11 22:47:29 / 修改时间：23:02:27" itemprop="dateCreated datePublished" datetime="2020-11-11T22:47:29+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>注：本题来源于2020牛客暑期多校训练营（第六场）D题data structure</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>作为此次 NOIP 模拟的最后一道题，宫水三叶决定把题意说得简单一点<br>给一棵大小为$n$的以$rt$为根的树<br>有$m$组询问，每次询问 l,r,xl,r,xl,r,x，你要回答有多少$l \leqslant a &lt; b \leqslant r$，满足$a,b$的最近公共祖先为$x$</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行三个整数$n,m,rt$<br>接下来$n-1$行，每行两个整数$x_i,y_i$，表示一条边<br>接下来$m$行，每行三个整数$l_i,r_i,x_i$，表示一组询问</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出共$m$行，第$i$行表示第$i$个询问的答案</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">10 10 7</span><br><span class="line">4 2</span><br><span class="line">10 4</span><br><span class="line">3 2</span><br><span class="line">6 10</span><br><span class="line">9 2</span><br><span class="line">7 3</span><br><span class="line">1 4</span><br><span class="line">8 2</span><br><span class="line">5 3</span><br><span class="line">8 10 10</span><br><span class="line">2 6 2</span><br><span class="line">3 6 2</span><br><span class="line">4 6 4</span><br><span class="line">3 10 2</span><br><span class="line">8 8 10</span><br><span class="line">3 10 4</span><br><span class="line">2 3 2</span><br><span class="line">2 6 4</span><br><span class="line">1 7 10</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">2</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">7</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h2 id="数据范围与提示"><a href="#数据范围与提示" class="headerlink" title="数据范围与提示"></a>数据范围与提示</h2><p>本题采用捆绑测试<br>对于所有测试点，满足$1\leqslant n,m \leqslant 2\times 10^5,1\leqslant rt \leqslant n$<br>子任务编号 | $n,m$ | 分值<br>—|—|—<br>$1$|$\leqslant 200$|$5$<br>$2$|$\leqslant 2000$|$20$<br>$3$|$\leqslant 5\times 10^4$|$35$<br>$4$|$\leqslant 2\times 10^5$|$40$<br><strong>提示：本题时间限制为 2S ，请选手注意 IO 用时</strong></p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>考虑将问题转化为：$x$的子树中在$[l,r]$之间的点对数，减去$x$的子节点的子树中在$[l,r]$之间的点对数（因为$x$的子节点一定是它的子树中在$[l,r]$之间的点对的公共祖先，所以最近公共祖先一定不为$x$）<br>前半部分很简单，直接使用主席树就可以了（这个稍微想一想就可以了，是基本的主席树）<br>主要是后半部分如何解决<br>有一个可以很容易想到的就是先重链剖分，然后就可以让重儿子按照上面的方式去算<br>对于轻儿子的话，没有什么太好的处理方法，所以考虑用莫队，$l$和$r$变化时，就让这个点一直沿着重链条就可以了<br>效率为$\Theta(mlogn+n\sqrt{n}logn)$，如果常数小（用莫队时的每一块的大小选得好），可能可以得$60$分<br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ppap2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> l,r,x,pos;</span><br><span class="line">&#125;q[<span class="number">200010</span>];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ppap3</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> l,r,sum,ch[<span class="number">2</span>];</span><br><span class="line">&#125;t[<span class="number">20000010</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;ppap2&gt;Q[<span class="number">200010</span>];</span><br><span class="line"><span class="keyword">int</span> n,m,rt,tot,cnt,Tot,d,head[<span class="number">200010</span>],to[<span class="number">400010</span>],nxt[<span class="number">400010</span>],fa[<span class="number">200010</span>],siz[<span class="number">200010</span>],son[<span class="number">200010</span>],top[<span class="number">200010</span>],dfn[<span class="number">200010</span>],nfd[<span class="number">200010</span>],Dfn[<span class="number">200010</span>],root[<span class="number">200010</span>],k[<span class="number">200010</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> s[<span class="number">200010</span>],sum[<span class="number">200010</span>],ans[<span class="number">200010</span>];</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">void</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">x</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    x=<span class="number">0</span>;<span class="keyword">int</span> f=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)  &#123;f|=(ch==<span class="string">'-'</span>);ch=getchar();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(ch^<span class="number">48</span>);ch=getchar();&#125;</span><br><span class="line">    x=f?-x:x;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> ppap2 &amp;x,<span class="keyword">const</span> ppap2 &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> k[x.l]==k[y.l]?((k[x.l]&amp;<span class="number">1</span>)?x.r&lt;y.r:x.r&gt;y.r):k[x.l]&lt;k[y.l];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    nxt[++tot]=head[x],to[tot]=y,head[x]=tot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> Fa)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fa[x]=Fa,siz[x]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> maxson=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=nxt[i]) <span class="keyword">if</span>(to[i]!=fa[x])&#123;</span><br><span class="line">        siz[x]+=dfs1(to[i],x);</span><br><span class="line">        <span class="keyword">if</span>(siz[to[x]]&gt;maxson) maxson=siz[to[x]],son[x]=to[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> siz[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> Top)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    top[x]=Top,dfn[x]=++cnt,nfd[cnt]=x;</span><br><span class="line">    <span class="keyword">if</span>(son[x]) dfs2(son[x],Top);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=nxt[i]) <span class="keyword">if</span>(to[i]!=fa[x]&amp;&amp;to[i]!=son[x]) dfs2(to[i],to[i]);</span><br><span class="line">    Dfn[x]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>((!t[p].l)&amp;&amp;(!t[p].r)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(t[p].l==x&amp;&amp;t[p].r==y) <span class="keyword">return</span> t[p].sum;</span><br><span class="line">    <span class="keyword">int</span> mid=(t[p].l+t[p].r)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(y&lt;=mid) <span class="keyword">return</span> ask(t[p].ch[<span class="number">0</span>],x,y);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(x&gt;=mid+<span class="number">1</span>) <span class="keyword">return</span> ask(t[p].ch[<span class="number">1</span>],x,y);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> ask(t[p].ch[<span class="number">0</span>],x,mid)+ask(t[p].ch[<span class="number">1</span>],mid+<span class="number">1</span>,y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> &amp;p,<span class="keyword">int</span> q,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    t[++Tot].l=l,t[Tot].r=r,p=Tot;</span><br><span class="line">    <span class="keyword">if</span>(l==r)&#123;t[p].sum++;<span class="keyword">return</span>;&#125;</span><br><span class="line">    <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    t[p].ch[x&lt;=mid]=t[q].ch[x&lt;=mid];</span><br><span class="line">    <span class="keyword">if</span>(x&gt;mid) build(t[p].ch[<span class="number">1</span>],t[q].ch[<span class="number">1</span>],mid+<span class="number">1</span>,r,x);</span><br><span class="line">    <span class="keyword">else</span> build(t[p].ch[<span class="number">0</span>],t[q].ch[<span class="number">0</span>],l,mid,x);</span><br><span class="line">    t[p].sum=t[t[p].ch[<span class="number">0</span>]].sum+t[t[p].ch[<span class="number">1</span>]].sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i;i=fa[top[x]];x=i) sum[i]+=s[top[x]],s[top[x]]++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dec</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i;i=fa[top[x]];x=i) s[top[x]]--,sum[i]-=s[top[x]];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">js</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) build(root[i],root[i<span class="number">-1</span>],<span class="number">1</span>,n,nfd[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">if</span>(son[i]) <span class="keyword">for</span>(ppap2 j:Q[i])&#123;</span><br><span class="line">        <span class="keyword">int</span> x=ask(root[Dfn[i]],j.l,j.r)-ask(root[dfn[i]<span class="number">-1</span>],j.l,j.r),sum=ask(root[Dfn[son[i]]],j.l,j.r)-ask(root[dfn[son[i]]<span class="number">-1</span>],j.l,j.r);</span><br><span class="line">        ans[j.pos]+=<span class="number">1l</span>l*x*(x<span class="number">-1</span>)/<span class="number">2</span><span class="number">-1l</span>l*sum*(sum<span class="number">-1</span>)/<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    d=n/(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(n*<span class="number">2</span>/<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) k[i]=(i<span class="number">-1</span>)/d;</span><br><span class="line">    sort(q+<span class="number">1</span>,q+m+<span class="number">1</span>,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,l=<span class="number">1</span>,r=<span class="number">0</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(r&lt;q[i].r) r++,add(r);</span><br><span class="line">        <span class="keyword">while</span>(l&gt;q[i].l) l--,add(l);</span><br><span class="line">        <span class="keyword">while</span>(r&gt;q[i].r) dec(r),r--;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;q[i].l) dec(l),l++;</span><br><span class="line">        ans[q[i].pos]-=sum[q[i].x];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    read(n),read(m),read(rt);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,x,y;i&lt;n;i++) read(x),read(y),add(x,y),add(y,x);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++) read(q[i].l),read(q[i].r),read(q[i].x),q[i].pos=i,Q[q[i].x].push_back(q[i]);</span><br><span class="line">    dfs1(rt,<span class="number">0</span>),dfs2(rt,rt),js();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++) <span class="built_in">cout</span>&lt;&lt;ans[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>考虑怎么优化呢？刚刚的问题在于轻儿子可能很多，这大大增加了第二部分的时间复杂度，怎么办呢？我们考虑以为伪树剖，设置一个闸值$Siz$，对于所有$size&gt;Siz$的子树，把它们都当做$x$的重儿子<br>这样，我们就可以减少轻儿子的数量，从而平衡两边的复杂度<br>好像还有可以优化的，就是主席树可以换成一个树状数组，这样代码即短，又可以节省时间（因为主席树是一棵升级版的线段树，虽然线段树的效率是$\Theta(nlogn)$，但是常数巨大，受许多因素影响，但是树状数组的效率比较稳定，这样更容易通过，不需要卡常）<br>附上代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ppap1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> l,r,x,h;</span><br><span class="line">&#125;q[<span class="number">200010</span>];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ppap2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,h,f1,f2,f3;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ppap3</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> c[<span class="number">200010</span>];</span><br><span class="line">&#125;t;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; hson[<span class="number">200010</span>],lson[<span class="number">200010</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;ppap2&gt; Q[<span class="number">200010</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp;</span><br><span class="line"><span class="keyword">int</span> n,m,rt,tot,cnt,Tot,d,nt=<span class="number">-1</span>,head[<span class="number">200010</span>],to[<span class="number">400010</span>],nxt[<span class="number">400010</span>],fa[<span class="number">200010</span>],siz[<span class="number">200010</span>],top[<span class="number">200010</span>],dfn[<span class="number">200010</span>],Dfn[<span class="number">200010</span>],root[<span class="number">200010</span>],k[<span class="number">200010</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> s[<span class="number">200010</span>],sum[<span class="number">200010</span>],ans[<span class="number">200010</span>];</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">void</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">x</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    x=<span class="number">0</span>;<span class="keyword">int</span> f=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)  &#123;f|=(ch==<span class="string">'-'</span>);ch=getchar();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(ch^<span class="number">48</span>);ch=getchar();&#125;</span><br><span class="line">    x=f?-x:x;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> ppap1 &amp;x,<span class="keyword">const</span> ppap1 &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> k[x.l]==k[y.l]?((k[x.l]&amp;<span class="number">1</span>)?x.r&lt;y.r:x.r&gt;y.r):k[x.l]&lt;k[y.l];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    nxt[++tot]=head[x],to[tot]=y,head[x]=tot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    siz[x]=<span class="number">1</span>,dfn[x]=++cnt;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=nxt[i]) <span class="keyword">if</span>(to[i]!=fa[x]) fa[to[i]]=x,dfs1(to[i]),siz[x]+=siz[to[i]];</span><br><span class="line">    <span class="keyword">int</span> Siz=<span class="built_in">sqrt</span>(siz[x])/<span class="number">3</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=nxt[i]) <span class="keyword">if</span>(to[i]!=fa[x])</span><br><span class="line">        <span class="keyword">if</span>(siz[to[i]]&gt;Siz) hson[x].push_back(to[i]);</span><br><span class="line">        <span class="keyword">else</span> lson[x].push_back(to[i]);</span><br><span class="line">    Dfn[x]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> Top)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    top[x]=Top;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> y:hson[x]) dfs2(y,Top);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> y:lson[x]) dfs2(y,y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(;x&lt;=n;x+=(x&amp;(-x))) t.c[x]++; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;x;x-=(x&amp;(-x))) ans+=t.c[x];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i;i=fa[top[x]];x=i) sum[i]+=s[top[x]]++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dec</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i;i=fa[top[x]];x=i) sum[i]-=--s[top[x]];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">js</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        Add(dfn[i]);</span><br><span class="line">        <span class="keyword">for</span>(ppap2 x:Q[i])&#123;</span><br><span class="line">            temp[x.f3]+=(ask(Dfn[x.x])-ask(dfn[x.x]<span class="number">-1</span>))*x.f2;</span><br><span class="line">            <span class="keyword">if</span>(x.f2==<span class="number">1</span>) ans[x.h]+=<span class="number">1l</span>l*temp[x.f3]*(temp[x.f3]<span class="number">-1</span>)/<span class="number">2</span>*(x.f1?<span class="number">1</span>:<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    d=n/<span class="built_in">sqrt</span>(n*<span class="number">2</span>/<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) k[i]=(i<span class="number">-1</span>)/d;</span><br><span class="line">    sort(q+<span class="number">1</span>,q+m+<span class="number">1</span>,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,l=<span class="number">1</span>,r=<span class="number">0</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(r&lt;q[i].r) add(++r);</span><br><span class="line">        <span class="keyword">while</span>(l&gt;q[i].l) add(--l);</span><br><span class="line">        <span class="keyword">while</span>(r&gt;q[i].r) dec(r--);</span><br><span class="line">        <span class="keyword">while</span>(l&lt;q[i].l) dec(l++);</span><br><span class="line">        ans[q[i].h]-=sum[q[i].x];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    read(n),read(m),read(rt);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,x,y;i&lt;n;i++) read(x),read(y),add(x,y),add(y,x);</span><br><span class="line">    dfs1(rt),dfs2(rt,rt);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        read(q[i].l),read(q[i].r),read(q[i].x),q[i].h=i,temp.push_back(<span class="number">0</span>),nt++,Q[q[i].l<span class="number">-1</span>].push_back((ppap2)&#123;q[i].x,i,<span class="number">1</span>,<span class="number">-1</span>,nt&#125;),Q[q[i].r].push_back((ppap2)&#123;q[i].x,i,<span class="number">1</span>,<span class="number">1</span>,nt&#125;);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> x:hson[q[i].x]) temp.push_back(<span class="number">0</span>),nt++,Q[q[i].l<span class="number">-1</span>].push_back((ppap2)&#123;x,i,<span class="number">0</span>,<span class="number">-1</span>,nt&#125;),Q[q[i].r].push_back((ppap2)&#123;x,i,<span class="number">0</span>,<span class="number">1</span>,nt&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    js();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++) <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>温馨提示：</strong><br>请不要把排序的$cmp$程序写成类似于这样的形式：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> ppap1 &amp;x,<span class="keyword">const</span> ppap1 &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> k[x.l]==k[y.l]&amp;&amp;(k[x.l]&amp;<span class="number">1</span>)&amp;&amp;x.r&lt;y.r;</span><br><span class="line">    <span class="keyword">return</span> k[x.l]==k[y.l]&amp;&amp;x.r&gt;y.r;</span><br><span class="line">    <span class="keyword">return</span> k[x.l]&lt;k[y.l];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>否则，你就会T，虽然我也不知道是什么原因，但是我知道：三目运算符行！（难道是太多<code>&amp;&amp;</code>了？求大佬解答）<del>就为了这个问题，我调了快一个小时/kk</del></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/11/11/%E5%9F%BA%E7%A1%80%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0%E5%B8%B8%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/%E5%9F%BA%E7%A1%80%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0%E5%B8%B8%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">基础组合计数常用的概念和方法总结</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-11 22:47:19 / 修改时间：22:58:46" itemprop="dateCreated datePublished" datetime="2020-11-11T22:47:19+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、组合计数中的基本概念与性质"><a href="#一、组合计数中的基本概念与性质" class="headerlink" title="一、组合计数中的基本概念与性质"></a>一、组合计数中的基本概念与性质</h1><h2 id="1、排列"><a href="#1、排列" class="headerlink" title="1、排列"></a>1、排列</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>一般地，从n个不同元素中取出$m(m\leqslant n)$个元素，按照一定的顺序排成一列，叫做从$n$个元素中取出$m$个元素的一个排列<br>特别地，当$m=n$时，这个排列被称作全排列，记作$A_n^m$<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/11/%E5%9F%BA%E7%A1%80%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0%E5%B8%B8%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/11/11/%E7%BB%84%E5%90%88%E6%95%B0%E7%9A%84%E5%B8%B8%E8%A7%81%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/%E7%BB%84%E5%90%88%E6%95%B0%E7%9A%84%E5%B8%B8%E8%A7%81%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">组合数的常见计算方法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-11 22:47:08 / 修改时间：22:58:28" itemprop="dateCreated datePublished" datetime="2020-11-11T22:47:08+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="低级版"><a href="#低级版" class="headerlink" title="低级版"></a>低级版</h1><h2 id="方法概述"><a href="#方法概述" class="headerlink" title="方法概述"></a>方法概述</h2><p>直接用组合数性质中的③式递推即可<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/11/%E7%BB%84%E5%90%88%E6%95%B0%E7%9A%84%E5%B8%B8%E8%A7%81%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/11/11/%E5%88%9D%E4%B8%AD%E7%94%9F%E9%83%BD%E7%9C%8B%E5%BE%97%E6%87%82%E7%9A%84%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E6%8C%87%E5%8D%97-%E4%BB%8E%E7%9B%92%E6%94%BE%E7%90%83%E9%97%AE%E9%A2%98%E8%AF%B4%E8%B5%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/%E5%88%9D%E4%B8%AD%E7%94%9F%E9%83%BD%E7%9C%8B%E5%BE%97%E6%87%82%E7%9A%84%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E6%8C%87%E5%8D%97-%E4%BB%8E%E7%9B%92%E6%94%BE%E7%90%83%E9%97%AE%E9%A2%98%E8%AF%B4%E8%B5%B7/" class="post-title-link" itemprop="url">初中生都看得懂的快速上手斯特林数指南--从盒放球问题说起</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-11 22:46:57 / 修改时间：22:52:09" itemprop="dateCreated datePublished" datetime="2020-11-11T22:46:57+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><del>第一次当标题党好方，但好像也没啥问题，因为我就是一个初中的菜鸡</del></p>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><ol>
+<li><a href="https://blog.csdn.net/weixin_43849488/article/details/104846262" target="_blank" rel="noopener">基础的组合计数知识</a></li>
+<li>NTT（非必要）</li>
+<li>看到一长串的式子不会晕过去的能力
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/11/%E5%88%9D%E4%B8%AD%E7%94%9F%E9%83%BD%E7%9C%8B%E5%BE%97%E6%87%82%E7%9A%84%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%E6%8C%87%E5%8D%97-%E4%BB%8E%E7%9B%92%E6%94%BE%E7%90%83%E9%97%AE%E9%A2%98%E8%AF%B4%E8%B5%B7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/11/11/%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%931-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%931-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">网络流算法总结1--网络流最大流概述</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-11 22:46:46 / 修改时间：22:50:48" itemprop="dateCreated datePublished" datetime="2020-11-11T22:46:46+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="网络流中的一些概念"><a href="#网络流中的一些概念" class="headerlink" title="网络流中的一些概念"></a>网络流中的一些概念</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/11/%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%931-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9C%80%E5%A4%A7%E6%B5%81%E6%A6%82%E8%BF%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/11/11/HDU6753-DTOJ4963-2020-Multi-University-Training-Contest-1-cookies%EF%BC%88%E7%9C%8B%E6%98%9F%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky Dong">
+      <meta itemprop="description" content="Jacky Dong的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jacky Dong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/HDU6753-DTOJ4963-2020-Multi-University-Training-Contest-1-cookies%EF%BC%88%E7%9C%8B%E6%98%9F%EF%BC%89/" class="post-title-link" itemprop="url">HDU6753&DTOJ4963 2020 Multi-University Training Contest 1 cookies（看星）</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-11 22:46:26 / 修改时间：22:50:07" itemprop="dateCreated datePublished" datetime="2020-11-11T22:46:26+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">信息竞赛</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6753" target="_blank" rel="noopener">原题</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/11/HDU6753-DTOJ4963-2020-Multi-University-Training-Contest-1-cookies%EF%BC%88%E7%9C%8B%E6%98%9F%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -323,10 +790,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-31 21:59:29 / 修改时间：22:30:59" itemprop="dateCreated datePublished" datetime="2020-07-31T21:59:29+08:00">2020-07-31</time>
+              <time title="创建时间：2020-07-31 21:59:29" itemprop="dateCreated datePublished" datetime="2020-07-31T21:59:29+08:00">2020-07-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 22:55:11" itemprop="dateModified" datetime="2020-11-11T22:55:11+08:00">2020-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -350,7 +823,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>注意！！！请务必先阅读完（或学会）<a href="https://blog.csdn.net/weixin_43849488/article/details/106244947" target="_blank" rel="noopener">莫比乌斯反演</a>，文章中默认大家都已经看过了</strong><br>
+          <p><strong>注意！！！请务必先阅读完（或学会）<a href="https://jrjacky.github.io/2020/07/31/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%BE%83%E9%AB%98%E7%AB%AF%E7%9A%84%E6%95%B0%E8%AE%BA%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%931-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/#more">莫比乌斯反演</a>，文章中默认大家都已经看过了</strong><br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/07/31/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%BE%83%E9%AB%98%E7%AB%AF%E7%9A%84%E6%95%B0%E8%AE%BA%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%932-%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF/#more" rel="contents">
@@ -400,10 +873,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-31 21:59:17 / 修改时间：22:30:25" itemprop="dateCreated datePublished" datetime="2020-07-31T21:59:17+08:00">2020-07-31</time>
+              <time title="创建时间：2020-07-31 21:59:17" itemprop="dateCreated datePublished" datetime="2020-07-31T21:59:17+08:00">2020-07-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 22:56:10" itemprop="dateModified" datetime="2020-11-11T22:56:10+08:00">2020-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -427,7 +906,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前写过一篇名叫<a href="https://blog.csdn.net/weixin_43849488/article/details/85542089" target="_blank" rel="noopener">基础数论总结</a>的博客，自己认为写得不是很好，当时刚开始用CSDN写博客，$\LaTeX$公式写得不是很熟练，花了快$3$个月才写完，而且写得比较杂，有的地方也写得不够全，后来也没去改过<br>这次疫情期间，学校老师让我写一篇数论总结的博客，让我回学校后和其他同学分享，于是就有了这一系列博客<br>对于以前那篇，如果有不懂的可以自行在百度上查询，我也不会再去更改了<del>因为懒</del><br>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前写过一篇名叫<a href="https://jrjacky.github.io/2019/07/31/%E5%9F%BA%E7%A1%80%E6%95%B0%E8%AE%BA%E6%80%BB%E7%BB%93/#more">基础数论总结</a>的博客，自己认为写得不是很好，当时刚开始用CSDN写博客，$\LaTeX$公式写得不是很熟练，花了快$3$个月才写完，而且写得比较杂，有的地方也写得不够全，后来也没去改过<br>这次疫情期间，学校老师让我写一篇数论总结的博客，让我回学校后和其他同学分享，于是就有了这一系列博客<br>对于以前那篇，如果有不懂的可以自行在百度上查询，我也不会再去更改了<del>因为懒</del><br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/07/31/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%BE%83%E9%AB%98%E7%AB%AF%E7%9A%84%E6%95%B0%E8%AE%BA%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%931-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/#more" rel="contents">
@@ -508,468 +987,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/07/31/FJOI2020%E6%B8%B8%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/07/31/DTOJ3681-%E8%B4%AD%E7%89%A9%EF%BC%88shopping%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jacky Dong">
-      <meta itemprop="description" content="Jacky Dong的博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacky Dong's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/31/DTOJ3681-%E8%B4%AD%E7%89%A9%EF%BC%88shopping%EF%BC%89/" class="post-title-link" itemprop="url">DTOJ3681 购物（shopping）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-31 21:58:55 / 修改时间：22:28:29" itemprop="dateCreated datePublished" datetime="2020-07-31T21:58:55+08:00">2020-07-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
-                    <span itemprop="name">信息竞赛</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/31/DTOJ3681-%E8%B4%AD%E7%89%A9%EF%BC%88shopping%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/07/31/DTOJ2351-%E6%83%85%E6%8A%A5%E4%BC%A0%E9%80%92%EF%BC%88message%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jacky Dong">
-      <meta itemprop="description" content="Jacky Dong的博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacky Dong's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/31/DTOJ2351-%E6%83%85%E6%8A%A5%E4%BC%A0%E9%80%92%EF%BC%88message%EF%BC%89/" class="post-title-link" itemprop="url">DTOJ2351 情报传递（message）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-31 21:58:42 / 修改时间：22:27:53" itemprop="dateCreated datePublished" datetime="2020-07-31T21:58:42+08:00">2020-07-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
-                    <span itemprop="name">信息竞赛</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/31/DTOJ2351-%E6%83%85%E6%8A%A5%E4%BC%A0%E9%80%92%EF%BC%88message%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/07/31/DTOJ2548-%E7%BF%BB%E8%BD%AC%E7%A1%AC%E5%B8%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jacky Dong">
-      <meta itemprop="description" content="Jacky Dong的博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacky Dong's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/31/DTOJ2548-%E7%BF%BB%E8%BD%AC%E7%A1%AC%E5%B8%81/" class="post-title-link" itemprop="url">DTOJ2548 翻转硬币</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-31 21:58:34 / 修改时间：22:26:58" itemprop="dateCreated datePublished" datetime="2020-07-31T21:58:34+08:00">2020-07-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
-                    <span itemprop="name">信息竞赛</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/31/DTOJ2548-%E7%BF%BB%E8%BD%AC%E7%A1%AC%E5%B8%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/07/31/DTOJ2549-%E6%9C%89%E6%B2%A1%E6%9C%89wifi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jacky Dong">
-      <meta itemprop="description" content="Jacky Dong的博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacky Dong's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/31/DTOJ2549-%E6%9C%89%E6%B2%A1%E6%9C%89wifi/" class="post-title-link" itemprop="url">DTOJ2549 有没有wifi</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-31 21:58:24 / 修改时间：22:24:52" itemprop="dateCreated datePublished" datetime="2020-07-31T21:58:24+08:00">2020-07-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
-                    <span itemprop="name">信息竞赛</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/31/DTOJ2549-%E6%9C%89%E6%B2%A1%E6%9C%89wifi/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/07/31/DTOJ3702-%E6%9C%88%E8%AF%BB%EF%BC%88tsukuyomi%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jacky Dong">
-      <meta itemprop="description" content="Jacky Dong的博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacky Dong's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/31/DTOJ3702-%E6%9C%88%E8%AF%BB%EF%BC%88tsukuyomi%EF%BC%89/" class="post-title-link" itemprop="url">DTOJ3702 月读（tsukuyomi）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-31 21:58:11 / 修改时间：22:24:17" itemprop="dateCreated datePublished" datetime="2020-07-31T21:58:11+08:00">2020-07-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
-                    <span itemprop="name">信息竞赛</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/31/DTOJ3702-%E6%9C%88%E8%AF%BB%EF%BC%88tsukuyomi%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jrjacky.github.io/2020/07/31/DTOJ3629-%E6%9F%93%E8%89%B2%E6%B8%B8%E6%88%8F%EF%BC%88paint%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jacky Dong">
-      <meta itemprop="description" content="Jacky Dong的博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jacky Dong's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/31/DTOJ3629-%E6%9F%93%E8%89%B2%E6%B8%B8%E6%88%8F%EF%BC%88paint%EF%BC%89/" class="post-title-link" itemprop="url">DTOJ3629 染色游戏（paint）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-31 21:57:58 / 修改时间：22:23:59" itemprop="dateCreated datePublished" datetime="2020-07-31T21:57:58+08:00">2020-07-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index">
-                    <span itemprop="name">信息竞赛</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/31/DTOJ3629-%E6%9F%93%E8%89%B2%E6%B8%B8%E6%88%8F%EF%BC%88paint%EF%BC%89/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1079,7 +1096,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1108,21 +1125,6 @@
         <a href="http://codeforces.com/" title="CF → http:&#x2F;&#x2F;codeforces.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>CF</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.lydsy.com/JudgeOnline/" title="BZOJ → https:&#x2F;&#x2F;www.lydsy.com&#x2F;JudgeOnline&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>BZOJ</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="http://noi-test.zzstep.com/" title="Contest Hunter → http:&#x2F;&#x2F;noi-test.zzstep.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Contest Hunter</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.acwing.com/" title="AcWing → https:&#x2F;&#x2F;www.acwing.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>AcWing</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://vijos.org/" title="vijos → https:&#x2F;&#x2F;vijos.org&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>vijos</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="http://114.116.248.90/" title="SHYOJ → http:&#x2F;&#x2F;114.116.248.90&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>SHYOJ</a>
-      </span>
-      <span class="links-of-author-item">
         <a href="https://github.com/" title="github → https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>github</a>
       </span>
   </div>
@@ -1138,34 +1140,10 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.org/space/show?uid=43373" title="https:&#x2F;&#x2F;www.luogu.org&#x2F;space&#x2F;show?uid&#x3D;43373" rel="noopener" target="_blank">我的洛谷账号</a>
+          <a href="https://www.luogu.com.cn/blog/jacky567/about#" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;jacky567&#x2F;about#" rel="noopener" target="_blank">关于我</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://poj.org/userstatus?user_id=jackyss" title="http:&#x2F;&#x2F;poj.org&#x2F;userstatus?user_id&#x3D;jackyss" rel="noopener" target="_blank">我的POJ账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://codeforces.com/profile/jacky0705" title="http:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;jacky0705" rel="noopener" target="_blank">我的CF账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.lydsy.com/JudgeOnline/userinfo.php?user=jacky" title="https:&#x2F;&#x2F;www.lydsy.com&#x2F;JudgeOnline&#x2F;userinfo.php?user&#x3D;jacky" rel="noopener" target="_blank">我的BZOJ账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://noi-test.zzstep.com/user/jacky" title="http:&#x2F;&#x2F;noi-test.zzstep.com&#x2F;user&#x2F;jacky" rel="noopener" target="_blank">我的Contest Hunter账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.acwing.com/user/myspace/index/9710/" title="https:&#x2F;&#x2F;www.acwing.com&#x2F;user&#x2F;myspace&#x2F;index&#x2F;9710&#x2F;" rel="noopener" target="_blank">我的AcWing账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://vijos.org/user/140852" title="https:&#x2F;&#x2F;vijos.org&#x2F;user&#x2F;140852" rel="noopener" target="_blank">我的vijos账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://114.116.248.90/user-home?username=jacky567" title="http:&#x2F;&#x2F;114.116.248.90&#x2F;user-home?username&#x3D;jacky567" rel="noopener" target="_blank">我的SHYOJ账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/jrjacky" title="https:&#x2F;&#x2F;github.com&#x2F;jrjacky" rel="noopener" target="_blank">我的github账号</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.luogu.com.cn/blog/jacky0705/you-lian" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;jacky0705&#x2F;you-lian" rel="noopener" target="_blank">更多友链</a>
+          <a href="https://jrjacky.github.io/links/" title="https:&#x2F;&#x2F;jrjacky.github.io&#x2F;links&#x2F;">友链</a>
         </li>
     </ul>
   </div>
